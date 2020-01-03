@@ -1,0 +1,43 @@
+Requirements/Features :
+
+ USER :
+ 
+Title: Users should be able to register, log in, log out.
+User Story: As a user I want to be able to create an account, log into it and log out.
+
+Title: The user should be able to make a request for a specific service with specific criterias.
+User Story: As a user I want to be able to make a request for the service I am looking for and get notified once there is a match.
+
+Title: The user should be able to cancel a request.
+User Story: As a user I want to be able to cancel a request I have previously submitted.
+
+
+Title: As a user I want to be able to see the details of the business that matched my request.
+User Story: Once a business matches the request, the user should get notified (twilio) on their request and see that it has been confirmed with a business, and then see the details of the appointment (location, price, time, etc.).
+
+(Include the Google maps api in the project)
+Title: Users should be able to have a google maps link when they have their request answered.
+User Story: As a user, I want to be able to see where the business that accepted my request is located.
+
+
+BUSINESS : 
+
+Title: Business users should be able to register, log in, log out and update their Business profile.
+User Story: As a business I would like to be able to register log in and update my profile.
+
+Title: Business users should be able to see all the incoming requests related to their services.
+User Story: As a business I would like to be able to see all requests that match services I provide.
+
+Title: Business users should be able to accept any incoming request thats fits their appointment schedule.
+User Story: As a business user I should be able to accept any request that fits my schedule.
+
+Title: Business users should be able to cancel an appointment.
+User Story: As a business user I would like to be able to cancel an appointment.
+
+
+STRETCH FEATURES:
+
+- Users can choose which business they want to go to. (no autoconfirm option)
+- Users can see the map with all the businesses matching their criterias and have live updates depending on if the businesses match     their request.
+- (No way we're doing this) Businesses can have their schedule on the app and the matching is automatic.
+- 
