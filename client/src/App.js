@@ -16,7 +16,7 @@ function App() {
       {mode === HOMEPAGE && (
         <HomePage transition={transition} login={LOGIN} register={REGISTER} />
       )}
-      {mode === LOGIN && <LoginPage />}
+      {mode === LOGIN && <LoginPage back={back} />}
     </main>
   );
 }
