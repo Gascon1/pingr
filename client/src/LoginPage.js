@@ -18,7 +18,7 @@ export default function LoginPage(props) {
         <label>Password</label>
         <input className="input-field" placeholder="password"></input>
       </div>
-      <button className="login-button">Login</button>
+      <button className="login-register-button login">Login</button>
     </div>
   );
 }
