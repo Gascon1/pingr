@@ -1,0 +1,34 @@
+.input-field {
+  max-width: 80vw;
+  width: 80vw;
+  margin: 1em;
+  padding: 0.5em 0em;
+  font-size: 1em;
+  border-radius: 2px; //or 0px?
+  border: none;
+  outline: none;
+  text-align: center;
+  // background-color: ;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6vh 10%;
+}
+
+.login-button {
+  background-color: #479fd7;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  margin: 0;
+  width: 100vw;
+}
+
+label {
+  color: white;
+  align-self: flex-start;
+}
