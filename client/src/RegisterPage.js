@@ -1,14 +1,13 @@
 import React from "react";
-import "./RegisterPage.scss";
 import logo from "./pingr-logo.png";
 
 export default function RegisterPage(props) {
   return (
     <div>
-      <i
+      {/* <i
         className="far fa-arrow-alt-circle-left back-button"
         onClick={() => props.back()}
-      />
+      /> */}
       <div className="logo">
         <img src={logo} />
       </div>
