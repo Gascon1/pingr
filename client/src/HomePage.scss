@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6vh 0;
+}
+
+button {
+  width: 80vw;
+  margin: 0.5em 1em;
+  padding: 0.5em 0em;
+  font-size: 1em;
+  height: 3.5em;
+  border: none;
+  outline: none;
+
+  &.login {
+    background-color: #479fd7;
+  }
+
+  &.register {
+    background-color: #ee3d23;
+  }
+}

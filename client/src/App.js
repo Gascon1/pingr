@@ -1,6 +1,8 @@
 import React, { useDebugValue } from "react";
 import logo from "./logo.svg";
 import "./App.scss";
+import HomePage from "./HomePage"
+import useVisualMode from "./hooks/useVisualMode"
 
 function App() {
   return (
@@ -15,17 +17,10 @@ function App() {
           <div>
             <input className="input-field" placeholder="email"></input>
             <input className="input-field" placeholder="password"></input>
-          </div> */}
-      <div className="container">
-        <button className="login" type="submit">
-          Login
-        </button>
-        <button className="register" type="submit">
-          Register
-        </button>
-      </div>
-      {/* </form>
+          </div> */} {/* </form>
       </div> */}
+   {false && <HomePage/>}
+     
     </main>
   );
 }
