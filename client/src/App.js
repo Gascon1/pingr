@@ -4,7 +4,15 @@ import HomePage from "./HomePage";
 import useVisualMode from "./hooks/useVisualMode";
 import logo from "./pingr-logo.png";
 
+const HOMEPAGE = "HOMEPAGE"
+const LOGIN = "LOGIN"
+const REGISTER = "REGISTER"
+
+
 function App() {
+
+  const { mode, transition, back } = useVisualMode(HOMEPAGE);
+
   return (
     <main className="layout">
       <div className="logo">
@@ -18,7 +26,7 @@ function App() {
           </div> */}{" "}
       {/* </form>
       </div> */}
-      {false && <HomePage />}
+      {HOMEPAGE && <HomePage transition={transition} login={LOGIN} register={REGISTER} />}
     </main>
   );
 }
