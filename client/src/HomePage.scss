@@ -1,4 +1,4 @@
-.container {
+.login-register-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,4 +22,12 @@ button {
   &.register {
     background-color: #ee3d23;
   }
+}
+
+.flex-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }

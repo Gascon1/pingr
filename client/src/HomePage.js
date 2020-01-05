@@ -1,16 +1,29 @@
-import React from 'react'
+import React from "react";
 import "./HomePage.scss";
+import logo from "./pingr-logo.png";
 
-
-export default function InterviewerList(props) {
+export default function HomePage(props) {
   return (
-    <div className="container">
-    <button onClick={() => props.transition(props.login)} className="login" type="submit">
-      Login
-    </button>
-    <button onClick={() => props.transition(props.register)} className="register" type="submit">
-      Register
-    </button>
-  </div>
-  )
+    <div className="flex-container">
+      <div className="logo">
+        <img src={logo} />
+      </div>
+      <div className="login-register-container">
+        <button
+          onClick={() => props.transition(props.login)}
+          className="login"
+          type="submit"
+        >
+          Login
+        </button>
+        <button
+          onClick={() => props.transition(props.register)}
+          className="register"
+          type="submit"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  );
 }

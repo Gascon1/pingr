@@ -1,38 +1,23 @@
 .layout {
   background-color: #090909;
-  height: 100vh;
   font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-between;
 }
 
 img {
-  size: 1em;
+  width: 80vw;
 }
 
 .logo {
   font-family: "archive";
-  font-size: 92px;
   text-align: center;
-  color: white;
   padding-top: 6vh;
   margin: 0px;
 }
-
-.input-field {
-  max-width: 80vw;
-  width: 80vw;
-  margin: 0.5em 1em;
-  padding: 0.5em 0em;
-  font-size: 1em;
-  border-radius: 2px; //or 0px?
-  border: none;
-  outline: none;
-  text-align: center;
-}
-
 
 hr {
   color: white;
