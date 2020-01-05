@@ -2,6 +2,7 @@ import React from "react";
 import "./App.scss";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import RegisterPage from "./RegisterPage";
 import useVisualMode from "./hooks/useVisualMode";
 
 const HOMEPAGE = "HOMEPAGE";
@@ -17,6 +18,7 @@ function App() {
         <HomePage transition={transition} login={LOGIN} register={REGISTER} />
       )}
       {mode === LOGIN && <LoginPage back={back} />}
+      {mode === REGISTER && <RegisterPage back={back} />}
     </main>
   );
 }

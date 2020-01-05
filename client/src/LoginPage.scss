@@ -18,14 +18,14 @@
   padding: 6vh 10%;
 }
 
-.login-button {
-  background-color: #479fd7;
+.login-register-button {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
   margin: 0;
   width: 100vw;
+  border-radius: 0px;
 }
 
 label {
