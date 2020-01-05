@@ -1,15 +1,14 @@
-import React, { useDebugValue } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.scss";
 import HomePage from "./HomePage"
 import useVisualMode from "./hooks/useVisualMode"
+import logo from "./pingr-logo.png";
 
 function App() {
   return (
     <main className="layout">
       <div className="logo">
-        Pingr
-        <hr></hr>
+        <img src={logo} />
       </div>
 
       {/* <div className="container"> */}
