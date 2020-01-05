@@ -1,22 +1,26 @@
 import React from "react";
 import "./App.scss";
 import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
 import useVisualMode from "./hooks/useVisualMode";
-
-const HOMEPAGE = "HOMEPAGE";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
+import logo from "./pingr-logo.png";
 
 function App() {
   const { mode, transition, back } = useVisualMode(HOMEPAGE);
 
   return (
     <main className="layout">
-      {mode === HOMEPAGE && (
-        <HomePage transition={transition} login={LOGIN} register={REGISTER} />
-      )}
-      {mode === LOGIN && <LoginPage />}
+      <div className="logo">
+        <img src={logo} />
+      </div>
+      {/* <div className="container"> */}
+      {/* <form>
+          <div>
+            <input className="input-field" placeholder="email"></input>
+            <input className="input-field" placeholder="password"></input>
+          </div> */}{" "}
+      {/* </form>
+      </div> */}
+      {false && <HomePage />}
     </main>
   );
 }
