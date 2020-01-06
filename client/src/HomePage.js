@@ -6,11 +6,11 @@ export default function HomePage(props) {
   return (
     <div>
       <div className="logo">
-        <img src={logo} />
+        <img src={logo} alt="" />
       </div>
       <div className="user-menu">
         <i className="fas fa-home user-menu-button"></i>
-        <i class="fas fa-angle-double-up user-menu-button"></i>
+        <i className="fas fa-angle-double-up user-menu-button"></i>
         <i className="fas fa-history user-menu-button"></i>
       </div>
       <h1 className="home-question">What are you looking for ?</h1>
