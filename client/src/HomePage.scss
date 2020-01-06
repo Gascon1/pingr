@@ -21,6 +21,7 @@
   color: white;
   font-size: 2.8em;
   padding: 10%;
+  margin: 0;
 }
 
 .search-box-text {
@@ -36,4 +37,11 @@
 
 .fa-search {
   margin-left: 1em;
+}
+
+.search-box-placement {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 10%;
 }
