@@ -18,8 +18,12 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-sass": "^4.13.0",
+<<<<<<< HEAD
     "pg": "^7.17.0",
     "websocket": "^1.0.31"
+=======
+    "react-burger-menu": "^2.6.13"
+>>>>>>> edb53166cc78face6c8abe27f743dfcd59dfcaf8
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
