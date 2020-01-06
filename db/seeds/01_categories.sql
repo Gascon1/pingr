@@ -1,5 +1,5 @@
 -- Business categories table seeds here (Example)
-INSERT INTO business_categories (name)
+INSERT INTO categories(name)
 VALUES ('massotherapy');
 VALUES ('beauty salon');
-VALUES ("physiotherapy");
+VALUES ('physiotherapy');
