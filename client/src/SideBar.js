@@ -11,7 +11,7 @@ export default function SideBar(props) {
       </div>
       <a className="menu-item">Register a business</a>
       <a className="menu-item">Payment method</a>
-      <a className="menu-item">History</a>
+      {/* <a className="menu-item">History</a> */}
       <a className="menu-item">Settings</a>
     </Menu>
   );
