@@ -4,11 +4,8 @@ $background-color: #1a191e;
   background-color: $background-color;
   font-size: 16px;
   height: 100vh;
+  max-height: 100vh;
   font-family: Roboto, sans-serif;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: space-between;
 }
 
 img {
@@ -17,6 +14,16 @@ img {
 
 .logo {
   text-align: center;
-  padding-top: 10%;
+  padding-top: 12%;
   margin: 0px;
+}
+
+.back {
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 0.6em;
+  margin-left: 0.6em;
+  font-size: 1.5em;
 }
