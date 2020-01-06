@@ -6,6 +6,7 @@ import RegisterPage from "./RegisterPage";
 import HomePage from "./HomePage";
 import SearchForm from "./SearchForm";
 import useVisualMode from "./hooks/useVisualMode";
+import SideBar from "./SideBar";
 
 const LANDINGPAGE = "LANDINGPAGE";
 const LOGIN = "LOGIN";
@@ -18,6 +19,8 @@ function App() {
 
   return (
     <main className="layout">
+      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+
       {(mode === REGISTER || mode === LOGIN) && (
         <i
           className="far fa-arrow-alt-circle-left back-button back"
