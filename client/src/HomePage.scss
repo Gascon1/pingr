@@ -3,22 +3,22 @@
   flex-wrap: nowrap;
   width: auto;
   justify-content: space-between;
-  margin: 10%;
-  padding: 0;
+  margin: 0;
+  padding: 5% 10%;
 }
 
 .user-menu-button {
-  color: white;
+  color: #d8d8d8;
   font-size: 1.5em;
   background-color: #323135;
   padding: 1rem;
-  width: 2.5em;
+  width: 2.2em;
   text-align: center;
   border-radius: 2px;
 }
 
 .home-question {
-  color: white;
+  color: #d8d8d8;
   font-size: 2.8em;
   padding: 10%;
   margin: 0;
@@ -32,6 +32,7 @@
 .search-box {
   display: flex;
   margin: 0 10%;
+  background: #d8d8d8;
   // justify-content: space-between;
 }
 

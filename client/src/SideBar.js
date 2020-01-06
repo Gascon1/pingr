@@ -1,10 +1,10 @@
 import React from "react";
-import { stack as Menu } from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu";
 import "./SideBar.scss";
 
 export default function SideBar(props) {
   return (
-    <Menu {...props}>
+    <Menu right {...props}>
       <div className="user-greeting">
         <span>Hello, @enter name of the logged in user@</span>
         <hr />

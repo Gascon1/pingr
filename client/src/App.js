@@ -19,11 +19,13 @@ function App() {
 
   return (
     <main className="layout">
-      <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      {mode !== LANDINGPAGE && mode !== REGISTER && mode !== LOGIN && (
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+      )}
 
-      {(mode === REGISTER || mode === LOGIN) && (
+      {(mode === REGISTER || mode === LOGIN || mode === SEARCHFORM) && (
         <i
-          className="far fa-arrow-alt-circle-left back-button back"
+          className="far fa-arrow-alt-circle-left back"
           onClick={() => back()}
         />
       )}
