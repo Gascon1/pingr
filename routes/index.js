@@ -32,8 +32,6 @@ app.get('/', (req, res) => {
 	console.log('__dirname', __dirname)
 })
 
-require('dotenv').config()
-
 
 // Run Server
 

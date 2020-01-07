@@ -1,9 +1,9 @@
-const usersController = require("../Controllers/users")
+const statusesController = require("../Controllers/statuses")
 const router = require("express").Router();
 
 module.exports = (request, response) => {
   router.get('/', function (request, response) {
-      usersController(request, response)
+      statusesController(request, response)
       .then((data) => {
           console.log(data)
           response.json(data);

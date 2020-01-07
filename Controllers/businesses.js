@@ -2,8 +2,8 @@ const db = require('./db.js')
 
 module.exports = (req, res) => {
 	// console.log('req.query', req.query)
-	let query = `SELECT * FROM businesses'
-`
+	let query = `SELECT * FROM businesses;`
+	
 	db.query(query, (err, result) => {
 		if (err) {
 			res.send(err)
