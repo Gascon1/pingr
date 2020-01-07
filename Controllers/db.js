@@ -1,13 +1,17 @@
 // require package
-const {Client} = require('pg')
+const {Pool} = require('pg')
 
 // create connection
-const db = new Client({
-	connectionString:process.env.DATABASE_URL
+ const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT
 })
 
 // connect to database
-db.connect((err) => {
+pool.connect((err) => {
 	if (err) {
 		console.log('Error connecting to PostgreSQL database')
 	} else {
@@ -15,4 +19,4 @@ db.connect((err) => {
 	}
 })
 
-module.exports = db
+module.exports = pool

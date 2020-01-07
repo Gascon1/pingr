@@ -19,6 +19,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-sass": "^4.13.0",
+    "pg": "^7.17.0",
     "pg-native": "^3.0.0",
     "react-burger-menu": "^2.6.13"
   },
