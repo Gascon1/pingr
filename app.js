@@ -5,14 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var requests = require('./routes/requests');
-var businesses = require('./routes/businesses');
-var categories = require('./routes/categories');
-var users = require('./routes/users');
-var statuses = require('./routes/statuses');
-var services = require('./routes/services');
+var ActiveRequests = require('./routes/get_active_requests_by_user');
+var ExpiredRequests = require('./routes/get_expired_requests_by_user');
 
 
+var CreateRequests = require('./routes/post_create_requests');
+var CreateUsers = require('./routes/post_create_users');
 
 
 
@@ -29,19 +27,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/requests', requests);
-app.use('/businesses', businesses);
-app.use('/categories', categories);
-app.use('/users', users);
-app.use('/statuses', statuses);
-app.use('/services', services);
+app.use('/active_requests', ActiveRequests);
+app.use('/expired_requests', ExpiredRequests);
 
-app.get('/api/requests', require('./Controllers/requests.js'))
-app.get('/api/businesses', require('./Controllers/businesses.js'))
-app.get('/api/categories', require('./Controllers/categories.js'))
-app.get('/api/users', require('./Controllers/users.js'))
-app.get('/api/statuses', require('./Controllers/statuses.js'))
-app.get('/api/services', require('./Controllers/services.js'))
+app.use('/create_requests', CreateRequests);
+app.use('/create_users', CreateUsers);
+
+
+
+app.get('/api/active_requests', require('./Controllers/get_active_requests_by_user.js'))
+app.get('/api/expired_requests', require('./Controllers/get_expired_requests_by_user.js'))
+app.post('/api/create_requests', require('./Controllers/post_create_requests.js'))
+app.post('/api/create_users', require('./Controllers/post_create_users.js'))
 
 
 
