@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var requests = require('./routes/get_requests_by_user');
+var ActiveRequests = require('./routes/get_active_requests_by_user');
+var ExpiredRequests = require('./routes/get_expired_requests_by_user');
 var businesses = require('./routes/businesses');
 var categories = require('./routes/categories');
 var users = require('./routes/users');
@@ -29,14 +30,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/requests', requests);
+app.use('/active_requests', ActiveRequests);
+app.use('/expired_requests', ExpiredRequests);
 app.use('/businesses', businesses);
 app.use('/categories', categories);
 app.use('/users', users);
 app.use('/statuses', statuses);
 app.use('/services', services);
 
-app.get('/api/requests', require('./Controllers/get_requests_by_user.js'))
+app.get('/api/active_requests', require('./Controllers/get_active_requests_by_user.js'))
+app.get('/api/expired_requests', require('./Controllers/get_expired_requests_by_user.js'))
 app.get('/api/businesses', require('./Controllers/businesses.js'))
 app.get('/api/categories', require('./Controllers/categories.js'))
 app.get('/api/users', require('./Controllers/users.js'))
