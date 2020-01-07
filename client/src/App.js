@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import HomePage from "./HomePage";
 import SearchForm from "./SearchForm";
+import ActiveRequests from "./ActiveRequests";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./SideBar";
 
@@ -13,6 +14,7 @@ const LOGIN = "LOGIN";
 const REGISTER = "REGISTER";
 const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
+const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 
 function App() {
   const { mode, transition, back } = useVisualMode(HOMEPAGE);

@@ -10,7 +10,10 @@ export default function HomePage(props) {
       </div>
       <div className="user-menu">
         <i className="fas fa-home user-menu-button"></i>
-        <i className="fas fa-angle-double-up user-menu-button"></i>
+        <i
+          className="fas fa-angle-double-up user-menu-button"
+          onClick={() => props.transition(props.activeRequests)}
+        ></i>
         <i className="fas fa-history user-menu-button"></i>
       </div>
       <div className="search-box-placement">
