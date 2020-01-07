@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var requests = require('./routes/requests');
+var requests = require('./routes/get_requests_by_user');
 var businesses = require('./routes/businesses');
 var categories = require('./routes/categories');
 var users = require('./routes/users');
@@ -36,7 +36,7 @@ app.use('/users', users);
 app.use('/statuses', statuses);
 app.use('/services', services);
 
-app.get('/api/requests', require('./Controllers/requests.js'))
+app.get('/api/requests', require('./Controllers/get_requests_by_user.js'))
 app.get('/api/businesses', require('./Controllers/businesses.js'))
 app.get('/api/categories', require('./Controllers/categories.js'))
 app.get('/api/users', require('./Controllers/users.js'))
