@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import "./App.scss";
 import LandingPage from "./LandingPage";
 import LoginPage from "./LoginPage";
@@ -15,7 +16,8 @@ const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(HOMEPAGE);
+
+  const { mode, transition, back } = useVisualMode(REGISTER);
 
   return (
     <main className="layout">
