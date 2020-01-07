@@ -15,7 +15,7 @@ const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(HOMEPAGE);
+  const { mode, transition, back } = useVisualMode(LANDINGPAGE);
 
   return (
     <main className="layout">

@@ -1,12 +1,12 @@
 import React from "react";
 import "./HomePage.scss";
-import logo from "./pingr-logo.png";
+import logo from "./pingr-solo-no-bg.svg";
 
 export default function HomePage(props) {
   return (
     <div>
       <div className="logo">
-        <img src={logo} alt="" />
+        <svg src={logo} alt="" />
       </div>
       <div className="user-menu">
         <i className="fas fa-home user-menu-button"></i>
