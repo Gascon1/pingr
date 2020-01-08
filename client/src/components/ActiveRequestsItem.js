@@ -11,14 +11,18 @@ export default function ActiveRequestsItem(props) {
         </div>
         <div className="request-status-container">
           <div className="card-header">
-            <span className="request-availability text">BUSINESS DETAILS</span>
+            <span className="request-availability text">REQUEST STATUS</span>
             <hr className="separator" />
           </div>
           <span className="request-status -confirmed text">
             <i className="far fa-check-circle icon-spacing"></i>CONFIRMED
           </span>
           <span className="request-confirmed-time text">
-            Jan. 20, 2020, 2:20 p.m.
+            <i className="far fa-calendar icon-spacing"></i>Jan. 20, 2020, 2:20
+            p.m.
+          </span>
+          <span className="business-address text">
+            <i className="fas fa-dollar-sign icon-spacing"></i>25.00
           </span>
         </div>
         <div className="request-availability-container">
@@ -50,9 +54,6 @@ export default function ActiveRequestsItem(props) {
           <span className="business-address text">
             <i className="fas fa-map-marker-alt icon-spacing"></i>5322 St
             Laurent Blvd, Montreal
-          </span>
-          <span className="business-address text">
-            <i className="fas fa-dollar-sign icon-spacing"></i>25.00
           </span>
           <span className="business-address text">
             <i className="fas fa-mobile-alt icon-spacing"></i>514-775-1524
