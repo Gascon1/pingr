@@ -13,15 +13,15 @@ export default function RegisterPage(props) {
   })
 
   const registerUser = function (newUser) {
-    return axios.post(`http://localhost:8001/api/users`, newUser)
+    return axios.post(`http://localhost:8001/api/create_users`, newUser)
   }
 
   function onSave(ev) {
-    console.log(state)
+    // console.log(state)
     ev.preventDefault()
-    // registerUser(state)
-    //   .then(() => console.log("success"))
-    //   .catch(error => console.log("error"))
+    registerUser(state)
+      .then(() => console.log("success"))
+      .catch(error => console.log("error"))
   }
 
 
