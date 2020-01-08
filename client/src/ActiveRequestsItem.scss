@@ -16,7 +16,7 @@ $item-background-color: #201f23;
   border-width: 1px;
   border-style: solid;
   border-radius: 2px;
-  border-color: #2c2b30;
+  border-color: #262629;
 }
 
 .request-item-header {
@@ -56,7 +56,7 @@ $item-background-color: #201f23;
 
 .request-confirmed-time {
   display: block;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 0 0;
 }
 
 .icon-spacing {
@@ -73,7 +73,6 @@ $item-background-color: #201f23;
 
 .request-date {
   padding: 0;
-  padding-top: 1rem;
 }
 
 .request-time-start,
@@ -86,15 +85,14 @@ $item-background-color: #201f23;
 }
 
 .request-availability {
-  font-size: 1.3em;
   padding: 0;
 }
 
 .separator {
   border-style: solid;
   border-width: 0.5px;
-  border-color: #ffffff;
-  margin: 0;
+  border-color: #201f23;
+  margin: 1rem -1rem 0;
 }
 
 .request-confirmed-tab {
@@ -112,6 +110,7 @@ $item-background-color: #201f23;
 
 .business-card {
   text-align: center;
+  // margin-top: 1em;
   padding: 1em;
   // border-style: solid;
   // border-width: 1px;
@@ -138,7 +137,7 @@ $item-background-color: #201f23;
 }
 
 .business-address {
-  padding: 1rem 0;
+  padding: 1rem 0 0;
 
   &:last-of-type {
     padding-bottom: 0;
@@ -153,4 +152,18 @@ $item-background-color: #201f23;
   border-radius: 0;
   text-align: center;
   border-radius: 2px;
+}
+
+.card-header {
+  margin-bottom: 1em;
+}
+
+.request-max-price {
+  padding: 0;
+  padding-top: 1rem;
+}
+
+.request-min-rating {
+  padding: 0;
+  padding-top: 1rem;
 }
