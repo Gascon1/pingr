@@ -1,9 +1,7 @@
 const db = require('./db.js')
 
 module.exports = (req, res) => {
-
-	console.log(req.body)
-	
+		
 	let query = {
 		text:`INSERT INTO users (first_name, last_name, phone, email, password)
 	VALUES ($1, $2, $3, $4, $5);`,

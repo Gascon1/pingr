@@ -1,19 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var Requests = require('./routes/get_requests');
-var Users = require('./routes/get_users');
-var Business = require('./routes/get_businesses');
-var ActiveRequests = require('./routes/get_active_requests_by_user');
-var ExpiredRequests = require('./routes/get_expired_requests_by_user');
+const indexRouter = require('./routes/index');
+const GetRequests = require('./routes/get_requests');
+const GetUsers = require('./routes/get_users');
+const Business = require('./routes/get_businesses');
+const ActiveRequests = require('./routes/get_active_requests_by_user');
+const ExpiredRequests = require('./routes/get_expired_requests_by_user');
 
 
-var CreateRequests = require('./routes/post_create_requests');
-var CreateUsers = require('./routes/post_create_users');
+const PostRequests = require('./routes/post_requests');
+const PostUsers = require('./routes/post_users');
+
 const cors = require("cors");
 
 
@@ -34,13 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/active_requests', ActiveRequests);
 app.use('/expired_requests', ExpiredRequests);
-app.use('/requests', Requests);
-app.use('/users', Users);
+app.use('/requests', GetRequests);
+app.use('/requests', PostRequests);
+app.use('/users', GetUsers);
+app.use('/users', PostUsers)
 app.use('/businesses', Business)
-app.use('/create_requests', CreateRequests);
-app.use('/create_users', CreateUsers);
-
-
 
 
 app.get('/api/active_requests', require('./Controllers/get_active_requests_by_user.js'))
@@ -51,8 +50,8 @@ app.get('/api/businesses', require('./Controllers/get_businesses.js'))
 
 
 
-app.post('/api/create_requests', require('./Controllers/post_create_requests.js'))
-app.post('/api/create_users', require('./Controllers/post_create_users.js'))
+app.post('/api/requests', require('./Controllers/post_requests.js'))
+app.post('/api/users', require('./Controllers/post_users.js'))
 
 
 

@@ -1,4 +1,4 @@
-const requestsController = require("../Controllers/post_create_requests.js")
+const requestsController = require("../Controllers/post_users.js")
 const router = require("express").Router();
 
 module.exports = (request, response) => {

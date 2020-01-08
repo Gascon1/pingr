@@ -13,7 +13,7 @@ export default function RegisterPage(props) {
   })
 
   const registerUser = function (newUser) {
-    return axios.post(`http://localhost:8001/api/create_users`, newUser)
+    return axios.post(`http://localhost:8001/api/users`, newUser)
   }
 
   function onSave(ev) {
