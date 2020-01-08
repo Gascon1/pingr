@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
+import Dropdown from "./Dropdown";
 
 export default function RegisterPage(props) {
   const [state, setState] = useState({
@@ -31,14 +32,15 @@ export default function RegisterPage(props) {
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Category</label>
-          <input
+          <Dropdown />
+          {/* <input
             type="text"
             className="input-field"
             value={state.first_name}
             onChange={event =>
               setState({ ...state, first_name: event.target.value })
             }
-          />
+          /> */}
           <label>Service</label>
           <input
             type="text"
