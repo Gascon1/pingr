@@ -1,25 +1,31 @@
 import React from "react";
 import "./ActiveRequestsItem.scss";
+import {dateFormatter} from "./helpers/dateFormatter"
 
 export default function ActiveRequestsItem(props) {
+
+  const requestClass = `request-status text ${props.status}`
+  
+
   return (
     <div className="request">
       <div className="request-item">
         <div className="request-item-header">
-          <span className="request-item-category text">Barber Shop</span>
-          <span className="request-item-service text">Beard trim</span>
+          <span className="request-item-category text">{props.category}</span>
+          <span className="request-item-service text">{props.service}</span>
         </div>
         <div className="request-status-container">
           <div className="card-header">
             <span className="request-availability text">BUSINESS DETAILS</span>
             <hr className="separator" />
           </div>
-          <span className="request-status text">
-            <i className="far fa-check-circle icon-spacing"></i>CONFIRMED
+          <span className={requestClass}>
+            <i className="far fa-check-circle icon-spacing"></i>{props.status.toUpperCase()}
           </span>
-          <span className="request-confirmed-time text">
-            Jan. 20, 2020, 2:20 p.m.
-          </span>
+          {props.appointmentTime !== null && <span className="request-confirmed-time text">
+            {/* Jan. 20, 2020, 2:20 p.m. */}
+            {dateFormatter(props.appointmentTime)}
+          </span>}
         </div>
         <div className="request-availability-container">
           <div className="card-header">
@@ -27,7 +33,8 @@ export default function ActiveRequestsItem(props) {
             <hr className="separator" />
           </div>
           <span className="request-date text">
-            <i className="far fa-calendar icon-spacing"></i>Jan. 22, 2020
+            <i className="far fa-calendar icon-spacing"></i>
+            Jan. 2, 2020 
           </span>
           <span className="request-time-start text">
             <i className="far fa-clock icon-spacing"></i>12:00 p.m.

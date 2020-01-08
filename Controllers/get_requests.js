@@ -2,7 +2,7 @@ const db = require('./db.js')
 
 module.exports = (req, res) => {
 
-	let query = `Select * FROM requests;`
+	let query = `SELECT * FROM requests;`
 
 	db.query(query, (err, result) => {
 		if (err) {

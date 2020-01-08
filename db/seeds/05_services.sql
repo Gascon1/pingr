@@ -1,7 +1,7 @@
 -- Services table seeds here (Example)
 INSERT INTO services (name, business_id, category_id, description, price, duration)
-VALUES ('swedish massage', 1, 1, 'a swedish massage is a relaxing, full-body massage.', 90.00, 60.00),
-       ('swedish massage', 1, 1, 'a swedish massage is a relaxing, full-body massage.', 50.00, 30.00),
+VALUES ('swedish massage', 2, 1, 'a swedish massage is a relaxing, full-body massage.', 90.00, 60.00),
+       ('swedish massage', 2, 1, 'a swedish massage is a relaxing, full-body massage.', 50.00, 30.00),
 
        ('swedish massage', 2, 1, 'a swedish massage is a relaxing, full-body massage.', 70.00, 60.00),
        ('swedish massage', 2, 1, 'a swedish massage is a relaxing, full-body massage.', 70.00, 60.00),
