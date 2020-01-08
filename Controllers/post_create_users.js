@@ -1,9 +1,9 @@
 const db = require('./db.js')
 
 module.exports = (req, res) => {
-	// console.log('req.query', req.query)
-	let query = `SELECT * FROM requests;`
-
+	 console.log('req.query', req.body)
+	let query = `INSERT INTO users (first_name, last_name, phone, email, password)
+    VALUES ('Lucas', 'Spicemaster','5141994567', 'lucas@gmail.com', '12345');`
 	db.query(query, (err, result) => {
 		if (err) {
             res.send(err)
@@ -13,5 +13,5 @@ module.exports = (req, res) => {
 			res.send(result.rows)
 		}
     })
-    
 }
+    

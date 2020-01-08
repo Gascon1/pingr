@@ -1,9 +1,9 @@
-const categoriesController = require("../Controllers/categories")
+const requestsController = require("../Controllers/get_users.js")
 const router = require("express").Router();
 
 module.exports = (request, response) => {
-  router.get('/', function (request, response) {
-      categoriesController(request, response)
+  router.post('/', function (request, response) {
+      requestsController(request, response)
       .then((data) => {
           console.log(data)
           response.json(data);

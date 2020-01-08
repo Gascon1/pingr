@@ -1,4 +1,4 @@
-const requestsController = require("../Controllers/requests")
+const requestsController = require("../Controllers/get_active_requests_by_user")
 const router = require("express").Router();
 
 module.exports = (request, response) => {

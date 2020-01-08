@@ -1,9 +1,9 @@
-const businessesController = require("../Controllers/businesses")
+const requestsController = require("../Controllers/post_create_users.js")
 const router = require("express").Router();
 
 module.exports = (request, response) => {
-  router.get('/', function (request, response) {
-      businessesController(request, response)
+  router.post('/', function (request, response) {
+      requestsController(request, response)
       .then((data) => {
           console.log(data)
           response.json(data);
