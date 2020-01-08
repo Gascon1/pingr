@@ -1,6 +1,6 @@
 import React from "react";
 import "./LoginPage.scss";
-import logo from "./pingr-logo.png";
+import logo from "../pingr-logo.png";
 
 export default function LoginPage(props) {
   return (

@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
 import "./App.scss";
-import LandingPage from "./LandingPage";
-import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
-import HomePage from "./HomePage";
-import SearchForm from "./SearchForm";
-import ActiveRequests from "./ActiveRequests";
+import LandingPage from "./components/LandingPage";
+import LoginPage from "./components/LoginPage";
+import RegisterPage from "./components/RegisterPage";
+import HomePage from "./components/HomePage";
+import SearchForm from "./components/SearchForm";
+import ActiveRequests from "./components/ActiveRequests";
 import useVisualMode from "./hooks/useVisualMode";
-import SideBar from "./SideBar";
-import RegisterABusiness from "./RegisterABusiness";
+import SideBar from "./components/SideBar";
+import RegisterABusiness from "./components/RegisterABusiness";
 
 const LANDINGPAGE = "LANDINGPAGE";
 const LOGIN = "LOGIN";
