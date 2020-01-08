@@ -18,7 +18,7 @@ const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
+  const { mode, transition, back } = useVisualMode(REGISTER);
 
 
   return (
