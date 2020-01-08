@@ -1,7 +1,9 @@
 const db = require('./db.js')
+//const bcrypt = require('bcrypt');
+
 
 module.exports = (req, res) => {
-		
+
 	let query = {
 		text:`INSERT INTO users (first_name, last_name, phone, email, password)
 	VALUES ($1, $2, $3, $4, $5);`,

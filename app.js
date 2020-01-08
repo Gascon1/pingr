@@ -10,6 +10,7 @@ const GetUsers = require('./routes/get_users');
 const Business = require('./routes/get_businesses');
 const ActiveRequests = require('./routes/get_active_requests_by_user');
 const ExpiredRequests = require('./routes/get_expired_requests_by_user');
+const GetLogin = require('./routes/get_login');
 
 
 const PostRequests = require('./routes/post_requests');
@@ -40,6 +41,7 @@ app.use('/requests', PostRequests);
 app.use('/users', GetUsers);
 app.use('/users', PostUsers)
 app.use('/businesses', Business)
+app.use('/login', GetLogin)
 
 
 app.get('/api/active_requests', require('./Controllers/get_active_requests_by_user.js'))
@@ -47,6 +49,7 @@ app.get('/api/expired_requests', require('./Controllers/get_expired_requests_by_
 app.get('/api/requests', require('./Controllers/get_requests.js'))
 app.get('/api/users', require('./Controllers/get_users.js'))
 app.get('/api/businesses', require('./Controllers/get_businesses.js'))
+app.get('/api/login', require('./Controllers/get_login.js'))
 
 
 
