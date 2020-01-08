@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
 import Dropdown from "./Dropdown";
+import Header from "./Header";
 
 export default function RegisterPage(props) {
   const [state, setState] = useState({
@@ -26,9 +27,13 @@ export default function RegisterPage(props) {
 
   return (
     <div className="layout-padding">
-      <div className="logo">
+      <Header
+        transition={props.transition}
+        activeRequests={props.activeRequests}
+      />
+      {/* <div className="logo">
         <img src={logo} />
-      </div>
+      </div> */}
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Business name</label>

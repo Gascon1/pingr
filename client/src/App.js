@@ -10,6 +10,8 @@ import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
+import MyBusiness from "./components/MyBusiness";
+import Header from "./components/Header";
 
 const LANDINGPAGE = "LANDINGPAGE";
 const LOGIN = "LOGIN";
@@ -18,10 +20,11 @@ const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
+const MYBUSINESS = "MYBUSINESS";
+const HEADER = "HEADER";
 
 function App() {
   const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
-
 
   return (
     <main className="layout">
@@ -29,7 +32,8 @@ function App() {
         <SideBar
           pageWrapId={"page-wrap"}
           outerContainerId={"App"}
-          RegisterABusiness={RegisterABusiness}
+          HomePage={HOMEPAGE}
+          RegisterABusiness={REGISTERABUSINESS}
           transition={transition}
         />
       )}
@@ -54,17 +58,25 @@ function App() {
       {mode === REGISTER && <RegisterPage />}
       {mode === HOMEPAGE && (
         <HomePage
-          transition={transition}
           searchForm={SEARCHFORM}
+          transition={transition}
           activeRequests={ACTIVEREQUESTS}
         />
       )}
 
       {mode === SEARCHFORM && <SearchForm />}
 
-      {mode === ACTIVEREQUESTS && <RequestList /> }
+      {mode === ACTIVEREQUESTS && <RequestList />}
 
       {mode === REGISTERABUSINESS && <RegisterABusiness />}
+
+      {mode === MYBUSINESS && (
+        <MyBusiness transition={transition} activeRequests={ACTIVEREQUESTS} />
+      )}
+
+      {mode === HEADER && (
+        <Header transition={transition} activeRequests={ACTIVEREQUESTS} />
+      )}
     </main>
   );
 }
