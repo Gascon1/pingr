@@ -18,8 +18,8 @@ const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 
 function App() {
+  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
 
-  const { mode, transition, back } = useVisualMode(REGISTER);
 
   return (
     <main className="layout">
@@ -43,10 +43,16 @@ function App() {
       {mode === LOGIN && <LoginPage back={back} />}
       {mode === REGISTER && <RegisterPage back={back} />}
       {mode === HOMEPAGE && (
-        <HomePage transition={transition} searchForm={SEARCHFORM} />
+        <HomePage
+          transition={transition}
+          searchForm={SEARCHFORM}
+          activeRequests={ACTIVEREQUESTS}
+        />
       )}
 
       {mode === SEARCHFORM && <SearchForm back={back} />}
+
+      {mode === ACTIVEREQUESTS && <ActiveRequests transition={transition} />}
     </main>
   );
 }
