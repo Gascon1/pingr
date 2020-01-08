@@ -17,6 +17,7 @@ $item-background-color: #201f23;
   border-style: solid;
   border-radius: 2px;
   border-color: #262629;
+  margin-top: 1em;
 }
 
 .request-item-header {
@@ -46,12 +47,32 @@ $item-background-color: #201f23;
 
 .request-status {
   display: inline-block;
-  background: #479fd7;
+  // background: #479fd7;
   // border-color: #2c2b30;
   // border-width: 1px;
   // border-style: solid;
   border-radius: 2px;
   padding: 1.2em 1em;
+}
+
+.-queued {
+  background: #ffc400;
+}
+
+.-confirmed {
+  background: #479fd7;
+}
+
+.-completed {
+  background: #3bc14a;
+}
+
+.-canceled {
+  background: #ee3d23;
+}
+
+.-expired {
+  background: #f58a07;
 }
 
 .request-confirmed-time {

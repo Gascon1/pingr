@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "./pingr-logo.png";
+import logo from "../pingr-logo.png";
+import Dropdown from "./Dropdown";
 
 export default function RegisterPage(props) {
   const [state, setState] = useState({
@@ -24,22 +25,23 @@ export default function RegisterPage(props) {
   }
 
   return (
-    <div>
+    <div className="layout-padding">
       <div className="logo">
         <img src={logo} />
       </div>
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
-          <label>First name</label>
-          <input
+          <label>Category</label>
+          <Dropdown />
+          {/* <input
             type="text"
             className="input-field"
             value={state.first_name}
             onChange={event =>
               setState({ ...state, first_name: event.target.value })
             }
-          />
-          <label>Last name</label>
+          /> */}
+          <label>Service</label>
           <input
             type="text"
             className="input-field"
@@ -48,16 +50,16 @@ export default function RegisterPage(props) {
               setState({ ...state, last_name: event.target.value })
             }
           />
-          <label>Email Address</label>
+          <label>Time Picker</label>
           <input
-            type="email"
+            type="datetime-local"
             className="input-field"
             value={state.email}
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
           />
-          <label>Password</label>
+          <label>Max price</label>
           <input
             type="password"
             className="input-field"
@@ -66,7 +68,7 @@ export default function RegisterPage(props) {
               setState({ ...state, password: event.target.value })
             }
           />
-          <label>Phone number</label>
+          {/* <label>Phone number</label>
           <input
             type="tel"
             className="input-field"
@@ -74,8 +76,8 @@ export default function RegisterPage(props) {
             onChange={event =>
               setState({ ...state, phone: event.target.value })
             }
-          />
-          <button className="login-register-button register">Register</button>
+          /> */}
+          <button className="login-register-button login">PING</button>
         </div>
       </form>
     </div>

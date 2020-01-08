@@ -15,5 +15,6 @@ CREATE TABLE requests (
   start_time TIMESTAMPTZ NOT NULL,
   end_time TIMESTAMPTZ NOT NULL,
   appointment_start_time TIMESTAMPTZ DEFAULT NULL,
-  appointment_end_time TIMESTAMPTZ DEFAULT NULL
+  appointment_end_time TIMESTAMPTZ DEFAULT NULL,
+  max_price DECIMAL(6,2) NOT NULL
 );

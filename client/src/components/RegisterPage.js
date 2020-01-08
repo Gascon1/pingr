@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "./pingr-logo.png";
+import logo from "../pingr-logo.png";
 
 export default function RegisterPage(props) {
   const [state, setState] = useState({
@@ -12,7 +12,7 @@ export default function RegisterPage(props) {
   });
 
   const registerUser = function(newUser) {
-    return axios.post(`http://localhost:8001/api/create_users`, newUser);
+    return axios.post(`http://localhost:8001/api/users`, newUser);
   };
 
   function onSave(ev) {
@@ -24,13 +24,13 @@ export default function RegisterPage(props) {
   }
 
   return (
-    <div>
+    <div className="layout-padding">
       <div className="logo">
         <img src={logo} />
       </div>
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
-          <label>Business name</label>
+          <label>First name</label>
           <input
             type="text"
             className="input-field"
@@ -39,43 +39,43 @@ export default function RegisterPage(props) {
               setState({ ...state, first_name: event.target.value })
             }
           />
-          <label>Business email</label>
+          <label>Last name</label>
           <input
-            type="email"
+            type="text"
             className="input-field"
             value={state.last_name}
             onChange={event =>
               setState({ ...state, last_name: event.target.value })
             }
           />
-          <label>Business phone number</label>
+          <label>Email Address</label>
           <input
-            type="tel"
+            type="email"
             className="input-field"
             value={state.email}
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
           />
-          <label>Business address</label>
+          <label>Password</label>
           <input
-            type="text"
+            type="password"
             className="input-field"
             value={state.password}
             onChange={event =>
               setState({ ...state, password: event.target.value })
             }
           />
-          <label>Category</label>
+          <label>Phone number</label>
           <input
-            type="text"
+            type="tel"
             className="input-field"
             value={state.phone}
             onChange={event =>
               setState({ ...state, phone: event.target.value })
             }
           />
-          <button className="login-register-button register">Register</button>
+          <button className="login-register-button register">REGISTER</button>
         </div>
       </form>
     </div>

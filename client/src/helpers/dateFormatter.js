@@ -1,8 +1,24 @@
- export function dateFormatter(date){
+ export function dateFormatter(appointmentDateTime, requestDate, requestTime){
 
-  var options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', dateStyle:'medium', timeStyle:'short' }
-  const formattedDate = new Date(date).toLocaleString("en-US", options)
+  const apptDateTimeOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', dateStyle:'medium', timeStyle:'short' }
+  const formattedApptDateTime = new Date(appointmentDateTime).toLocaleString("en-US", apptDateTimeOptions)
 
+  const reqDateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', dateStyle:'medium'}
+  const formattedReqDate = new Date(requestDate).toLocaleString("en-US", reqDateOptions)
 
-  return formattedDate
+  const reqTimeOptions = { timeStyle:'short' }
+  const formattedReqTime = new Date(requestTime).toLocaleString("en-US", reqTimeOptions)
+  
+  if(appointmentDateTime){
+    return formattedApptDateTime
+  }
+
+  if(requestDate){
+    return formattedReqDate
+  }
+
+  if(requestTime){
+    return formattedReqTime
+  }
+  
 }

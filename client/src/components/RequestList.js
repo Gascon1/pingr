@@ -20,7 +20,13 @@ const list = state.map((request) => {
   service={request.service} 
   status={request.status}
   availableStartTime={request.availability_start_time}
+  availableEndTime={request.availability_end_time}
   appointmentTime={request.appointment_start_time}
+  business_phone_number={request.business_phone_number}
+  business_address={request.business_address}
+  business_name={request.business_name}
+  request_max_price={request.request_max_price}
+  transaction_price={request.transaction_price}
   />
  })
 
