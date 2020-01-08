@@ -18,8 +18,7 @@ const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
-
+  const { mode, transition, back } = useVisualMode(HOMEPAGE);
 
   return (
     <main className="layout">
@@ -27,7 +26,10 @@ function App() {
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
       )}
 
-      {(mode === REGISTER || mode === LOGIN || mode === SEARCHFORM) && (
+      {(mode === REGISTER ||
+        mode === LOGIN ||
+        mode === SEARCHFORM ||
+        mode === ACTIVEREQUESTS) && (
         <i
           className="far fa-arrow-alt-circle-left back"
           onClick={() => back()}
@@ -40,8 +42,8 @@ function App() {
           register={REGISTER}
         />
       )}
-      {mode === LOGIN && <LoginPage back={back} />}
-      {mode === REGISTER && <RegisterPage back={back} />}
+      {mode === LOGIN && <LoginPage />}
+      {mode === REGISTER && <RegisterPage />}
       {mode === HOMEPAGE && (
         <HomePage
           transition={transition}
@@ -50,7 +52,7 @@ function App() {
         />
       )}
 
-      {mode === SEARCHFORM && <SearchForm back={back} />}
+      {mode === SEARCHFORM && <SearchForm />}
 
       {mode === ACTIVEREQUESTS && <ActiveRequests transition={transition} />}
     </main>
