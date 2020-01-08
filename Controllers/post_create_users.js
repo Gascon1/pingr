@@ -1,9 +1,14 @@
 const db = require('./db.js')
 
 module.exports = (req, res) => {
-	 console.log('req.query', req.query)
-	let query = `INSERT INTO users (first_name, last_name, phone, email, password)
-    VALUES ('Lucas', 'Spicemaster','5141994567', 'lucas@gmail.com', '12345');`
+
+	console.log(req.body)
+	
+	let query = {
+		text:`INSERT INTO users (first_name, last_name, phone, email, password)
+	VALUES ($1, $2, $3, $4, $5);`,
+	values: [req.body.first_name, req.body.last_name, req.body.phone, req.body.email, req.body.password]
+}
 	db.query(query, (err, result) => {
 		if (err) {
             res.send(err)
