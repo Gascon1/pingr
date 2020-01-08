@@ -50,7 +50,7 @@ export default function RegisterPage(props) {
           />
           <label>Time Picker</label>
           <input
-            type="email"
+            type="datetime-local"
             className="input-field"
             value={state.email}
             onChange={event =>
