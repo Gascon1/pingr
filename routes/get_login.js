@@ -1,9 +1,10 @@
-const requestsController = require("../Controllers/post_users.js")
+const requestsController = require("../Controllers/get_login.js")
 const router = require("express").Router();
 
-
 module.exports = (request, response) => {
-  router.post('/', function (request, response) {
+  router.get('/', function (request, response) {
+      console.log("req.body", req.body)
+      console.log("wgwgwgwgwgw")
       requestsController(request, response)
       .then((data) => {
           console.log(data)
