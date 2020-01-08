@@ -20,7 +20,7 @@ const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(LANDINGPAGE);
+  const { mode, transition, back } = useVisualMode(HOMEPAGE);
 
   return (
     <main className="layout">
