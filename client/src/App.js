@@ -32,6 +32,15 @@ function App() {
 
   return (
     <main className="layout">
+      {(mode === REGISTER ||
+        mode === LOGIN ||
+        mode === SEARCHFORM ||
+        mode === ACTIVEREQUESTS) && (
+        <i
+          className="far fa-arrow-alt-circle-left back"
+          onClick={() => back()}
+        />
+      )}
       {mode !== LANDINGPAGE && mode !== REGISTER && mode !== LOGIN && (
         <SideBar
           pageWrapId={"page-wrap"}
@@ -42,15 +51,6 @@ function App() {
         />
       )}
 
-      {(mode === REGISTER ||
-        mode === LOGIN ||
-        mode === SEARCHFORM ||
-        mode === ACTIVEREQUESTS) && (
-        <i
-          className="far fa-arrow-alt-circle-left back"
-          onClick={() => back()}
-        />
-      )}
       {mode === LANDINGPAGE && (
         <LandingPage
           transition={transition}
