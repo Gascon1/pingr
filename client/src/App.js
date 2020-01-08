@@ -24,7 +24,11 @@ const MYBUSINESS = "MYBUSINESS";
 const HEADER = "HEADER";
 
 function App() {
+<<<<<<< HEAD
   const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
+=======
+  const { mode, transition, back } = useVisualMode(LOGIN);
+>>>>>>> feature/JWTLoginPage
 
   return (
     <main className="layout">
