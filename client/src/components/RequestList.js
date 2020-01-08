@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ActiveRequestsItem from "./ActiveRequestsItem";
+import "./RequestList.scss";
 
 export default function(props) {
   const [state, setState] = useState([]);
@@ -30,5 +31,5 @@ export default function(props) {
     );
   });
 
-  return <ul>{list}</ul>;
+  return <ul className="request-list">{list}</ul>;
 }
