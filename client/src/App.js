@@ -6,7 +6,7 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import HomePage from "./components/HomePage";
 import SearchForm from "./components/SearchForm";
-import ActiveRequests from "./components/ActiveRequests";
+import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
@@ -20,7 +20,8 @@ const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(REGISTERABUSINESS);
+  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
+
 
   return (
     <main className="layout">
@@ -61,7 +62,7 @@ function App() {
 
       {mode === SEARCHFORM && <SearchForm />}
 
-      {mode === ACTIVEREQUESTS && <ActiveRequests transition={transition} />}
+      {mode === ACTIVEREQUESTS && <RequestList /> }
 
       {mode === REGISTERABUSINESS && <RegisterABusiness />}
     </main>

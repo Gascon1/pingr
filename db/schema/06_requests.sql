@@ -1,6 +1,9 @@
 -- Drop and recreate requests table (Example)
 
 DROP TABLE IF EXISTS requests CASCADE;
+
+set timezone to 'EST';
+
 CREATE TABLE requests (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id),
@@ -8,8 +11,10 @@ CREATE TABLE requests (
   category_id INTEGER REFERENCES categories(id) NOT NULL,
   service_id INTEGER REFERENCES services(id) NOT NULL,
   status_id INTEGER REFERENCES statuses(id) NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-  is_prepaid BOOLEAN NOT NULL DEFAULT FALSE,
-  start_time TIMESTAMP NOT NULL,
-  end_time TIMESTAMP NOT NULL
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+  start_time TIMESTAMPTZ NOT NULL,
+  end_time TIMESTAMPTZ NOT NULL,
+  appointment_start_time TIMESTAMPTZ DEFAULT NULL,
+  appointment_end_time TIMESTAMPTZ DEFAULT NULL,
+  max_price DECIMAL(6,2) NOT NULL
 );
