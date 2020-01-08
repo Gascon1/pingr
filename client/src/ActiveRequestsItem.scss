@@ -1,0 +1,156 @@
+$item-background-color: #201f23;
+
+.text {
+  color: white;
+  display: block;
+  padding: 1rem;
+}
+
+.request {
+  padding: 1em;
+  padding-top: 4em;
+}
+
+.request-item {
+  background: $item-background-color;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: #2c2b30;
+}
+
+.request-item-header {
+  text-align: center;
+  background: #262629;
+  padding: 1rem 0;
+  // margin: 1em;
+}
+
+.request-item-category {
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.2em 0;
+}
+
+.request-item-service {
+  padding: 0.2em 0;
+  // font-size: 0.9em;
+}
+
+.request-status-container {
+  background: #343337;
+  padding: 1rem;
+  margin: 1em;
+  border-radius: 2px;
+}
+
+.request-status {
+  display: inline-block;
+  background: #479fd7;
+  // border-color: #2c2b30;
+  // border-width: 1px;
+  // border-style: solid;
+  border-radius: 2px;
+  padding: 1.2em 1em;
+}
+
+.request-confirmed-time {
+  display: block;
+  padding: 1rem 0 1rem 0;
+}
+
+.icon-spacing {
+  padding-right: 0.5em;
+}
+
+.request-availability-container {
+  // text-align: center;
+  background: #343337;
+  padding: 1rem;
+  margin: 1em;
+  border-radius: 2px;
+}
+
+.request-date {
+  padding: 0;
+  padding-top: 1rem;
+}
+
+.request-time-start,
+.request-hyphen,
+.request-time-end {
+  display: inline-block;
+  padding: 0;
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+}
+
+.request-availability {
+  font-size: 1.3em;
+  padding: 0;
+}
+
+.separator {
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #ffffff;
+  margin: 0;
+}
+
+.request-confirmed-tab {
+  background: #343337;
+  padding: 1rem;
+  margin: 1em;
+  border-radius: 2px;
+}
+
+.request-business-name {
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.2em 0;
+}
+
+.business-card {
+  text-align: center;
+  padding: 1em;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-color: white;
+  border-radius: 2px;
+  background-image: url(./background-image-map.png);
+}
+
+.business-name {
+  color: black;
+  z-index: 2;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding: 0.2em 0;
+}
+
+.business-service {
+  // position: relative;
+  color: black;
+  z-index: 200;
+  padding: 0.2em 0;
+  font-size: 0.9em;
+  font-weight: bolder;
+}
+
+.business-address {
+  padding: 1rem 0;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+}
+
+.request-cancel {
+  display: block;
+  background: #ee3d23;
+  padding: 1rem 0;
+  margin: 1em;
+  border-radius: 0;
+  text-align: center;
+  border-radius: 2px;
+}
