@@ -11,6 +11,7 @@ import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
+import Header from "./components/Header";
 
 const LANDINGPAGE = "LANDINGPAGE";
 const LOGIN = "LOGIN";
@@ -20,6 +21,7 @@ const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
 const MYBUSINESS = "MYBUSINESS";
+const HEADER = "HEADER";
 
 function App() {
   const { mode, transition, back } = useVisualMode(MYBUSINESS);
@@ -30,7 +32,8 @@ function App() {
         <SideBar
           pageWrapId={"page-wrap"}
           outerContainerId={"App"}
-          RegisterABusiness={RegisterABusiness}
+          HomePage={HOMEPAGE}
+          RegisterABusiness={REGISTERABUSINESS}
           transition={transition}
         />
       )}
@@ -68,6 +71,10 @@ function App() {
       {mode === REGISTERABUSINESS && <RegisterABusiness />}
 
       {mode === MYBUSINESS && <MyBusiness />}
+
+      {mode === HEADER && (
+        <Header transition={transition} activeRequests={ACTIVEREQUESTS} />
+      )}
     </main>
   );
 }

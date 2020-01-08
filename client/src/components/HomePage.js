@@ -1,11 +1,16 @@
 import React from "react";
 import "./HomePage.scss";
 import logo from "../pingr-logo.png";
+import Header from "./Header";
 
 export default function HomePage(props) {
   return (
     <div>
-      <div className="logo">
+      <Header
+        transition={props.transition}
+        activeRequests={props.activeRequests}
+      />
+      {/* <div className="logo">
         <img src={logo} alt="" />
       </div>
       <div className="user-menu">
@@ -15,7 +20,7 @@ export default function HomePage(props) {
           onClick={() => props.transition(props.activeRequests)}
         ></i>
         <i className="fas fa-history user-menu-button"></i>
-      </div>
+      </div> */}
       <div className="search-box-placement">
         <h1 className="home-question">What are you looking for ?</h1>
         <button
