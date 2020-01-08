@@ -13,7 +13,12 @@ export default function SideBar(props) {
 
       <a className="menu-item">Payment method</a>
 
-      <a className="menu-item">Register a business</a>
+      <a
+        className="menu-item"
+        onClick={() => props.transition(props.RegisterABusiness)}
+      >
+        Register a business
+      </a>
       <a className="menu-item">Settings</a>
     </Menu>
   );
