@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
+import Dropdown from "./Dropdown";
 
 export default function RegisterPage(props) {
   const [state, setState] = useState({
@@ -24,7 +25,7 @@ export default function RegisterPage(props) {
   }
 
   return (
-    <div>
+    <div className="layout-padding">
       <div className="logo">
         <img src={logo} />
       </div>
@@ -35,6 +36,7 @@ export default function RegisterPage(props) {
             type="text"
             className="input-field"
             value={state.first_name}
+            placeholder="ex. Business Name"
             onChange={event =>
               setState({ ...state, first_name: event.target.value })
             }
@@ -44,6 +46,7 @@ export default function RegisterPage(props) {
             type="email"
             className="input-field"
             value={state.last_name}
+            placeholder="ex. my@business.com"
             onChange={event =>
               setState({ ...state, last_name: event.target.value })
             }
@@ -53,6 +56,7 @@ export default function RegisterPage(props) {
             type="tel"
             className="input-field"
             value={state.email}
+            placeholder="ex. 514-633-8624"
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
@@ -62,19 +66,21 @@ export default function RegisterPage(props) {
             type="text"
             className="input-field"
             value={state.password}
+            placeholder="ex. 8990 Sherbrooke ST E, Montreal"
             onChange={event =>
               setState({ ...state, password: event.target.value })
             }
           />
           <label>Category</label>
-          <input
+          <Dropdown />
+          {/* <input
             type="text"
             className="input-field"
             value={state.phone}
             onChange={event =>
               setState({ ...state, phone: event.target.value })
             }
-          />
+          /> */}
           <button className="login-register-button register">Register</button>
         </div>
       </form>
