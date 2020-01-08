@@ -1,7 +1,7 @@
 const db = require('./db.js')
 
 module.exports = (req, res) => {
-	// console.log('req.query', req.query)
+
 	let query = `Select * FROM businesses;`
 
 	db.query(query, (err, result) => {
