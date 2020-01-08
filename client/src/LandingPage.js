@@ -14,14 +14,14 @@ export default function HomePage(props) {
           className="login"
           type="submit"
         >
-          Login
+          LOGIN
         </button>
         <button
           onClick={() => props.transition(props.register)}
           className="register"
           type="submit"
         >
-          Register
+          REGISTER
         </button>
       </div>
     </div>

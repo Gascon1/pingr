@@ -24,20 +24,12 @@
   margin: 0;
 }
 
-.search-box-text {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .search-box {
   display: flex;
   margin: 0 10%;
   background: white;
+  color: black;
   // justify-content: space-between;
-}
-
-.fa-search {
-  margin-left: 1em;
 }
 
 .search-box-placement {
@@ -45,4 +37,13 @@
   bottom: 0px;
   left: 0px;
   margin-bottom: 10%;
+}
+
+.search-box-text {
+  text-align: center;
+  text-indent: 1em;
+}
+
+.fa-search {
+  text-indent: 1em;
 }
