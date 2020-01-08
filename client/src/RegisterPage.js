@@ -24,7 +24,7 @@ export default function RegisterPage(props) {
   }
 
   return (
-    <div>
+    <div className="layout-padding">
       <div className="logo">
         <img src={logo} />
       </div>
@@ -75,7 +75,7 @@ export default function RegisterPage(props) {
               setState({ ...state, phone: event.target.value })
             }
           />
-          <button className="login-register-button register">Register</button>
+          <button className="login-register-button register">REGISTER</button>
         </div>
       </form>
     </div>

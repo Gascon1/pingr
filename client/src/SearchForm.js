@@ -75,7 +75,7 @@ export default function RegisterPage(props) {
               setState({ ...state, phone: event.target.value })
             }
           />
-          <button className="login-register-button register">Register</button>
+          <button className="login-register-button login">PING</button>
         </div>
       </form>
     </div>
