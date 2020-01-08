@@ -14,6 +14,7 @@ var ExpiredRequests = require('./routes/get_expired_requests_by_user');
 
 var CreateRequests = require('./routes/post_create_requests');
 var CreateUsers = require('./routes/post_create_users');
+const cors = require("cors");
 
 
 
@@ -25,6 +26,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
