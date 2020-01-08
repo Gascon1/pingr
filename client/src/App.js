@@ -58,8 +58,8 @@ function App() {
       {mode === REGISTER && <RegisterPage />}
       {mode === HOMEPAGE && (
         <HomePage
-          transition={transition}
           searchForm={SEARCHFORM}
+          transition={transition}
           activeRequests={ACTIVEREQUESTS}
         />
       )}
@@ -70,7 +70,9 @@ function App() {
 
       {mode === REGISTERABUSINESS && <RegisterABusiness />}
 
-      {mode === MYBUSINESS && <MyBusiness />}
+      {mode === MYBUSINESS && (
+        <MyBusiness transition={transition} activeRequests={ACTIVEREQUESTS} />
+      )}
 
       {mode === HEADER && (
         <Header transition={transition} activeRequests={ACTIVEREQUESTS} />
