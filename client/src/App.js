@@ -9,6 +9,7 @@ import SearchForm from "./SearchForm";
 import ActiveRequests from "./ActiveRequests";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./SideBar";
+import RegisterABusiness from "./RegisterABusiness";
 
 const LANDINGPAGE = "LANDINGPAGE";
 const LOGIN = "LOGIN";
@@ -16,6 +17,7 @@ const REGISTER = "REGISTER";
 const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
+const REGISTERABUSINESS = "REGISTERABUSINESS";
 
 function App() {
   const { mode, transition, back } = useVisualMode(HOMEPAGE);
@@ -23,7 +25,12 @@ function App() {
   return (
     <main className="layout">
       {mode !== LANDINGPAGE && mode !== REGISTER && mode !== LOGIN && (
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+        <SideBar
+          pageWrapId={"page-wrap"}
+          outerContainerId={"App"}
+          RegisterABusiness={RegisterABusiness}
+          transition={transition}
+        />
       )}
 
       {(mode === REGISTER ||
@@ -55,6 +62,8 @@ function App() {
       {mode === SEARCHFORM && <SearchForm />}
 
       {mode === ACTIVEREQUESTS && <ActiveRequests transition={transition} />}
+
+      {mode === REGISTERABUSINESS && <RegisterABusiness />}
     </main>
   );
 }

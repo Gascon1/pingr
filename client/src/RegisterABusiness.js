@@ -30,7 +30,7 @@ export default function RegisterPage(props) {
       </div>
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
-          <label>First name</label>
+          <label>Business name</label>
           <input
             type="text"
             className="input-field"
@@ -39,36 +39,36 @@ export default function RegisterPage(props) {
               setState({ ...state, first_name: event.target.value })
             }
           />
-          <label>Last name</label>
+          <label>Business email</label>
           <input
-            type="text"
+            type="email"
             className="input-field"
             value={state.last_name}
             onChange={event =>
               setState({ ...state, last_name: event.target.value })
             }
           />
-          <label>Email Address</label>
+          <label>Business phone number</label>
           <input
-            type="email"
+            type="tel"
             className="input-field"
             value={state.email}
             onChange={event =>
               setState({ ...state, email: event.target.value })
             }
           />
-          <label>Password</label>
+          <label>Business address</label>
           <input
-            type="password"
+            type="text"
             className="input-field"
             value={state.password}
             onChange={event =>
               setState({ ...state, password: event.target.value })
             }
           />
-          <label>Phone number</label>
+          <label>Category</label>
           <input
-            type="tel"
+            type="text"
             className="input-field"
             value={state.phone}
             onChange={event =>
