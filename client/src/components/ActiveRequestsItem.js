@@ -78,7 +78,7 @@ export default function ActiveRequestsItem(props) {
           </div>
         )}
         {(props.status === "confirmed" || props.status === "queued") && (
-          <div className="request-cancel text">CANCEL</div>
+          <div className="request-cancel -canceled text">CANCEL</div>
         )}
       </div>
     </div>
