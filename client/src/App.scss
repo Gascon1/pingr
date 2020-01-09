@@ -13,16 +13,6 @@ body {
   // max-height: 100vh;
 }
 
-img {
-  width: 80vw;
-}
-
-.logo {
-  text-align: center;
-  padding-top: 12%;
-  margin: 0px;
-}
-
 .back {
   color: white;
   position: fixed;
@@ -31,4 +21,8 @@ img {
   margin-top: 0.6em;
   margin-left: 0.6em;
   font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
 }

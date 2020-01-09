@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
@@ -10,90 +9,57 @@ import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
+import History from "./components/History";
 import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
 
-const LANDINGPAGE = "LANDINGPAGE";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
-const HOMEPAGE = "HOMEPAGE";
-const SEARCHFORM = "SEARCHFORM";
-const ACTIVEREQUESTS = "ACTIVEREQUESTS";
-const HISTORY = "HISTORY";
-const REGISTERABUSINESS = "REGISTERABUSINESS";
-const MYBUSINESS = "MYBUSINESS";
-const HEADER = "HEADER";
-const MYBUSINESSHOME = "MYBUSINESSHOME";
-
 function App() {
-<<<<<<< HEAD
-  const { mode, transition, back } = useVisualMode(HOMEPAGE);
-=======
-  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
->>>>>>> feature/requestFix
-
   return (
     <Router>
       <main className="layout">
-        {(mode === REGISTER ||
-          mode === LOGIN ||
-          mode === SEARCHFORM ||
-          mode === ACTIVEREQUESTS) && (
-          <i
-            className="far fa-arrow-alt-circle-left back"
-            onClick={() => back()}
-          />
-        )}
-        {mode !== LANDINGPAGE && mode !== REGISTER && mode !== LOGIN && (
-          <SideBar
-            pageWrapId={"page-wrap"}
-            outerContainerId={"App"}
-            HomePage={HOMEPAGE}
-            RegisterABusiness={REGISTERABUSINESS}
-            transition={transition}
-          />
-        )}
+        <i className="far fa-arrow-alt-circle-left back" />
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
 
-        {mode === LANDINGPAGE && (
-          <LandingPage
-            transition={transition}
-            login={LOGIN}
-            register={REGISTER}
-          />
-        )}
-        {mode === LOGIN && <LoginPage />}
-        {mode === REGISTER && <RegisterPage />}
-        {mode === HOMEPAGE && (
-          <HomePage
-            searchForm={SEARCHFORM}
-            transition={transition}
-            activeRequests={ACTIVEREQUESTS}
-          />
-        )}
+        <Switch>
+          <Route exact path="/">
+            <Header location="landing" />
+          </Route>
+          <Route>
+            <Header location="dontknowdontcare" />
+          </Route>
+        </Switch>
 
-        {mode === SEARCHFORM && <SearchForm />}
-
-<<<<<<< HEAD
-        {mode === ACTIVEREQUESTS && <RequestList />}
-=======
-      {mode === ACTIVEREQUESTS && <RequestList view={"active"} />}
-      {mode === HISTORY && <RequestList view={"history"} />}
-
->>>>>>> feature/requestFix
-
-        {mode === REGISTERABUSINESS && <RegisterABusiness />}
-
-        {mode === MYBUSINESS && (
-          <MyBusiness transition={transition} activeRequests={ACTIVEREQUESTS} />
-        )}
-
-        {mode === HEADER && (
-          <Header transition={transition} activeRequests={ACTIVEREQUESTS} />
-        )}
-
-        {mode === MYBUSINESSHOME && <MyBusinessHome />}
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route path="/landingPage">
+            <LandingPage />
+          </Route>
+          <Route path="/requestList">
+            <RequestList view={"active"} />
+          </Route>
+          <Route path="/searchForm">
+            <SearchForm />
+          </Route>
+          <Route path="/registerABusiness">
+            <RegisterABusiness />
+          </Route>
+          <Route path="/myBusiness">
+            <MyBusiness />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/register">
+            <RegisterPage />
+          </Route>
+          <Route path="/history">
+            <RequestList view={"history"} />
+          </Route>
+        </Switch>
       </main>
     </Router>
   );

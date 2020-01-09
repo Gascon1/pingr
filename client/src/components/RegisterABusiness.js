@@ -27,10 +27,10 @@ export default function RegisterPage(props) {
 
   return (
     <div className="layout-padding">
-      <Header
+      {/* <Header
         transition={props.transition}
         activeRequests={props.activeRequests}
-      />
+      /> */}
       {/* <div className="logo">
         <img src={logo} />
       </div> */}

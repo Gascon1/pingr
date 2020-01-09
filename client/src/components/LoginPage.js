@@ -3,41 +3,32 @@ import "./LoginPage.scss";
 import logo from "../pingr-logo.png";
 import axios from "axios";
 
-
 export default function LoginPage(props) {
   const [state, setState] = useState({
-    email:"",
-    password:""
+    email: "",
+    password: ""
   });
 
-const login = function(user) {
-  return axios.post(`http://localhost:8001/api/login`, user);
-}
+  const login = function(user) {
+    return axios.post(`http://localhost:8001/api/login`, user);
+  };
 
-
-function onSave(ev) {
-  ev.preventDefault();
-  login(state)
-    .then(res => {setToken(res.data.token)})
-    .catch(error => console.log("error"))
-
+  function onSave(ev) {
+    ev.preventDefault();
+    login(state)
+      .then(res => {
+        setToken(res.data.token);
+      })
+      .catch(error => console.log("error"));
   }
 
-const setToken= function(idToken) {
+  const setToken = function(idToken) {
     // Saves user token to localStorage
     localStorage.setItem("id_token", idToken);
   };
 
-
   return (
     <div className="layout-padding">
-      {/* <i
-        className="far fa-arrow-alt-circle-left back-button"
-        onClick={() => props.back()}
-      /> */}
-      <div className="logo">
-        <img src={logo} />
-      </div>
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Email Address</label>
@@ -47,22 +38,22 @@ const setToken= function(idToken) {
             placeholder="email"
             value={state.email}
             onChange={event =>
-              setState({ ...state, email: event.target.value})
+              setState({ ...state, email: event.target.value })
             }
-           />
+          />
           <label>Password</label>
-          <input 
+          <input
             type="text"
             className="input-field"
             placeholder="password"
             value={state.password}
-            onChange={event => 
-              setState({ ...state, password: event.target.value})
+            onChange={event =>
+              setState({ ...state, password: event.target.value })
             }
           />
-        <button className="login-register-button login">LOGIN</button>
-      </div>
-    </form>
+          <button className="login-register-button login">LOGIN</button>
+        </div>
+      </form>
     </div>
   );
 }
