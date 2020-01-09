@@ -21,13 +21,18 @@ const REGISTER = "REGISTER";
 const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
+const HISTORY = "HISTORY";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
 const MYBUSINESS = "MYBUSINESS";
 const HEADER = "HEADER";
 const MYBUSINESSHOME = "MYBUSINESSHOME";
 
 function App() {
+<<<<<<< HEAD
   const { mode, transition, back } = useVisualMode(HOMEPAGE);
+=======
+  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
+>>>>>>> feature/requestFix
 
   return (
     <Router>
@@ -70,7 +75,13 @@ function App() {
 
         {mode === SEARCHFORM && <SearchForm />}
 
+<<<<<<< HEAD
         {mode === ACTIVEREQUESTS && <RequestList />}
+=======
+      {mode === ACTIVEREQUESTS && <RequestList view={"active"} />}
+      {mode === HISTORY && <RequestList view={"history"} />}
+
+>>>>>>> feature/requestFix
 
         {mode === REGISTERABUSINESS && <RegisterABusiness />}
 

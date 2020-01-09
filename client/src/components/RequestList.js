@@ -5,9 +5,9 @@ import "./RequestList.scss";
 
 export default function(props) {
   const [state, setState] = useState([]);
-
+  console.log("props", props.view);
   useEffect(() => {
-    axios.get(`http://localhost:8001/api/active_requests`).then(response => {
+    axios.get(`http://localhost:8001/api/requests`, {params: {view:props.view}}).then(response => {
       return setState(response.data);
     });
     console.log(state);
