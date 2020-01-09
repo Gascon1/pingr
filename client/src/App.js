@@ -21,7 +21,15 @@ function App() {
       <main className="layout">
         <i className="far fa-arrow-alt-circle-left back" />
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
-        <Header />
+
+        <Switch>
+          <Route exact path="/">
+            <Header location="landing" />
+          </Route>
+          <Route>
+            <Header location="dontknowdontcare" />
+          </Route>
+        </Switch>
 
         <Switch>
           <Route exact path="/">
