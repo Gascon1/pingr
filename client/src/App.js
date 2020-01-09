@@ -15,74 +15,34 @@ import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
 
-const LANDINGPAGE = "LANDINGPAGE";
-const LOGIN = "LOGIN";
-const REGISTER = "REGISTER";
-const HOMEPAGE = "HOMEPAGE";
-const SEARCHFORM = "SEARCHFORM";
-const ACTIVEREQUESTS = "ACTIVEREQUESTS";
-const REGISTERABUSINESS = "REGISTERABUSINESS";
-const MYBUSINESS = "MYBUSINESS";
-const HEADER = "HEADER";
-const MYBUSINESSHOME = "MYBUSINESSHOME";
-
 function App() {
-  const { mode, transition, back } = useVisualMode(HOMEPAGE);
-
   return (
     <Router>
       <main className="layout">
-        {(mode === REGISTER ||
-          mode === LOGIN ||
-          mode === SEARCHFORM ||
-          mode === ACTIVEREQUESTS) && (
-          <i
-            className="far fa-arrow-alt-circle-left back"
-            onClick={() => back()}
-          />
-        )}
-        {mode !== LANDINGPAGE && mode !== REGISTER && mode !== LOGIN && (
-          <SideBar
-            pageWrapId={"page-wrap"}
-            outerContainerId={"App"}
-            HomePage={HOMEPAGE}
-            RegisterABusiness={REGISTERABUSINESS}
-            transition={transition}
-          />
-        )}
+        <i className="far fa-arrow-alt-circle-left back" />
+        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+        <Header />
 
-        {mode === LANDINGPAGE && (
-          <LandingPage
-            transition={transition}
-            login={LOGIN}
-            register={REGISTER}
-          />
-        )}
-        {mode === LOGIN && <LoginPage />}
-        {mode === REGISTER && <RegisterPage />}
-        {mode === HOMEPAGE && (
-          <HomePage
-            searchForm={SEARCHFORM}
-            transition={transition}
-            activeRequests={ACTIVEREQUESTS}
-          />
-        )}
-
-        {mode === SEARCHFORM && <SearchForm />}
-
-        {mode === ACTIVEREQUESTS && <RequestList />}
-
-        {mode === REGISTERABUSINESS && <RegisterABusiness />}
-
-        {mode === MYBUSINESS && (
-          <MyBusiness transition={transition} activeRequests={ACTIVEREQUESTS} />
-        )}
-
-        {mode === HEADER && (
-          <Header transition={transition} activeRequests={ACTIVEREQUESTS} />
-        )}
-
-        {mode === MYBUSINESSHOME && <MyBusinessHome />}
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          <Route path="/landingPage">
+            <LandingPage />
+          </Route>
+          <Route path="/requestList">
+            <RequestList />
+          </Route>
+          <Route path="/searchForm">
+            <SearchForm />
+          </Route>
+          <Route path="/registerABusiness">
+            <RegisterABusiness />
+          </Route>
+          <Route path="/myBusiness">
+            <MyBusiness />
+          </Route>
+        </Switch>
       </main>
     </Router>
   );

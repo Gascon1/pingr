@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import "./SideBar.scss";
 
@@ -7,21 +8,20 @@ export default function SideBar(props) {
   return (
     <Menu right {...props}>
       <div className="user-greeting">
-        <span>Hello, @enter name of the logged in user@</span>
+        <span className="text">Hello, @enter name of the logged in user@</span>
+        <Link to="/myBusiness" className="menu-item text">
+          My Business (Could write business name)
+        </Link>
         <hr />
       </div>
-      <a className="menu-item" onClick={() => transition(props.HomePage)}>
+      <Link to="/" className="menu-item">
         Home page
-      </a>
-
+      </Link>
       <a className="menu-item">Payment method</a>
 
-      <a
-        className="menu-item"
-        onClick={() => transition(props.RegisterABusiness)}
-      >
+      <Link to="registerABusiness" className="menu-item">
         Register a business
-      </a>
+      </Link>
       <a className="menu-item">Settings</a>
     </Menu>
   );

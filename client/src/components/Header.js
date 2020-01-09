@@ -1,5 +1,6 @@
 import React from "react";
 import "./HomePage.scss";
+import { Link } from "react-router-dom";
 import logo from "../pingr-logo.png";
 
 export default function Header(props) {
@@ -10,12 +11,12 @@ export default function Header(props) {
       </div>
       {/* make this conditional rendering with user auth */}
       <div className="user-menu">
-        <i className="fas fa-home user-menu-button"></i>
-
-        <i
-          className="fas fa-angle-double-up user-menu-button"
-          onClick={() => props.transition(props.activeRequests)}
-        ></i>
+        <Link to="/">
+          <i className="fas fa-home user-menu-button"></i>
+        </Link>
+        <Link to="/requestList">
+          <i className="fas fa-angle-double-up user-menu-button"></i>
+        </Link>
         <i className="fas fa-history user-menu-button"></i>
       </div>
     </div>

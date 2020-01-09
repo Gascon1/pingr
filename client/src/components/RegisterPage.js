@@ -25,9 +25,9 @@ export default function RegisterPage(props) {
 
   return (
     <div className="layout-padding">
-      <div className="logo">
+      {/* <div className="logo">
         <img src={logo} />
-      </div>
+      </div> */}
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>First name</label>

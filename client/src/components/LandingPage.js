@@ -6,26 +6,18 @@ import Header from "./Header";
 export default function HomePage(props) {
   return (
     <div className="flex-container">
-      <Header
+      {/* <Header
         transition={props.transition}
         activeRequests={props.activeRequests}
-      />
+      /> */}
       {/* <div className="logo">
         <img src={logo} />
       </div> */}
       <div className="login-register-container">
-        <button
-          onClick={() => props.transition(props.login)}
-          className="login"
-          type="submit"
-        >
+        <button className="login" type="submit">
           LOGIN
         </button>
-        <button
-          onClick={() => props.transition(props.register)}
-          className="register"
-          type="submit"
-        >
+        <button className="register" type="submit">
           REGISTER
         </button>
       </div>
