@@ -1,5 +1,5 @@
 import React from "react";
-import "./HomePage.scss";
+import "./Header.scss";
 import { Link } from "react-router-dom";
 import logo from "../pingr-logo.png";
 

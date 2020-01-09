@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
@@ -41,6 +40,12 @@ function App() {
           </Route>
           <Route path="/myBusiness">
             <MyBusiness />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/register">
+            <RegisterPage />
           </Route>
         </Switch>
       </main>

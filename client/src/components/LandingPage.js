@@ -1,25 +1,23 @@
 import React from "react";
 import "./LandingPage.scss";
+import { Link } from "react-router-dom";
 import logo from "../pingr-logo.png";
 import Header from "./Header";
 
 export default function HomePage(props) {
   return (
     <div className="flex-container">
-      {/* <Header
-        transition={props.transition}
-        activeRequests={props.activeRequests}
-      /> */}
-      {/* <div className="logo">
-        <img src={logo} />
-      </div> */}
       <div className="login-register-container">
-        <button className="login" type="submit">
-          LOGIN
-        </button>
-        <button className="register" type="submit">
-          REGISTER
-        </button>
+        <Link to="/login">
+          <button className="login" type="submit">
+            LOGIN
+          </button>
+        </Link>
+        <Link to="/register">
+          <button className="register" type="submit">
+            REGISTER
+          </button>
+        </Link>
       </div>
     </div>
   );
