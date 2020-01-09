@@ -1,11 +1,9 @@
 import React from "react";
 import "./ActiveRequestsItem.scss";
-import { dateFormatter } from "../helpers/dateFormatter"
+import { dateFormatter } from "../helpers/dateFormatter";
 
 export default function ActiveRequestsItem(props) {
-
-  const requestClass = `request-status text -${props.status}`
-
+  const requestClass = `request-status text -${props.status}`;
 
   return (
     <div className="request">
@@ -14,23 +12,28 @@ export default function ActiveRequestsItem(props) {
           <span className="request-item-category text">{props.category}</span>
           <span className="request-item-service text">{props.service}</span>
         </div>
-        <div className="request-status-container">
+        <div className="request-inner-container">
           <div className="card-header">
             <span className="request-availability text">REQUEST STATUS</span>
             <hr className="separator" />
           </div>
           <span className={requestClass}>
-            <i className="far fa-check-circle icon-spacing"></i>{props.status.toUpperCase()}
+            <i className="far fa-check-circle icon-spacing"></i>
+            {props.status.toUpperCase()}
           </span>
-          {props.appointmentTime !== null && <span className="request-confirmed-time text">
-            {dateFormatter(props.appointmentTime, null, null)}
-          </span>
-          }
-          {props.appointmentTime !== null && <span className="business-address text">
-            <i className="fas fa-dollar-sign icon-spacing"></i>{props.transaction_price}
-          </span>}
+          {props.appointmentTime !== null && (
+            <span className="request-confirmed-time text">
+              {dateFormatter(props.appointmentTime, null, null)}
+            </span>
+          )}
+          {props.appointmentTime !== null && (
+            <span className="business-address text">
+              <i className="fas fa-dollar-sign icon-spacing"></i>
+              {props.transaction_price}
+            </span>
+          )}
         </div>
-        <div className="request-availability-container">
+        <div className="request-inner-container">
           <div className="card-header">
             <span className="request-availability text">REQUEST DETAILS</span>
             <hr className="separator" />
@@ -41,20 +44,23 @@ export default function ActiveRequestsItem(props) {
           </span>
           <span className="request-time-start text">
             <i className="far fa-clock icon-spacing"></i>
-            {dateFormatter(null,null, props.availableStartTime)}
+            {dateFormatter(null, null, props.availableStartTime)}
           </span>
           <span className="request-hyphen text">—</span>
           <span className="request-time-end text">
-          {dateFormatter(null,null, props.availableEndTime)}
-            </span>
+            {dateFormatter(null, null, props.availableEndTime)}
+          </span>
           <span className="request-max-price text">
-            <i className="fas fa-dollar-sign icon-spacing"></i> {props.request_max_price}
+            <i className="fas fa-dollar-sign icon-spacing"></i>
+            {props.request_max_price}
           </span>
         </div>
-        {(props.status === "confirmed" || props.status === "completed") &&
-          <div className="request-confirmed-tab">
+        {(props.status === "confirmed" || props.status === "completed") && (
+          <div className="request-inner-container">
             <div className="card-header">
-              <span className="request-availability text">BUSINESS DETAILS</span>
+              <span className="request-availability text">
+                BUSINESS DETAILS
+              </span>
               <hr className="separator" />
             </div>
             <div className="business-card">
@@ -62,13 +68,18 @@ export default function ActiveRequestsItem(props) {
               <span className="business-service text">View map</span>
             </div>
             <span className="business-address text">
-              <i className="fas fa-map-marker-alt icon-spacing"></i>{props.business_address}
+              <i className="fas fa-map-marker-alt icon-spacing"></i>
+              {props.business_address}
             </span>
             <span className="business-address text">
-              <i className="fas fa-mobile-alt icon-spacing"></i>{props.business_phone_number}
+              <i className="fas fa-mobile-alt icon-spacing"></i>
+              {props.business_phone_number}
             </span>
-          </div>}
-        <div className="request-cancel text">CANCEL</div>
+          </div>
+        )}
+        {(props.status === "confirmed" || props.status === "queued") && (
+          <div className="request-cancel -canceled text">CANCEL</div>
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,66 @@
+.-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  &:first-of-type {
+    margin-bottom: 2em;
+  }
+}
+
+.request-user-name {
+  width: 50%;
+  padding: 1rem 0;
+  padding-right: 1rem;
+  font-size: 1.2em;
+  height: 100%;
+  border-right-style: solid;
+  border-right-width: 0.5px;
+  border-color: #201f23;
+}
+
+.time-container {
+  // font-size: 0.8em;
+  width: 50%;
+  padding-left: 1rem;
+}
+
+.business-time {
+  display: block;
+  padding: 0px;
+}
+
+.confirm-button {
+  display: inline-block;
+  width: 60%;
+  margin: 1em;
+}
+
+.book-button {
+  margin-top: 0;
+}
+
+.confirm-time-picker {
+  margin: 1em;
+  width: 30%;
+  text-align: center;
+  margin-right: 0;
+  padding: 0.8rem;
+}
+
+.business-request-margin {
+  margin-bottom: 0;
+}
+
+.-item-focus:hover {
+  .request-inner-container,
+  .request-time-picker,
+  .confirm-button {
+    filter: brightness(1.1);
+  }
+}
+
+.hidden {
+  display: none;
+}
