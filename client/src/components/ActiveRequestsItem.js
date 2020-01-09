@@ -51,7 +51,7 @@ export default function ActiveRequestsItem(props) {
             {dateFormatter(null, null, props.availableEndTime)}
           </span>
           <span className="request-max-price text">
-            <i className="fas fa-dollar-sign icon-spacing"></i>{" "}
+            <i className="fas fa-dollar-sign icon-spacing"></i>
             {props.request_max_price}
           </span>
         </div>

@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
+
+  &:first-of-type {
+    margin-bottom: 2em;
+  }
 }
 
 .request-user-name {
@@ -33,10 +37,30 @@
   margin: 1em;
 }
 
+.book-button {
+  margin-top: 0;
+}
+
 .confirm-time-picker {
   margin: 1em;
   width: 30%;
   text-align: center;
   margin-right: 0;
-  padding: 0.8rem 0;
+  padding: 0.8rem;
+}
+
+.business-request-margin {
+  margin-bottom: 0;
+}
+
+.-item-focus:hover {
+  .request-inner-container,
+  .request-time-picker,
+  .confirm-button {
+    filter: brightness(1.1);
+  }
+}
+
+.hidden {
+  display: none;
 }
