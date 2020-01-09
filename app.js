@@ -6,8 +6,10 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const GetRequests = require('./routes/get_requests');
+const GetServices = require('./routes/get_services');
 const GetUsers = require('./routes/get_users');
 const Business = require('./routes/get_businesses');
+const Categories = require('./routes/get_categories');
 const ActiveRequests = require('./routes/get_active_requests_by_user');
 const ExpiredRequests = require('./routes/get_expired_requests_by_user');
 const PostLogin = require('./routes/post_login');
@@ -37,18 +39,22 @@ app.use('/', indexRouter);
 app.use('/active_requests', ActiveRequests);
 app.use('/expired_requests', ExpiredRequests);
 app.use('/requests', GetRequests);
+app.use('/services', GetServices);
 app.use('/requests', PostRequests);
 app.use('/users', GetUsers);
 app.use('/users', PostUsers)
 app.use('/businesses', Business)
 app.use('/login', PostLogin)
+app.use('/categories', Categories)
 
 
 app.get('/api/active_requests', require('./Controllers/get_active_requests_by_user.js'))
 app.get('/api/expired_requests', require('./Controllers/get_expired_requests_by_user.js'))
 app.get('/api/requests', require('./Controllers/get_requests.js'))
+app.get('/api/services', require('./Controllers/get_services.js'))
 app.get('/api/users', require('./Controllers/get_users.js'))
 app.get('/api/businesses', require('./Controllers/get_businesses.js'))
+app.get('/api/categories', require('./Controllers/get_categories.js'))
 
 
 

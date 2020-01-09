@@ -10,7 +10,6 @@ export default function(props) {
     axios.get(`http://localhost:8001/api/active_requests`).then(response => {
       return setState(response.data);
     });
-    console.log(state);
   }, []);
 
   const list = state.map(request => {

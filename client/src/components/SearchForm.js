@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
 import Dropdown from "./Dropdown";
 
-export default function RegisterPage(props) {
+export default function SearchForm(props) {
   const [state, setState] = useState({
-    first_name: "",
-    last_name: "",
-    phone: "",
-    email: "",
-    password: ""
+    category: "",
+    categoryID: "",
+    services: [],
+    service:"",
+    requestTime: "",
+    maxPrice: null,
   });
 
-  const registerUser = function(newUser) {
+
+  
+  const registerUser = function (newUser) {
     return axios.post(`http://localhost:8001/api/users`, newUser);
   };
 
@@ -32,24 +35,18 @@ export default function RegisterPage(props) {
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Category</label>
-          <Dropdown />
-          {/* <input
-            type="text"
-            className="input-field"
-            value={state.first_name}
-            onChange={event =>
-              setState({ ...state, first_name: event.target.value })
-            }
-          /> */}
-          <label>Service</label>
-          <input
-            type="text"
-            className="input-field"
-            value={state.last_name}
-            onChange={event =>
-              setState({ ...state, last_name: event.target.value })
-            }
+          <Dropdown list={"categoryList"}
+            setDropdown={(category, categoryID, services) => setState({ ...state, category, categoryID, services })}
+            services={state.services}
           />
+
+          <label>Service</label>
+          <Dropdown
+            categoryID={state.categoryID}
+            list={"serviceList"}
+            services={state.services}
+          />
+
           <label>Time Picker</label>
           <input
             type="datetime-local"
