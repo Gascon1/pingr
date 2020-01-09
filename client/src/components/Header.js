@@ -17,7 +17,9 @@ export default function Header(props) {
         <Link to="/requestList">
           <i className="fas fa-angle-double-up user-menu-button"></i>
         </Link>
-        <i className="fas fa-history user-menu-button"></i>
+        <Link to="/history">
+          <i className="fas fa-history user-menu-button"></i>
+        </Link>
       </div>
     </div>
   );

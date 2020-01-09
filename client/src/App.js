@@ -9,6 +9,7 @@ import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
+import History from "./components/History";
 import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route path="/register">
             <RegisterPage />
+          </Route>
+          <Route>
+            <History />
           </Route>
         </Switch>
       </main>
