@@ -45,7 +45,7 @@ $item-background-color: #201f23;
   // font-size: 0.9em;
 }
 
-.request-status-container {
+.request-inner-container {
   background: #343337;
   padding: 1rem;
   margin: 1em;
@@ -91,14 +91,6 @@ $item-background-color: #201f23;
   padding-right: 0.5em;
 }
 
-.request-availability-container {
-  // text-align: center;
-  background: #343337;
-  padding: 1rem;
-  margin: 1em;
-  border-radius: 2px;
-}
-
 .request-date {
   padding: 0;
 }
@@ -121,13 +113,6 @@ $item-background-color: #201f23;
   border-width: 0.5px;
   border-color: #201f23;
   margin: 1rem -1rem 0;
-}
-
-.request-confirmed-tab {
-  background: #343337;
-  padding: 1rem;
-  margin: 1em;
-  border-radius: 2px;
 }
 
 .request-business-name {

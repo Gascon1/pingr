@@ -24,7 +24,7 @@ const MYBUSINESS = "MYBUSINESS";
 const HEADER = "HEADER";
 
 function App() {
-  const { mode, transition, back } = useVisualMode(ACTIVEREQUESTS);
+  const { mode, transition, back } = useVisualMode(MYBUSINESS);
 
   return (
     <main className="layout">

@@ -12,7 +12,7 @@ export default function ActiveRequestsItem(props) {
           <span className="request-item-category text">{props.category}</span>
           <span className="request-item-service text">{props.service}</span>
         </div>
-        <div className="request-status-container">
+        <div className="request-inner-container">
           <div className="card-header">
             <span className="request-availability text">REQUEST STATUS</span>
             <hr className="separator" />
@@ -33,7 +33,7 @@ export default function ActiveRequestsItem(props) {
             </span>
           )}
         </div>
-        <div className="request-availability-container">
+        <div className="request-inner-container">
           <div className="card-header">
             <span className="request-availability text">REQUEST DETAILS</span>
             <hr className="separator" />
@@ -56,7 +56,7 @@ export default function ActiveRequestsItem(props) {
           </span>
         </div>
         {(props.status === "confirmed" || props.status === "completed") && (
-          <div className="request-confirmed-tab">
+          <div className="request-inner-container">
             <div className="card-header">
               <span className="request-availability text">
                 BUSINESS DETAILS

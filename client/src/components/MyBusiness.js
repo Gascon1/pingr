@@ -4,11 +4,14 @@ import Header from "./Header";
 export default function MyBusiness(props) {
   return (
     <div className="layout-padding">
-      <Header
+      {/* <Header
         transition={props.transition}
         activeRequests={props.activeRequests}
-      />
-      <div className="text">hello</div>
+      /> */}
+
+      <div className="request-item">
+        <div className="request-inner-container"></div>
+      </div>
     </div>
   );
 }
