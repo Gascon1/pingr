@@ -19,6 +19,7 @@ const REGISTER = "REGISTER";
 const HOMEPAGE = "HOMEPAGE";
 const SEARCHFORM = "SEARCHFORM";
 const ACTIVEREQUESTS = "ACTIVEREQUESTS";
+const HISTORY = "HISTORY";
 const REGISTERABUSINESS = "REGISTERABUSINESS";
 const MYBUSINESS = "MYBUSINESS";
 const HEADER = "HEADER";
@@ -66,7 +67,9 @@ function App() {
 
       {mode === SEARCHFORM && <SearchForm />}
 
-      {mode === ACTIVEREQUESTS && <RequestList />}
+      {mode === ACTIVEREQUESTS && <RequestList view={"active"} />}
+      {mode === HISTORY && <RequestList view={"history"} />}
+
 
       {mode === REGISTERABUSINESS && <RegisterABusiness />}
 
