@@ -12,10 +12,11 @@ export default function(props) {
         params: { view: props.view }
       })
       .then(response => {
+        console.log("this is response.data", response.data);
         return setState(response.data);
       });
     console.log(state);
-  }, []);
+  }, [props.view]);
 
   const list = state.map(request => {
     return (
