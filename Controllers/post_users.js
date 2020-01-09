@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 
 module.exports = (req, res) => {
-	console.log("req",req.body)
+
 	let query = {
 		text:`INSERT INTO users (first_name, last_name, phone, email, password)
 	VALUES ($1, $2, $3, $4, $5);`,

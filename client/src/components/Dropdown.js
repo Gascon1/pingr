@@ -37,7 +37,7 @@ export default function Dropdown(props) {
           Promise.resolve(e),
           Promise.resolve(axios.get(`http://localhost:8001/api/services/`, { params: { categoryID: e.target.options[e.target.selectedIndex].dataset.id } }))
         ]).then((all) => props.setDropdown(all[0].target.value, all[0].target.options[all[0].target.selectedIndex].dataset.id, all[1].data))
-      } : null
+      } : (e) => {props.setService(e.target.value)}
       }
 
     >

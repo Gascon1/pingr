@@ -9,20 +9,22 @@ export default function SearchForm(props) {
     categoryID: "",
     services: [],
     service:"",
-    requestTime: "",
+    requestStartTime: "",
+    requestEndTime: "",
     maxPrice: null,
+    user:1,
   });
 
 
   
-  const registerUser = function (newUser) {
-    return axios.post(`http://localhost:8001/api/users`, newUser);
+  const postRequest = function (newRequest) {
+    return axios.post(`http://localhost:8001/api/requests`, newRequest);
   };
 
   function onSave(ev) {
     // console.log(state)
     ev.preventDefault();
-    registerUser(state)
+    postRequest(state)
       .then(() => console.log("success"))
       .catch(error => console.log("error"));
   }
@@ -45,24 +47,36 @@ export default function SearchForm(props) {
             categoryID={state.categoryID}
             list={"serviceList"}
             services={state.services}
+            setService={(service) => setState({...state, service})}
           />
 
-          <label>Time Picker</label>
+          <label>Start Time</label>
           <input
             type="datetime-local"
             className="input-field"
-            value={state.email}
+            value={state.requestStartTime}
             onChange={event =>
-              setState({ ...state, email: event.target.value })
+              setState({ ...state, requestStartTime: event.target.value })
             }
           />
+          <label>End Time</label>
+          <input
+            type="datetime-local"
+            className="input-field"
+            value={state.requestEndTime}
+            onChange={event =>
+              setState({ ...state, requestEndTime: event.target.value })
+            }
+          />
+
           <label>Max price</label>
           <input
-            type="password"
+            type="number"
+            step="0.01"
             className="input-field"
-            value={state.password}
+            value={state.maxPrice}
             onChange={event =>
-              setState({ ...state, password: event.target.value })
+              setState({ ...state, maxPrice: event.target.value })
             }
           />
           {/* <label>Phone number</label>
