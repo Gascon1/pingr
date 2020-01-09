@@ -12,8 +12,8 @@ CREATE TABLE requests (
   service_id INTEGER REFERENCES services(id) NOT NULL,
   status_id INTEGER REFERENCES statuses(id) NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-  availibility_start_time TIMESTAMPTZ NOT NULL,
-  availibility_end_time TIMESTAMPTZ NOT NULL,
+  availability_start_time TIMESTAMPTZ NOT NULL,
+  availability_end_time TIMESTAMPTZ NOT NULL,
   appointment_start_time TIMESTAMPTZ DEFAULT NULL,
   appointment_end_time TIMESTAMPTZ DEFAULT NULL,
   max_price DECIMAL(6,2) NOT NULL
