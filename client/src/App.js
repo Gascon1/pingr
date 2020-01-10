@@ -28,17 +28,17 @@ function App() {
           <Route>
             <Header userType="user" />
           </Route>
-          <Route>
-            <Header userType="businessOwner" />
-          </Route>
         </Switch>
+        <Route>
+          <Header userType="businessOwner" />
+        </Route>
 
         <Switch>
           <Route exact path="/">
             <LandingPage />
           </Route>
-          <Route path="/landingPage">
-            <LandingPage />
+          <Route path="/homePage">
+            <HomePage />
           </Route>
           <Route path="/requestList">
             <RequestList view={"active"} />

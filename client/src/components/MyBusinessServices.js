@@ -15,13 +15,13 @@ export default function MyBusinessServices(props) {
             <hr className="separator" />
           </div>
           <span className="business-service-details text">
-            <i class="far fa-file-alt icon-spacing"></i>
+            <i className="far fa-file-alt icon-spacing"></i>
           </span>
           <span className="business-service-details text">
-            <i className="fas fa-dollar-sign icon-spacing"></i>
+            <i className="fas fa-dollar-sign icon-spacing"></i> 36.00
           </span>
           <span className="business-service-details text">
-            <i className="far fa-clock icon-spacing"></i>
+            <i className="far fa-clock icon-spacing"></i> 60mins
           </span>
         </div>
       </div>
