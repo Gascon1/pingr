@@ -46,21 +46,27 @@
   width: 30%;
   text-align: center;
   margin-right: 0;
-  padding: 0.8rem;
+  padding: 1rem;
 }
 
 .business-request-margin {
   margin-bottom: 0;
 }
 
-.-item-focus:hover {
-  .request-inner-container,
-  .request-time-picker,
-  .confirm-button {
-    filter: brightness(1.1);
-  }
-}
+// .-item-focus:hover {
+//   .request-inner-container,
+//   .request-time-picker,
+//   .confirm-button,
+//   .-confirmed-time {
+//     filter: brightness(1.1);
+//   }
+// }
 
 .hidden {
   display: none;
+}
+
+.-confirmed-time {
+  background: #343337;
+  color: white;
 }
