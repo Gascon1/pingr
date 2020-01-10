@@ -21,12 +21,15 @@ module.exports = (req, res) => {
 		WHERE requests.availability_end_time < current_date and requests.user_id=1;
 		`;
   } else if (req.query.view === "businessRequests") {
-    query = `SELECT request_service_name AS service_name, availability_start_time, availability_end_time, max_price, first_name as user_name, categories.name AS category_name, status_id AS status_id
+    query = {
+      text: `SELECT requests.id AS request_id, request_service_name AS service_name, availability_start_time, availability_end_time, max_price, first_name as user_name, categories.name AS category_name, status_id AS status_id, requests.business_id, requests.service_id, requests.appointment_start_time
     FROM requests
     JOIN categories ON categories.id = category_id
     JOIN users ON users.id = user_id
     FULL OUTER JOIN services ON services.id = service_id
-    WHERE status_id = 1;`;
+    WHERE status_id = 1 AND requests.category_id = $1;`,
+      values: [req.query.categoryID]
+    };
   } else {
     query = `SELECT *
 		FROM requests;`;
