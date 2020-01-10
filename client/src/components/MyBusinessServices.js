@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./Header";
-import "./MyBusinessHome.scss";
+import "./MyBusinessServices.scss";
 
-export default function MyBusinessHome(props) {
+export default function MyBusinessServices(props) {
   return (
     <div className="request">
       <div className="request-item">
