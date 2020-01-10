@@ -41,6 +41,9 @@ function App() {
           <Route path="/requestList">
             <RequestList view={"active"} />
           </Route>
+          <Route path="/history">
+            <RequestList view={"history"} />
+          </Route>
           <Route path="/searchForm">
             <SearchForm />
           </Route>
@@ -55,9 +58,6 @@ function App() {
           </Route>
           <Route path="/register">
             <RegisterPage />
-          </Route>
-          <Route path="/history">
-            <RequestList view={"history"} />
           </Route>
         </Switch>
       </main>
