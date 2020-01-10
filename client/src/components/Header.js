@@ -10,17 +10,32 @@ export default function Header(props) {
         <img src={logo} alt="" />
       </div>
       {/* make this conditional rendering with user auth */}
-      <div className="user-menu">
-        <Link to="/">
-          <i className="fas fa-home user-menu-button"></i>
-        </Link>
-        <Link to="/requestList">
-          <i className="fas fa-angle-double-up user-menu-button"></i>
-        </Link>
-        <Link to="/history">
-          <i className="fas fa-history user-menu-button"></i>
-        </Link>
-      </div>
+      {props.userType === "user" && (
+        <div className="user-menu">
+          <Link to="/">
+            <i className="fas fa-home user-menu-button"></i>
+          </Link>
+          <Link to="/requestList">
+            <i className="fas fa-angle-double-up user-menu-button"></i>
+          </Link>
+          <Link to="/history">
+            <i className="fas fa-history user-menu-button"></i>
+          </Link>
+        </div>
+      )}
+      {props.userType === "businessOwner" && (
+        <div className="user-menu">
+          <Link to="/">
+            <i className="fas fa-home user-menu-button"></i>
+          </Link>
+          <Link to="/myBusinessServices">
+            <i class="far fa-list-alt user-menu-button"></i>
+          </Link>
+          <Link to="/history">
+            <i className="fas fa-history user-menu-button"></i>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

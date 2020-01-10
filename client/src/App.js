@@ -9,11 +9,10 @@ import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
-import History from "./components/History";
 import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
-import MyBusinessHome from "./components/MyBusinessHome";
+import MyBusinessServices from "./components/MyBusinessServices";
 
 function App() {
   return (
@@ -24,19 +23,22 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <Header location="landing" />
+            <Header userType="loggedOut" />
           </Route>
           <Route>
-            <Header location="dontknowdontcare" />
+            <Header userType="user" />
           </Route>
         </Switch>
+        <Route>
+          <Header userType="businessOwner" />
+        </Route>
 
         <Switch>
           <Route exact path="/">
             <LandingPage />
           </Route>
-          <Route path="/landingPage">
-            <LandingPage />
+          <Route path="/homePage">
+            <HomePage />
           </Route>
           <Route path="/requestList">
             <RequestList view={"active"} />
@@ -58,6 +60,9 @@ function App() {
           </Route>
           <Route path="/register">
             <RegisterPage />
+          </Route>
+          <Route path="/myBusinessServices">
+            <MyBusinessServices />
           </Route>
         </Switch>
       </main>
