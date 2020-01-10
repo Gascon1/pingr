@@ -2,7 +2,7 @@ const db = require('./db.js')
 
 module.exports = (req, res) => {
 
-	let query = `Select * FROM users;`
+	let query = `Select * FROM users ORDER BY id;`
 
 	db.query(query, (err, result) => {
 		if (err) {

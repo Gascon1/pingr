@@ -8,7 +8,8 @@ export default function RegisterPage(props) {
   const [state, setState] = useState({
     user_id: "1",
     category:"",
-    categoryID: "",
+    category_id: "",
+    business_id: "",
     business_name: "",
     business_email: "",
     business_phone: "",
@@ -20,18 +21,22 @@ export default function RegisterPage(props) {
     return axios.post(`http://localhost:8001/api/businesses`, newBusiness);
   };
 
-  const addBusinessToUser = function(user) {
-    return axios.put(`http://localhost:8001/api/users`, user);
+  const addBusinessToUser = function(userID) {
+    console.log("adding business id to user", userID)
+    return axios.put(`http://localhost:8001/api/users`, userID);
   };
 
   function onSave(ev) {
     ev.preventDefault();
     registerBusiness(state)
-      .then(() => {
+      .then((response) => {
+        const businessID = response.data[0].id
         console.log("success in adding business to database")
-        addBusinessToUser(state)
+        setState({...state, business_id: businessID})
+        addBusinessToUser({businessID, user_id:state.user_id})
+        
       })
-      .catch(error => console.log("error"));
+      .catch(error => console.log("error", error));
   }
 
   return (
@@ -81,7 +86,7 @@ export default function RegisterPage(props) {
           />
          <label>Category</label>
           <Dropdown list={"categoryList"}
-            setDropdown={(category, categoryID, services) => setState({ ...state, category, categoryID, services })}
+            setDropdown={(category, category_id, services) => setState({ ...state, category, category_id, services })}
             services={state.services}
           />
           <button className="login-register-button register">Register</button>
