@@ -19,7 +19,7 @@ export default function SideBar(props) {
       </Link>
       <a className="menu-item">Payment method</a>
 
-      <Link to="registerABusiness" className="menu-item">
+      <Link to="/registerABusiness" className="menu-item">
         Register a business
       </Link>
       <a className="menu-item">Settings</a>

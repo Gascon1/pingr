@@ -13,12 +13,13 @@ import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
 import MyBusinessServices from "./components/MyBusinessServices";
+import BackButton from "./components/BackButton";
 
 function App() {
   return (
     <Router>
       <main className="layout">
-        <i className="far fa-arrow-alt-circle-left back" />
+        <BackButton />
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
 
         <Switch>
