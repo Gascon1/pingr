@@ -9,7 +9,7 @@ CREATE TABLE requests (
   user_id INTEGER REFERENCES users(id),
   business_id INTEGER REFERENCES businesses(id) DEFAULT 1,
   service_id INTEGER REFERENCES services(id) DEFAULT NULL,
-  service_name VARCHAR(255) DEFAULT NULL,
+  request_service_name VARCHAR(255) DEFAULT NULL,
   category_id INTEGER REFERENCES categories(id) NOT NULL,
   status_id INTEGER REFERENCES statuses(id) DEFAULT 1,
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, 

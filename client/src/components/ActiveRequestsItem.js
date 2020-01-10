@@ -10,7 +10,7 @@ export default function ActiveRequestsItem(props) {
       <div className="request-item">
         <div className="request-item-header">
           <span className="request-item-category text">{props.category}</span>
-          <span className="request-item-service text">{props.service}</span>
+          <span className="request-item-service text">{props.service || props.requestServiceName}</span>
         </div>
         <div className="request-inner-container">
           <div className="card-header">

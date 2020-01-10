@@ -32,6 +32,7 @@ export default function(props) {
         business_name={request.business_name}
         request_max_price={request.request_max_price}
         transaction_price={request.transaction_price}
+        requestServiceName={request.request_service_name}
       />
     );
   });
