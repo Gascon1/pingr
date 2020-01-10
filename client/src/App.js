@@ -14,11 +14,14 @@ import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
+import { UserProvider } from './UserContext'
+var jwt_decode = require('jwt-decode');
+
 
 function App() {
-
   
-  const ThemeContext = React.createContext('light');
+  
+  var user = jwt_decode(localStorage.getItem("id_token"));
 
 
   return (
@@ -44,7 +47,9 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/requestList">
-            <RequestList view={"active"} />
+            <UserProvider value={user}>
+              <RequestList view={"active"} />
+            </UserProvider>
           </Route>
           <Route path="/searchForm">
             <SearchForm />
