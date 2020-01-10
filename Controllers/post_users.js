@@ -12,19 +12,20 @@ module.exports = (req, res) => {
 	db.query(query, (err, result) => {
 		if (err) {
             res.send(err)
-            console.log("error", err)
 		} else {
 			user = {
 				first_name: req.body.first_name,
 				last_name: req.body.last_name,
 				email: req.body.email
 			}
-			let token = jwt.sign(user,process.env.SECRET)
-			res.status(200).json({
+				jwt.sign(user,process.env.SECRET, (token,err)=>{	
+				console.log(token, typeof token);
+				return res.status(200).json({
 				message:'successfully registered and signed in',
-				token: token
-			})
-			res.send(result.rows)
+				token: token,
+				data:result.rows
+			})})
+
 		}
     })
 }

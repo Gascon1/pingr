@@ -16,6 +16,11 @@ import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
 
 function App() {
+
+  
+  const ThemeContext = React.createContext('light');
+
+
   return (
     <Router>
       <main className="layout">
@@ -35,8 +40,8 @@ function App() {
           <Route exact path="/">
             <LandingPage />
           </Route>
-          <Route path="/landingPage">
-            <LandingPage />
+          <Route path="/homePage">
+            <HomePage />
           </Route>
           <Route path="/requestList">
             <RequestList view={"active"} />

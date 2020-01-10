@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./LoginPage.scss";
 import logo from "../pingr-logo.png";
 import axios from "axios";
+import { Link, withRouter } from 'react-router-dom'
 
-export default function LoginPage(props) {
+const LoginPage = function (props) {
   const [state, setState] = useState({
     email: "",
     password: ""
@@ -17,15 +18,17 @@ export default function LoginPage(props) {
     ev.preventDefault();
     login(state)
       .then(res => {
-        setToken(res.data.token);
+        if(res.data.error_message) {
+          console.log("invalid credentials")
+        }
+        if (res.data.token) {
+          localStorage.setItem("id_token", res.data.token);
+          props.history.push('/')
+        }
+        /////
       })
       .catch(error => console.log("error"));
   }
-
-  const setToken = function(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem("id_token", idToken);
-  };
 
   return (
     <div className="layout-padding">
@@ -57,3 +60,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+export default withRouter(LoginPage)
