@@ -77,7 +77,7 @@ export default function RegisterPage(props) {
             }
           />
           <label>Category</label>
-          <Dropdown />
+          {/* <Dropdown /> */}
           {/* <input
             type="text"
             className="input-field"
