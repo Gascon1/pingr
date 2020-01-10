@@ -3,6 +3,8 @@ import "./LoginPage.scss";
 import logo from "../pingr-logo.png";
 import axios from "axios";
 import { Link, withRouter } from 'react-router-dom'
+import jwt_decode from 'jwt-decode'
+
 
 const LoginPage = function (props) {
   const [state, setState] = useState({
@@ -22,10 +24,12 @@ const LoginPage = function (props) {
           console.log("invalid credentials")
         }
         if (res.data.token) {
+          console.log("inside res.token")
           localStorage.setItem("id_token", res.data.token);
+          let user = jwt_decode(res.data.token);
+          props.setUser(user);
           props.history.push('/')
         }
-        /////
       })
       .catch(error => console.log("error"));
   }

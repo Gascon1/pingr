@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
@@ -15,17 +15,17 @@ import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
 import { UserProvider } from './UserContext'
-var jwt_decode = require('jwt-decode');
 
 
 function App() {
-  
-  
-  var user = jwt_decode(localStorage.getItem("id_token"));
 
+
+  const [user, setUser] = useState(null);
+  console.log("user", user);  
 
   return (
     <Router>
+      <UserProvider value={user}>
       <main className="layout">
         <i className="far fa-arrow-alt-circle-left back" />
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
@@ -47,9 +47,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/requestList">
-            <UserProvider value={user}>
               <RequestList view={"active"} />
-            </UserProvider>
           </Route>
           <Route path="/searchForm">
             <SearchForm />
@@ -61,16 +59,17 @@ function App() {
             <MyBusiness />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage setUser = {setUser}/>
           </Route>
           <Route path="/register">
-            <RegisterPage />
+            <RegisterPage setUser = {setUser} />
           </Route>
           <Route path="/history">
             <RequestList view={"history"} />
           </Route>
         </Switch>
       </main>
+      </UserProvider>
     </Router>
   );
 }

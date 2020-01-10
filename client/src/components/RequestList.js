@@ -11,15 +11,19 @@ export default function(props) {
 
   console.log("user", user);
   useEffect(() => {
-    axios
-      .get(`http://localhost:8001/api/requests`, {
-        params: { view: props.view }
-      })
-      .then(response => {
-        return setState(response.data);
-      });
-    console.log(state);
-  }, []);
+    if (user){
+      axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: { 
+            view: props.view,
+            user_id: user.user_id
+           }
+        })
+        .then(response => {
+          return setState(response.data);
+        });      
+    }
+  }, [user]);
 
   const list = state.map(request => {
     return (

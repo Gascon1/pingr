@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import "./SideBar.scss";
+import UserContext from '../UserContext'
+
 
 export default function SideBar(props) {
   const { transition } = props;
+  const user = useContext(UserContext)
+  console.log("user from sidebar", user)
   return (
     <Menu right {...props}>
       <div className="user-greeting">
-        <span className="text">Hello, @enter name of the logged in user@</span>
+        <span className="text">Hello, {user ? user.first_name : "not logged in user"}</span>
         <Link to="/myBusiness" className="menu-item text">
           My Business (Could write business name)
         </Link>
