@@ -17,6 +17,11 @@ const PostLogin = require('./routes/post_login');
 
 const PostRequests = require('./routes/post_requests');
 const PostUsers = require('./routes/post_users');
+const PostBusinesses = require('./routes/post_businesses');
+
+const PutUsers = require('./routes/put_users');
+
+
 
 const cors = require("cors");
 
@@ -41,8 +46,10 @@ app.use('/expired_requests', ExpiredRequests);
 app.use('/requests', GetRequests);
 app.use('/services', GetServices);
 app.use('/requests', PostRequests);
+app.use('/businesses', PostBusinesses);
 app.use('/users', GetUsers);
 app.use('/users', PostUsers)
+app.use('/users', PutUsers)
 app.use('/businesses', Business)
 app.use('/login', PostLogin)
 app.use('/categories', Categories)
@@ -56,13 +63,12 @@ app.get('/api/users', require('./Controllers/get_users.js'))
 app.get('/api/businesses', require('./Controllers/get_businesses.js'))
 app.get('/api/categories', require('./Controllers/get_categories.js'))
 
-
-
-
 app.post('/api/login', require('./Controllers/post_login.js'))
 app.post('/api/requests', require('./Controllers/post_requests.js'))
 app.post('/api/users', require('./Controllers/post_users.js'))
+app.post('/api/businesses', require('./Controllers/post_businesses.js'))
 
+app.put('/api/users', require('./Controllers/put_users.js'))
 
 
 // catch 404 and forward to error handler
