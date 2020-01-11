@@ -78,6 +78,12 @@ function App() {
               <ServiceForm />
             </Route>
           </Switch>
+
+          <Switch>
+            <Route path="/navbar">
+              <Navbar />
+            </Route>
+          </Switch>
         </main>
       </UserProvider>
     </Router>
