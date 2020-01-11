@@ -57,7 +57,7 @@ function App() {
               <SearchForm serviceView={"searchForm"} />
             </Route>
             <Route path="/registerABusiness">
-              <RegisterABusiness />
+              <RegisterABusiness setUser ={setUser}/>
             </Route>
             <Route path="/business-request-list">
               <BusinessRequestList

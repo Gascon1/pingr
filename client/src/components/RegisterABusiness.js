@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
 import Dropdown from "./Dropdown";
 import Header from "./Header";
+import UserContext from '../UserContext';
+
+
 
 export default function RegisterPage(props) {
+  const user = useContext(UserContext)
+  console.log("user from outside function", user)
   const [state, setState] = useState({
     user_id: "1",
     category:"",
@@ -33,6 +38,9 @@ export default function RegisterPage(props) {
         const businessID = response.data[0].id
         console.log("success in adding business to database")
         setState({...state, business_id: businessID})
+        console.log("response data from register a business", state.category_id)
+        props.setUser({...props.user, category_id: response.data[0].category_id})
+        console.log("users from register a business", user)
         addBusinessToUser({businessID, user_id:state.user_id})
         
       })

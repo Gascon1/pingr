@@ -23,7 +23,11 @@ export default function SearchForm(props) {
     // console.log(state)
     ev.preventDefault();
     postRequest(state)
-      .then(() => console.log("success"))
+      .then((res) =>  
+      
+      console.log("res", res)
+      
+      )
       .catch(error => console.log(error));
   }
 
