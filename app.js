@@ -18,6 +18,8 @@ const putRequests = require("./routes/put_requests");
 const PostRequests = require("./routes/post_requests");
 const PostUsers = require("./routes/post_users");
 const PostBusinesses = require("./routes/post_businesses");
+const PostServices = require("./routes/post_businesses");
+
 
 const PutUsers = require("./routes/put_users");
 
@@ -50,6 +52,8 @@ app.use("/login", PostLogin);
 app.use("/categories", Categories);
 app.use("/businesses", Business);
 app.use("/businesses", PostBusinesses);
+app.use("/services", PostServices);
+
 
 app.get(
   "/api/active_requests",
@@ -69,7 +73,7 @@ app.post("/api/login", require("./Controllers/post_login.js"));
 app.post("/api/requests", require("./Controllers/post_requests.js"));
 app.post("/api/users", require("./Controllers/post_users.js"));
 app.post("/api/businesses", require("./Controllers/post_businesses.js"));
-
+app.post("/api/services", require("./Controllers/post_services.js"));
 app.put("/api/users", require("./Controllers/put_users.js"));
 app.put("/api/requests", require("./Controllers/put_requests.js"));
 
