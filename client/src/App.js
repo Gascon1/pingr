@@ -17,17 +17,16 @@ import BackButton from "./components/BackButton";
 import MyBusinessServices from "./components/MyBusinessServices";
 import ServiceForm from "./components/ServiceForm";
 import Navbar from "./components/Navbar";
-import jwt_decode from 'jwt-decode'
-
+import jwt_decode from "jwt-decode";
 
 function App() {
   const [user, setUser] = useState(null);
 
-  if (user===null && localStorage.getItem("id_token")) {
+  if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
     let user = jwt_decode(token);
-    console.log("user", user)
-    setUser({...user, user})
+    console.log("user", user);
+    setUser({ ...user, user });
   }
 
   return (
@@ -39,18 +38,18 @@ function App() {
 
           <Switch>
             {!user && (
-              <Route exact path="/">
+              <Route path={"/" || "/register" || "/login"}>
                 <Header userType="loggedOut" />
               </Route>
             )}
             {user && user.business_id !== 1 && (
               <Route>
-                <Header userType="user" />
+                <Header userType="businessOwner" />
               </Route>
             )}
             {user && user.business_id === 1 && (
               <Route>
-                <Header userType="businessOwners" />
+                <Header userType="user" />
               </Route>
             )}
           </Switch>
