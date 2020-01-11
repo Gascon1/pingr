@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 
 module.exports = (req, res) => {
 
+
+
 	//1.check if email exists in db
 	db.query(`SELECT id,first_name, email, password, business_id from users where email = '${req.body.email}'`, (err, result) => {
 		console.log("result.rows", result)
@@ -38,4 +40,5 @@ module.exports = (req, res) => {
 	})
 
 }
+
 
