@@ -30,8 +30,8 @@ export default function BusinessRequestList(props) {
         userName={request.user_name}
         availabilityStartTime={request.availability_start_time}
         availabilityEndTime={request.availability_end_time}
-        maxPrice={request.max_price}
-        businessID={request.business_id}
+        maxPrice={request.request_max_price}
+        businessID={2}
         appointmentStartTime={request.appointment_start_time}
       />
     );

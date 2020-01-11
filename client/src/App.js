@@ -49,13 +49,16 @@ function App() {
             <RequestList view={"history"} />
           </Route>
           <Route path="/searchForm">
-            <SearchForm />
+            <SearchForm serviceView={"searchForm"} />
           </Route>
           <Route path="/registerABusiness">
             <RegisterABusiness />
           </Route>
           <Route path="/business-request-list">
-            <BusinessRequestList view={"businessRequests"} />
+            <BusinessRequestList
+              view={"businessRequests"}
+              serviceView={"businessService"}
+            />
           </Route>
           <Route path="/login">
             <LoginPage />

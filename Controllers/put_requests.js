@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     text: `UPDATE requests SET business_id = $1, service_id = $2, appointment_start_time = $3 WHERE id = $4 RETURNING *`,
     values: [
       req.body.businessID,
-      1,
+      req.body.serviceID,
       req.body.appointmentStartTime2,
       req.body.requestID
     ]
