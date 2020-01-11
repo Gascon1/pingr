@@ -13,6 +13,7 @@ const Categories = require("./routes/get_categories");
 const ActiveRequests = require("./routes/get_active_requests_by_user");
 const ExpiredRequests = require("./routes/get_expired_requests_by_user");
 const PostLogin = require("./routes/post_login");
+const putRequests = require("./routes/put_requests");
 
 const PostRequests = require("./routes/post_requests");
 const PostUsers = require("./routes/post_users");

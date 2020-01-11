@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
@@ -13,71 +13,69 @@ import RegisterABusiness from "./components/RegisterABusiness";
 import BusinessRequestList from "./components/BusinessRequestList";
 import BusinessRequestListItem from "./components/BusinessRequestListItem";
 import Header from "./components/Header";
-import MyBusinessHome from "./components/MyBusinessHome";
-import { UserProvider } from './UserContext'
-
+import { UserProvider } from "./UserContext";
+import BackButton from "./components/BackButton";
+import MyBusinessServices from "./components/MyBusinessServices";
 
 function App() {
-
-
   const [user, setUser] = useState(null);
-  console.log("user", user);  
+  console.log("user", user);
 
   return (
     <Router>
       <UserProvider value={user}>
-      <main className="layout">
-        <BackButton />
-        <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+        <main className="layout">
+          <BackButton />
+          <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
 
-        <Switch>
-          <Route exact path="/">
-            <Header userType="loggedOut" />
-          </Route>
-          {/* <Route>
+          <Switch>
+            <Route exact path="/">
+              <Header userType="loggedOut" />
+            </Route>
+            {/* <Route>
             <Header userType="user" />
           </Route> */}
-          <Route>
-            <Header userType="businessOwner" />
-          </Route>
-        </Switch>
+            <Route>
+              <Header userType="businessOwner" />
+            </Route>
+          </Switch>
 
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route path="/homePage">
-            <HomePage />
-          </Route>
-          <Route path="/requestList">
+          <Switch>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route path="/homePage">
+              <HomePage />
+            </Route>
+            <Route path="/requestList">
               <RequestList view={"active"} />
-          </Route>
-          <Route path="/history">
-            <RequestList view={"history"} />
-          </Route>
-          <Route path="/searchForm">
-            <SearchForm serviceView={"searchForm"} />
-          </Route>
-          <Route path="/registerABusiness">
-            <RegisterABusiness />
-          </Route>
-          <Route path="/business-request-list">
-            <BusinessRequestList
-              view={"businessRequests"}
-              serviceView={"businessService"}
-            />
-          </Route>
-          <Route path="/login">
-            <LoginPage setUser = {setUser}/>
-          </Route>
-          <Route path="/register">
-            <RegisterPage setUser = {setUser} />
-          </Route>
-          <Route path="/myBusinessServices">
-            <MyBusinessServices />
-          </Route>
-        </Switch>
-      </main>
+            </Route>
+            <Route path="/history">
+              <RequestList view={"history"} />
+            </Route>
+            <Route path="/searchForm">
+              <SearchForm serviceView={"searchForm"} />
+            </Route>
+            <Route path="/registerABusiness">
+              <RegisterABusiness />
+            </Route>
+            <Route path="/business-request-list">
+              <BusinessRequestList
+                view={"businessRequests"}
+                serviceView={"businessService"}
+              />
+            </Route>
+            <Route path="/login">
+              <LoginPage setUser={setUser} />
+            </Route>
+            <Route path="/register">
+              <RegisterPage setUser={setUser} />
+            </Route>
+            <Route path="/myBusinessServices">
+              <MyBusinessServices />
+            </Route>
+          </Switch>
+        </main>
       </UserProvider>
     </Router>
   );
