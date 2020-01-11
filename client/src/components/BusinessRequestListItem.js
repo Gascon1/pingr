@@ -58,7 +58,9 @@ export default function BusinessRequestListItem(props) {
     console.log(ev);
     console.log(state);
     putRequest(state)
-      .then(() => console.log("success"))
+      .then(() => {
+        props.webSocket.send("fetchRequestList")
+      })
       .catch(error => console.log("error"));
   };
 

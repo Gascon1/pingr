@@ -6,8 +6,27 @@
 
 var app = require("../app");
 var debug = require("debug")("pingr:server");
-var http = require("http");
+const server = require("http").Server(app);
 
+
+const WebSocket = require("ws");
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", socket => {
+  socket.onmessage = event => {
+    console.log(`Message Received from Front-End: ${event.data}`);
+
+    if (event.data === "ping") {
+      socket.send(JSON.stringify("pong"));
+    }
+
+    if (event.data === "fetchRequestList") {
+      wss.clients.forEach(function eachClient(client) {
+        client.send("fetchRequestList");
+      })
+    }
+  };
+});
 /**
  * Get port from environment and store in Express.
  */
@@ -19,7 +38,6 @@ app.set("port", port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.

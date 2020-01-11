@@ -1,7 +1,6 @@
 const db = require("./db.js");
 
 module.exports = (req, res) => {
-  console.log("query", req.query.view);
   if (req.query.view === "active") {
     query = `SELECT requests.id AS request_id, requests.request_service_name AS request_service_name, requests.max_price AS request_max_price, businesses.name AS business_name, businesses.address AS business_address, businesses.phone AS business_phone_number, categories.name AS category, services.name AS service, services.transaction_price AS transaction_price, services.duration AS duration, statuses.name AS status, requests.appointment_start_time, requests.appointment_end_time, requests.availability_start_time AS availability_start_time, requests.availability_end_time AS availability_end_time 
     FROM requests 
@@ -28,12 +27,13 @@ module.exports = (req, res) => {
     JOIN categories ON categories.id = category_id
     JOIN users ON users.id = user_id
     FULL OUTER JOIN services ON services.id = service_id
-    WHERE status_id = 1 AND requests.category_id = $1 ;`,
+    WHERE status_id = 1 AND requests.category_id = $1;`,
       values: [req.query.categoryID]
     };
   } else {
     query = `SELECT *
-		FROM requests;`;
+    FROM requests
+    ORDER BY requests.id;`;
   }
 
   db.query(query, (err, result) => {
