@@ -28,6 +28,7 @@ export default function(props) {
   const list = state.map(request => {
     return (
       <ActiveRequestsItem
+        key={request.id}
         category={request.category}
         service={request.service}
         status={request.status}

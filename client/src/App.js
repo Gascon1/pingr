@@ -10,7 +10,8 @@ import RequestList from "./components/RequestList";
 import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
-import MyBusiness from "./components/MyBusiness";
+import BusinessRequestList from "./components/BusinessRequestList";
+import BusinessRequestListItem from "./components/BusinessRequestListItem";
 import Header from "./components/Header";
 import MyBusinessHome from "./components/MyBusinessHome";
 import { UserProvider } from './UserContext'
@@ -33,13 +34,13 @@ function App() {
           <Route exact path="/">
             <Header userType="loggedOut" />
           </Route>
-          <Route>
+          {/* <Route>
             <Header userType="user" />
+          </Route> */}
+          <Route>
+            <Header userType="businessOwner" />
           </Route>
         </Switch>
-        <Route>
-          <Header userType="businessOwner" />
-        </Route>
 
         <Switch>
           <Route exact path="/">
@@ -55,13 +56,16 @@ function App() {
             <RequestList view={"history"} />
           </Route>
           <Route path="/searchForm">
-            <SearchForm />
+            <SearchForm serviceView={"searchForm"} />
           </Route>
           <Route path="/registerABusiness">
             <RegisterABusiness />
           </Route>
-          <Route path="/myBusiness">
-            <MyBusiness />
+          <Route path="/business-request-list">
+            <BusinessRequestList
+              view={"businessRequests"}
+              serviceView={"businessService"}
+            />
           </Route>
           <Route path="/login">
             <LoginPage setUser = {setUser}/>
