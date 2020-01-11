@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import ActiveRequestsItem from "./ActiveRequestsItem";
 import "./RequestList.scss";
+import UserContext from '../UserContext'
+
 
 export default function(props) {
   const [state, setState] = useState([]);
-  console.log("props", props.view);
+  const user = useContext(UserContext)
+
+  console.log("user", user);
   useEffect(() => {
-    axios
-      .get(`http://localhost:8001/api/requests`, {
-        params: { view: props.view }
-      })
-      .then(response => {
-        console.log("this is response.data", response.data);
-        return setState(response.data);
-      });
-    console.log(state);
-  }, [props.view]);
+    if (user){
+      axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: { 
+            view: props.view,
+            user_id: user.user_id
+           }
+        })
+        .then(response => {
+          return setState(response.data);
+        });      
+    }
+  }, [user]);
 
   const list = state.map(request => {
     return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
@@ -12,12 +12,19 @@ import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
 import MyBusiness from "./components/MyBusiness";
 import Header from "./components/Header";
-import MyBusinessServices from "./components/MyBusinessServices";
-import BackButton from "./components/BackButton";
+import MyBusinessHome from "./components/MyBusinessHome";
+import { UserProvider } from './UserContext'
+
 
 function App() {
+
+
+  const [user, setUser] = useState(null);
+  console.log("user", user);  
+
   return (
     <Router>
+      <UserProvider value={user}>
       <main className="layout">
         <BackButton />
         <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
@@ -42,7 +49,7 @@ function App() {
             <HomePage />
           </Route>
           <Route path="/requestList">
-            <RequestList view={"active"} />
+              <RequestList view={"active"} />
           </Route>
           <Route path="/history">
             <RequestList view={"history"} />
@@ -57,16 +64,17 @@ function App() {
             <MyBusiness />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginPage setUser = {setUser}/>
           </Route>
           <Route path="/register">
-            <RegisterPage />
+            <RegisterPage setUser = {setUser} />
           </Route>
           <Route path="/myBusinessServices">
             <MyBusinessServices />
           </Route>
         </Switch>
       </main>
+      </UserProvider>
     </Router>
   );
 }

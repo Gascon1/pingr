@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
+import jwt_decode from 'jwt-decode';
+import { withRouter } from "react-router-dom";
 
-export default function RegisterPage(props) {
+
+const RegisterPage = function (props) {
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -19,7 +22,17 @@ export default function RegisterPage(props) {
     // console.log(state)
     ev.preventDefault();
     registerUser(state)
-      .then(() => console.log("success"))
+      .then(res =>{
+        if(res.data.error_message) {
+          console.log("invalid credentials")
+        }
+        if (res.data.token) {
+          localStorage.setItem("id_token", res.data.token);
+          let user = jwt_decode(res.data.token);
+          props.setUser(user);
+          props.history.push('/')
+        }
+      })
       .catch(error => console.log("error"));
   }
 
@@ -78,3 +91,5 @@ export default function RegisterPage(props) {
     </div>
   );
 }
+
+export default withRouter(RegisterPage)
