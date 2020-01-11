@@ -17,10 +17,18 @@ import BackButton from "./components/BackButton";
 import MyBusinessServices from "./components/MyBusinessServices";
 import ServiceForm from "./components/ServiceForm";
 import Navbar from "./components/Navbar";
+import jwt_decode from 'jwt-decode'
+
 
 function App() {
   const [user, setUser] = useState(null);
-  console.log("user", user);
+
+  if (user===null && localStorage.getItem("id_token")) {
+    let token = localStorage.getItem("id_token");
+    let user = jwt_decode(token);
+    console.log("user", user)
+    setUser({...user, user})
+  }
 
   return (
     <Router>
