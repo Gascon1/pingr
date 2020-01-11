@@ -8,16 +8,14 @@ export default function SearchForm(props) {
     category: "",
     categoryID: "",
     services: [],
-    service:"",
+    service: "",
     requestStartTime: "",
     requestEndTime: "",
     maxPrice: null,
-    user:1,
+    user: 1
   });
 
-
-  
-  const postRequest = function (newRequest) {
+  const postRequest = function(newRequest) {
     return axios.post(`http://localhost:8001/api/requests`, newRequest);
   };
 
@@ -26,7 +24,7 @@ export default function SearchForm(props) {
     ev.preventDefault();
     postRequest(state)
       .then(() => console.log("success"))
-      .catch(error => console.log("error"));
+      .catch(error => console.log(error));
   }
 
   return (
@@ -37,8 +35,11 @@ export default function SearchForm(props) {
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Category</label>
-          <Dropdown list={"categoryList"}
-            setDropdown={(category, categoryID, services) => setState({ ...state, category, categoryID, services })}
+          <Dropdown
+            list={"categoryList"}
+            setDropdown={(category, categoryID, services) =>
+              setState({ ...state, category, categoryID, services })
+            }
             services={state.services}
           />
 
@@ -47,7 +48,7 @@ export default function SearchForm(props) {
             categoryID={state.categoryID}
             list={"serviceList"}
             services={state.services}
-            setService={(service) => setState({...state, service})}
+            setService={service => setState({ ...state, service })}
           />
 
           <label>Start Time</label>
