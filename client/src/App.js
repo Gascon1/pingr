@@ -40,41 +40,54 @@ function App() {
           </Switch>
 
           <Switch>
+
             <Route exact path="/">
               <LandingPage />
             </Route>
+
+            <Route path="/register">
+              
+              <RegisterPage setUser={setUser} />
+            </Route>
+
+            <Route path="/login">
+              <LoginPage setUser={setUser} />
+            </Route>
+
             <Route path="/homePage">
               <HomePage />
             </Route>
+
             <Route path="/requestList">
               <RequestList view={"active"} />
             </Route>
+
             <Route path="/history">
               <RequestList view={"history"} />
             </Route>
+
             <Route path="/searchForm">
               <SearchForm serviceView={"searchForm"} />
             </Route>
-            <Route path="/registerABusiness">
+
+            <Route path="/registerABusiness"> 
               <RegisterABusiness />
             </Route>
+
             <Route path="/business-request-list">
               <BusinessRequestList
                 view={"businessRequests"}
                 serviceView={"businessService"}
               />
             </Route>
-            <Route path="/login">
-              <LoginPage setUser={setUser} />
-            </Route>
-            <Route path="/register">
-              <RegisterPage setUser={setUser} />
-            </Route>
+
             <Route path="/myBusinessServices">
               <MyBusinessServices />
             </Route>
+
           </Switch>
-        </main>
+
+        </main >
       </UserProvider>
     </Router>
   );

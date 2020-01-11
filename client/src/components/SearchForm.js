@@ -41,6 +41,7 @@ export default function SearchForm(props) {
               setState({ ...state, category, categoryID, services })
             }
             services={state.services}
+            serviceView={"searchForm"}
           />
 
           <label>Service</label>
