@@ -7,7 +7,6 @@ import RegisterPage from "./components/RegisterPage";
 import HomePage from "./components/HomePage";
 import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
-import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
 import BusinessRequestList from "./components/BusinessRequestList";

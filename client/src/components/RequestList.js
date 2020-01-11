@@ -9,7 +9,6 @@ export default function(props) {
   const [state, setState] = useState([]);
   const user = useContext(UserContext)
 
-  console.log("user", user);
   useEffect(() => {
     if (user){
       axios
