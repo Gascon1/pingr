@@ -47,6 +47,7 @@ function App() {
             </Route>
 
             <Route path="/register">
+              
               <RegisterPage setUser={setUser} />
             </Route>
 
