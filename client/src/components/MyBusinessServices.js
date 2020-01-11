@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import "./MyBusinessServices.scss";
 
 export default function MyBusinessServices(props) {

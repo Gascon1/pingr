@@ -7,7 +7,6 @@ import RegisterPage from "./components/RegisterPage";
 import HomePage from "./components/HomePage";
 import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
-import useVisualMode from "./hooks/useVisualMode";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
 import BusinessRequestList from "./components/BusinessRequestList";
@@ -16,6 +15,7 @@ import Header from "./components/Header";
 import { UserProvider } from "./UserContext";
 import BackButton from "./components/BackButton";
 import MyBusinessServices from "./components/MyBusinessServices";
+import ServiceForm from "./components/ServiceForm";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -73,6 +73,9 @@ function App() {
             </Route>
             <Route path="/myBusinessServices">
               <MyBusinessServices />
+            </Route>
+            <Route path="/service-form">
+              <ServiceForm />
             </Route>
           </Switch>
         </main>
