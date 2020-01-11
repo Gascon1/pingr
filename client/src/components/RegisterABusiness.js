@@ -45,11 +45,13 @@ export default function RegisterPage(props) {
         //   "this is the user",
         //   user
         // );
-        addBusinessToUser({ businessID, user_id: state.user_id });
+        addBusinessToUser({ businessID, user_id: state.user_id }).then(() =>
+          history.push("/homePage")
+        );
       })
       .catch(error => console.log("error", error));
   }
-
+  console.log("HELLO");
   return (
     <div className="layout-padding">
       <form autoComplete="off" onSubmit={event => onSave(event)}>
