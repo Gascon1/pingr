@@ -14,9 +14,9 @@ module.exports = (req, res) => {
 		
 	}
 	let query = {
-		text:`INSERT INTO users (first_name, last_name, phone, email, password)
-	VALUES ($1, $2, $3, $4, $5) RETURNING id;`,
-	values: [sanitize(req.body.first_name) , sanitize(req.body.last_name), sanitize(req.body.phone), sanitize(req.body.email), sanitize(bcrypt.hashSync(req.body.password, 10))]
+		text:`INSERT INTO users (first_name, last_name, phone, email, password, business_id)
+	VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;`,
+	values: [sanitize(req.body.first_name) , sanitize(req.body.last_name), sanitize(req.body.phone), sanitize(req.body.email), sanitize(bcrypt.hashSync(req.body.password, 10)),1]
 }
 	console.log("req.body", req.body.first_name);
 	db.query(query, (err, result) => {
@@ -29,7 +29,7 @@ module.exports = (req, res) => {
 				first_name: req.body.first_name,
 				email: req.body.email,
 				user_id:result.rows[0].id,
-				business_id: null
+				business_id: 1
 			}
 			let token = jwt.sign(user, process.env.SECRET)
 			res.status(200).json({

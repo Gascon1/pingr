@@ -29,9 +29,6 @@ export default function SearchForm(props) {
 
   return (
     <div className="layout-padding">
-      {/* <div className="logo">
-        <img src={logo} />
-      </div> */}
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">
           <label>Category</label>

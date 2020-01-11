@@ -15,6 +15,8 @@ import Header from "./components/Header";
 import { UserProvider } from "./UserContext";
 import BackButton from "./components/BackButton";
 import MyBusinessServices from "./components/MyBusinessServices";
+import ServiceForm from "./components/ServiceForm";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -84,7 +86,15 @@ function App() {
             <Route path="/myBusinessServices">
               <MyBusinessServices />
             </Route>
+            <Route path="/service-form">
+              <ServiceForm />
+            </Route>
+          </Switch>
 
+          <Switch>
+            <Route path="/navbar">
+              <Navbar />
+            </Route>
           </Switch>
 
         </main >
