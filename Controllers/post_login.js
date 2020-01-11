@@ -8,8 +8,13 @@ module.exports = (req, res) => {
 
 
 	//1.check if email exists in db
-	db.query(`SELECT id,first_name, email, password, business_id from users where email = '${req.body.email}'`, (err, result) => {
-		console.log("result.rows", result)
+	db.query(`SELECT users.id,users.first_name,users.email,users.password,users.business_id,categories.id
+			  FROM users
+			  FULL OUTER JOIN businesses
+			  ON users.business_id = businesses.id
+			  FULL OUTER JOIN categories
+			  ON businesses.category_id = categories.id
+			  WHERE users.email = '${req.body.email}' `, (err, result) => {
 
 		if (result.rows.length === 0) {
 			res.send({
@@ -22,7 +27,8 @@ module.exports = (req, res) => {
 					first_name: result.rows[0].first_name,
 					email: result.rows[0].email,
 					user_id:result.rows[0].id,
-					business_id:result.rows[0].business_id
+					business_id:result.rows[0].business_id,
+					categories_id:result.rows[0].categories_id || null 
 				}
 				if (match===true) {
 					let token = jwt.sign(user, process.env.SECRET)
