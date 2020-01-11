@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./LoginPage.scss";
 import logo from "../pingr-logo.png";
 import axios from "axios";
-import { Link, withRouter } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
+import { Link, withRouter, useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
+const LoginPage = function(props) {
+  let history = useHistory();
 
-const LoginPage = function (props) {
   const [state, setState] = useState({
     email: "",
     password: ""
@@ -20,15 +21,15 @@ const LoginPage = function (props) {
     ev.preventDefault();
     login(state)
       .then(res => {
-        if(res.data.error_message) {
-          console.log("invalid credentials")
+        if (res.data.error_message) {
+          console.log("invalid credentials");
         }
         if (res.data.token) {
-          console.log("inside res.token")
+          console.log("inside res.token");
           localStorage.setItem("id_token", res.data.token);
           let user = jwt_decode(res.data.token);
           props.setUser(user);
-          props.history.push('/')
+          history.push("/homepage");
         }
       })
       .catch(error => console.log("error"));
@@ -63,6 +64,6 @@ const LoginPage = function (props) {
       </form>
     </div>
   );
-}
+};
 
-export default withRouter(LoginPage)
+export default withRouter(LoginPage);

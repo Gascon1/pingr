@@ -42,13 +42,11 @@ function App() {
           </Switch>
 
           <Switch>
-
             <Route exact path="/">
               <LandingPage />
             </Route>
 
             <Route path="/register">
-              
               <RegisterPage setUser={setUser} />
             </Route>
 
@@ -72,8 +70,8 @@ function App() {
               <SearchForm serviceView={"searchForm"} />
             </Route>
 
-            <Route path="/registerABusiness"> 
-              <RegisterABusiness />
+            <Route path="/registerABusiness">
+              <RegisterABusiness setUser={setUser} serviceView={"searchForm"} />
             </Route>
 
             <Route path="/business-request-list">
@@ -96,8 +94,7 @@ function App() {
               <Navbar />
             </Route>
           </Switch>
-
-        </main >
+        </main>
       </UserProvider>
     </Router>
   );
