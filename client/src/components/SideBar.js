@@ -15,7 +15,7 @@ export default function SideBar(props) {
           Hello, {user ? user.first_name : "not logged in user"}
         </span>
         <Link to="/myBusiness" className="menu-item text">
-          My Business (Could write business name)
+          {user ? user.business_id : "this user has no business"}
         </Link>
         <hr />
       </div>
@@ -24,9 +24,11 @@ export default function SideBar(props) {
       </Link>
       <a className="menu-item">Payment method</a>
 
-      <Link to="/registerABusiness" className="menu-item">
-        Register a business
-      </Link>
+      {!(user && user.business_id !== 1) && (
+        <Link to="/registerABusiness" className="menu-item">
+          Register a business
+        </Link>
+      )}
       <a className="menu-item">Settings</a>
     </Menu>
   );

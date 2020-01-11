@@ -12,7 +12,7 @@ export default function Header(props) {
       {/* make this conditional rendering with user auth */}
       {props.userType === "user" && (
         <div className="user-menu">
-          <Link to="/">
+          <Link to="/homePage">
             <i className="fas fa-home user-menu-button"></i>
           </Link>
           <Link to="/requestList">
@@ -25,7 +25,7 @@ export default function Header(props) {
       )}
       {props.userType === "businessOwner" && (
         <div className="user-menu">
-          <Link to="/">
+          <Link to="/business-request-list">
             <i className="fas fa-home user-menu-button"></i>
           </Link>
           <Link to="/myBusinessServices">

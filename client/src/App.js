@@ -38,25 +38,29 @@ function App() {
           <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
 
           <Switch>
-            <Route exact path="/">
-              <Header userType="loggedOut" />
-            </Route>
-            {/* <Route>
-            <Header userType="user" />
-          </Route> */}
-            <Route>
-              <Header userType="businessOwner" />
-            </Route>
+            {!user && (
+              <Route exact path="/">
+                <Header userType="loggedOut" />
+              </Route>
+            )}
+            {user && user.business_id !== 1 && (
+              <Route>
+                <Header userType="user" />
+              </Route>
+            )}
+            {user && user.business_id === 1 && (
+              <Route>
+                <Header userType="businessOwners" />
+              </Route>
+            )}
           </Switch>
 
           <Switch>
-
             <Route exact path="/">
               <LandingPage />
             </Route>
 
             <Route path="/register">
-              
               <RegisterPage setUser={setUser} />
             </Route>
 
@@ -80,8 +84,8 @@ function App() {
               <SearchForm serviceView={"searchForm"} />
             </Route>
 
-            <Route path="/registerABusiness"> 
-              <RegisterABusiness />
+            <Route path="/registerABusiness">
+              <RegisterABusiness setUser={setUser} serviceView={"searchForm"} />
             </Route>
 
             <Route path="/business-request-list">
@@ -104,8 +108,7 @@ function App() {
               <Navbar />
             </Route>
           </Switch>
-
-        </main >
+        </main>
       </UserProvider>
     </Router>
   );
