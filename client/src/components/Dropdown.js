@@ -30,6 +30,7 @@ export default function Dropdown(props) {
 
   return (
     <select
+      defaultValue="Choose category"
       className="dropdown -confirmed-time"
       onChange={
         props.list === "categoryList"

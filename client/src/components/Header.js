@@ -29,7 +29,7 @@ export default function Header(props) {
             <i className="fas fa-home user-menu-button"></i>
           </Link>
           <Link to="/myBusinessServices">
-            <i class="far fa-list-alt user-menu-button"></i>
+            <i className="far fa-list-alt user-menu-button"></i>
           </Link>
           <Link to="/history">
             <i className="fas fa-history user-menu-button"></i>
