@@ -5,16 +5,17 @@ import Dropdown from "./Dropdown";
 
 export default function ServiceFrom(props) {
   const [state, setState] = useState({
-    category: "",
-    categoryID: "",
     serviceName: "",
+    category: "",
+    businessID: props.businessID,
+    categoryID: "",
     serviceDescription: "",
     servicePrice: "",
     serviceDuration: ""
   });
 
-  const postService = function(newRequest) {
-    return axios.post(`http://localhost:8001/api/services`, newRequest);
+  const postService = function(postParams) {
+    return axios.post(`http://localhost:8001/api/services`, postParams);
   };
 
   function onSave(ev) {
@@ -34,15 +35,43 @@ export default function ServiceFrom(props) {
           </div>
           <div className="new-service-inner-container">
             <label>Service Name</label>
-            <input type="text" className="input-field" onChange="" />
+            <input
+              type="text"
+              className="input-field"
+              value={state.serviceName}
+              onChange={event =>
+                setState({ ...state, serviceName: event.target.value })
+              }
+            />
 
             <label>Service Description</label>
-            <input type="text" className="input-field" onChange="" />
+            <input
+              type="text"
+              className="input-field"
+              value={state.serviceDescription}
+              onChange={event =>
+                setState({ ...state, serviceDescription: event.target.value })
+              }
+            />
             <label>Service Price</label>
-            <input type="number" className="input-field" onChange="" />
+            <input
+              type="number"
+              className="input-field"
+              value={state.servicePrice}
+              onChange={event =>
+                setState({ ...state, servicePrice: event.target.value })
+              }
+            />
 
             <label>Service Duration</label>
-            <input type="number" className="input-field" onChange="" />
+            <input
+              type="number"
+              className="input-field"
+              value={state.serviceDuration}
+              onChange={event =>
+                setState({ ...state, serviceDuration: event.target.value })
+              }
+            />
             <button className="login-register-button login">
               CREATE SERVICE
             </button>
