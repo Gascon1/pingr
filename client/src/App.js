@@ -30,15 +30,21 @@ function App() {
           <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
 
           <Switch>
-            <Route exact path="/">
-              <Header userType="loggedOut" />
-            </Route>
-            {/* <Route>
-            <Header userType="user" />
-          </Route> */}
-            <Route>
-              <Header userType="businessOwner" />
-            </Route>
+            {!user && (
+              <Route exact path="/">
+                <Header userType="loggedOut" />
+              </Route>
+            )}
+            {user && user.business_id !== 1 && (
+              <Route>
+                <Header userType="user" />
+              </Route>
+            )}
+            {user && user.business_id === 1 && (
+              <Route>
+                <Header userType="businessOwners" />
+              </Route>
+            )}
           </Switch>
 
           <Switch>
