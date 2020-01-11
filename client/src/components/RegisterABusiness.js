@@ -51,7 +51,7 @@ export default function RegisterPage(props) {
       })
       .catch(error => console.log("error", error));
   }
-
+  console.log("HELLO");
   return (
     <div className="layout-padding">
       <form autoComplete="off" onSubmit={event => onSave(event)}>
