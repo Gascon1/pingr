@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./BusinessRequestList.scss";
 import axios from "axios";
 import BusinessRequestListItem from "./BusinessRequestListItem";
+const webSocket = new WebSocket("ws://localhost:8001")
 
 export default function BusinessRequestList(props) {
   const [state, setState] = useState([]);
@@ -12,14 +13,35 @@ export default function BusinessRequestList(props) {
         params: { view: props.view, categoryID: 1 }
       })
       .then(response => {
-        // console.log("this is what im looking at OOO", response.data);
         return setState(response.data);
       });
-    console.log(state);
+
+
+
+    webSocket.onopen = function (event) {
+      webSocket.send("ping");
+      console.log("open connection:", event.data)
+
+    };
+
+    webSocket.onmessage = function (event) {
+      console.log("BAABABABABABAB", event.data)
+
+      if (event.data === "fetchRequestList") {
+        axios
+          .get(`http://localhost:8001/api/requests`, {
+            params: { view: props.view, categoryID: 1 }
+          })
+          .then(response => {
+            return setState(response.data);
+          });
+      }
+
+    }
+
   }, []);
 
-  const list = state.map(request => {
-    console.log(request);
+  const list = state.filter((request) => !request.service_id).map(request => {
     return (
       <BusinessRequestListItem
         key={request.request_id}
@@ -33,6 +55,7 @@ export default function BusinessRequestList(props) {
         maxPrice={request.request_max_price}
         businessID={2}
         appointmentStartTime={request.appointment_start_time}
+        webSocket={webSocket}
       />
     );
   });
