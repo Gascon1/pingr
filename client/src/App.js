@@ -18,105 +18,115 @@ import MyBusinessServices from "./components/MyBusinessServices";
 import ServiceForm from "./components/ServiceForm";
 import Navbar from "./components/Navbar";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 function App() {
   const [user, setUser] = useState(null);
 
+
+
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
-    let user = jwt_decode(token);
-    console.log("user", user);
-    setUser({ ...user, user });
+    console.log("JWT TOKEN", jwt_decode(token))
+    axios.get(`http://localhost:8001/api/users`, { params: { view: "updateContext", user: jwt_decode(token) } })
+    .then((response) => {
+      console.log("THE RESPONSE FOR THE TOK", response.data[0])
+   
+      setUser({ ...user, business_id: response.data[0].business_id });
+
+    })
   }
 
-  return (
-    <Router>
-      <UserProvider value={user}>
-        <main className="layout">
-          {user && <BackButton />}
-          {user && (
-            <SideBar
-              pageWrapId={"page-wrap"}
-              outerContainerId={"App"}
-              setUser={setUser}
-            />
+
+
+return (
+  <Router>
+    <UserProvider value={user}>
+      <main className="layout">
+        {user && <BackButton />}
+        {user && (
+          <SideBar
+            pageWrapId={"page-wrap"}
+            outerContainerId={"App"}
+            setUser={setUser}
+          />
+        )}
+
+        <Switch>
+          {!user && (
+            <Route path={"/" || "/register" || "/login"}>
+              <Header userType="loggedOut" />
+            </Route>
           )}
-
-          <Switch>
-            {!user && (
-              <Route path={"/" || "/register" || "/login"}>
-                <Header userType="loggedOut" />
-              </Route>
-            )}
-            {user && user.business_id !== 1 && (
-              <Route>
-                <Header userType="businessOwner" />
-              </Route>
-            )}
-            {user && user.business_id === 1 && (
-              <Route>
-                <Header userType="user" />
-              </Route>
-            )}
-          </Switch>
-
-          <Switch>
-            <Route exact path="/">
-              <LandingPage />
+          {user && user.business_id !== 1 && (
+            <Route>
+              <Header userType="businessOwner" />
             </Route>
+          )}
+          {user && user.business_id === 1 && (
+            <Route>
+              <Header userType="user" />
+            </Route>
+          )}
+        </Switch>
 
-            <Route path="/register">
-              <RegisterPage setUser={setUser} />
-            </Route>
+        <Switch>
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
 
-            <Route path="/login">
-              <LoginPage setUser={setUser} />
-            </Route>
+          <Route path="/register">
+            <RegisterPage setUser={setUser} />
+          </Route>
 
-            <Route path="/homePage">
-              <HomePage />
-            </Route>
+          <Route path="/login">
+            <LoginPage setUser={setUser} />
+          </Route>
 
-            <Route path="/requestList">
-              <RequestList view={"active"} />
-            </Route>
+          <Route path="/homePage">
+            <HomePage />
+          </Route>
 
-            <Route path="/history">
-              <RequestList view={"history"} />
-            </Route>
+          <Route path="/requestList">
+            <RequestList view={"active"} />
+          </Route>
 
-            <Route path="/searchForm">
-              <SearchForm serviceView={"searchForm"} />
-            </Route>
+          <Route path="/history">
+            <RequestList view={"history"} />
+          </Route>
 
-            <Route path="/registerABusiness">
-              <RegisterABusiness setUser={setUser} serviceView={"searchForm"} />
-            </Route>
+          <Route path="/searchForm">
+            <SearchForm serviceView={"searchForm"} />
+          </Route>
 
-            <Route path="/business-request-list">
-              <BusinessRequestList
-                view={"businessRequests"}
-                serviceView={"businessService"}
-              />
-            </Route>
+          <Route path="/registerABusiness">
+            <RegisterABusiness setUser={setUser} serviceView={"searchForm"} />
+          </Route>
 
-            <Route path="/myBusinessServices">
-              <MyBusinessServices />
-            </Route>
-            <Route path="/service-form">
-              <ServiceForm />
-            </Route>
-          </Switch>
+          <Route path="/business-request-list">
+            <BusinessRequestList
+              view={"businessRequests"}
+              serviceView={"businessService"}
+            />
+          </Route>
 
-          <Switch>
-            <Route path="/navbar">
-              <Navbar />
-            </Route>
-          </Switch>
-        </main>
-      </UserProvider>
-    </Router>
-  );
+          <Route path="/myBusinessServices">
+            <MyBusinessServices />
+          </Route>
+          <Route path="/service-form">
+            <ServiceForm />
+          </Route>
+        </Switch>
+
+        <Switch>
+          <Route path="/navbar">
+            <Navbar />
+          </Route>
+        </Switch>
+      </main>
+    </UserProvider>
+  </Router>
+);
 }
 
 export default App;
