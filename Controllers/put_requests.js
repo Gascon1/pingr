@@ -23,14 +23,14 @@ module.exports = (req, res) => {
       res.send(err);
       console.log("error", err);
     } else {
-      console.log("i am in else");
-      client.messages
-        .create({
-          body: `Update from Pingr:  Your ${req.body.serviceID} has been confirmed for a start time of ${req.body.appointmentStartTime2}`,
-          from: "+19108530024",
-          to: "+15146328762"
-        })
-        .then(message => console.log(message.sid));
+      // console.log("i am in else");
+      // client.messages
+      //   .create({
+      //     body: `Update from Pingr:  Your ${req.body.serviceID} has been confirmed for a start time of ${req.body.appointmentStartTime2}`,
+      //     from: "+19108530024",
+      //     to: "+15146328762"
+      //   })
+      //   .then(message => console.log(message.sid));
       // console.log("result", result);
       res.send(result.rows);
     }

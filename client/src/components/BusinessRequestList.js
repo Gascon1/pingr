@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./BusinessRequestList.scss";
 import axios from "axios";
 import BusinessRequestListItem from "./BusinessRequestListItem";
+import UserContext from "../UserContext";
+
 const webSocket = new WebSocket("ws://localhost:8001")
 
+
 export default function BusinessRequestList(props) {
+
+  const user = useContext(UserContext);
   const [state, setState] = useState([]);
+  console.log("------------------>", user)
 
   useEffect(() => {
     axios
       .get(`http://localhost:8001/api/requests`, {
-        params: { view: props.view, categoryID: 1 }
+        params: { view: props.view, categoryID: user ? user.category_id : 1 }
       })
       .then(response => {
         return setState(response.data);
