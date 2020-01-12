@@ -53,7 +53,7 @@ const LoginPage = function(props) {
           />
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             className="input-field"
             placeholder="password"
             value={state.password}
