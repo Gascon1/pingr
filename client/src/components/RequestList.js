@@ -8,6 +8,7 @@ import UserContext from '../UserContext'
 export default function(props) {
   const [state, setState] = useState([]);
   const user = useContext(UserContext)
+  console.log("state", state);
 
   useEffect(() => {
     if (user){
@@ -29,6 +30,7 @@ export default function(props) {
     return (
       <ActiveRequestsItem
         key={request.id}
+        request_id={request.request_id}
         category={request.category}
         service={request.service}
         status={request.status}
