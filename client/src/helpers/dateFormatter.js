@@ -5,7 +5,8 @@ export function dateFormatter(appointmentDateTime, requestDate, requestTime) {
     month: "short",
     day: "numeric",
     dateStyle: "medium",
-    timeStyle: "short"
+    timeStyle: "short",
+    timeZone: "UTC"
   };
   const formattedApptDateTime = new Date(appointmentDateTime).toLocaleString(
     "en-US",
@@ -17,16 +18,17 @@ export function dateFormatter(appointmentDateTime, requestDate, requestTime) {
     year: "numeric",
     month: "short",
     day: "numeric",
-    dateStyle: "medium"
+    dateStyle: "medium",
+    timeZone: "UTC"
   };
   const formattedReqDate = new Date(requestDate).toLocaleString(
     "en-US",
     reqDateOptions
   );
 
-  const reqTimeOptions = { timeStyle: "short" };
+  const reqTimeOptions = { timeStyle: "short", timeZone: "UTC" };
   const formattedReqTime = new Date(requestTime).toLocaleString(
-    "en-GB",
+    "en-US",
     reqTimeOptions
   );
 

@@ -2,26 +2,25 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import ActiveRequestsItem from "./ActiveRequestsItem";
 import "./RequestList.scss";
-import UserContext from '../UserContext'
-
+import UserContext from "../UserContext";
 
 export default function(props) {
   const [state, setState] = useState([]);
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   useEffect(() => {
-    if (user){
+    if (user) {
       axios
         .get(`http://localhost:8001/api/requests`, {
-          params: { 
+          params: {
             view: props.view,
             user_id: user.user_id
-           }
+          }
         })
         .then(response => {
-          console.log(response.data)
+          console.log(response.data);
           return setState(response.data);
-        });      
+        });
     }
   }, [user]);
 
