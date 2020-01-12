@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   console.log("in PUT REQUESTS req query", req.query);
 
   const query = {
-    text: `UPDATE requests SET business_id = $1, service_id = $2, appointment_start_time = $3 WHERE id = $4 RETURNING *`,
+    text: `UPDATE requests SET status_id = 2,business_id = $1, service_id = $2, appointment_start_time = $3 WHERE id = $4 RETURNING *`,
     values: [
       req.body.businessID,
       req.body.serviceID,
