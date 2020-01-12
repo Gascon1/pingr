@@ -15,7 +15,7 @@ export default function MyBusinessServices(props) {
     axios
       .get(`http://localhost:8001/api/services/`, {
         params: {
-          categoryID: user ? user.categoryID : 2,
+          categoryID: user ? user.category_id : 2,
           view: "myBusinessServices",
           user
         }
