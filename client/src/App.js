@@ -33,7 +33,7 @@ function App() {
       .then(response => {
         console.log("THE RESPONSE FOR THE TOK", response.data[0]);
 
-        setUser({ ...user, business_id: response.data[0].business_id });
+        setUser(response.data[0]);
       });
   }
 
