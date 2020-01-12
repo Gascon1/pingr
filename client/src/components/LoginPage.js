@@ -29,7 +29,9 @@ const LoginPage = function(props) {
           localStorage.setItem("id_token", res.data.token);
           let user = jwt_decode(res.data.token);
           props.setUser(user);
-          history.push("/homepage");
+          user.business_id === 1
+            ? history.push("/homepage")
+            : history.push("/business-request-list");
         }
       })
       .catch(error => console.log("error"));
