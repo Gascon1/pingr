@@ -27,7 +27,7 @@ export default function ServiceFrom(props) {
     // console.log(state)
     ev.preventDefault();
     postService(state)
-      .then(() => history.push("/business-request-list"))
+      .then(() => history.push("/mybusinessservices"))
       .catch(error => console.log(error));
   }
 

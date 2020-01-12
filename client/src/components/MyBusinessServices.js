@@ -9,7 +9,9 @@ export default function MyBusinessServices(props) {
   let history = useHistory();
 
   const user = useContext(UserContext);
-  const [state, setState] = useState([]);
+  const [state, setState] = useState({
+    services: []
+  });
 
   useEffect(() => {
     axios
@@ -22,11 +24,12 @@ export default function MyBusinessServices(props) {
       })
       .then(response => {
         console.log(response.data);
-        return setState(response.data);
+        return setState({ ...state, services: response.data });
       });
-  }, []);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", state);
+  }, [state.services]);
 
-  const list = state.map(service => {
+  const list = state.services.map(service => {
     return (
       <MyBusinessServicesItem
         key={service.id}
