@@ -8,5 +8,5 @@ CREATE TABLE services (
   category_id INTEGER REFERENCES categories(id) NOT NULL,
   description VARCHAR(255) NOT NULL,
   transaction_price DECIMAL(6,2) NOT NULL,
-  duration DECIMAL(6,2) NOT NULL
+  duration DECIMAL(6) NOT NULL
 );

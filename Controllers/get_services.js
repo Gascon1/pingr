@@ -17,8 +17,12 @@ module.exports = (req, res) => {
 			ORDER BY services.transaction_price DESC
 			LIMIT 1;`),
       console.log("THIS IS THE QUERY", query);
+  } else if (req.query.view === "myBusinessServices") {
+    query = `SELECT * FROM services WHERE business_id = ${
+      JSON.parse(req.query.user).business_id
+    };`;
   } else {
-    query = `SELECT * FROM services;`
+    query = `SELECT * FROM services;`;
   }
   db.query(query, (err, result) => {
     if (err) {
