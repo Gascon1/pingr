@@ -6,7 +6,7 @@ export default function ActiveRequestsItem(props) {
   const requestClass = `request-status text -${props.status}`;
 
   return (
-    <div className="request">
+    <div>
       <div className="request-item">
         <div className="request-inner-container">
           <div className="card-header">

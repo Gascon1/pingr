@@ -39,7 +39,7 @@ export default function MyBusinessServices(props) {
   });
 
   return (
-    <div>
+    <div className="request">
       <button
         className="login-register-button -confirmed add-a-service"
         onClick={() => history.push("/service-form")}
