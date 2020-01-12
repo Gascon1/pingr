@@ -35,21 +35,16 @@ export default function RegisterPage(props) {
     ev.preventDefault();
     registerBusiness(state)
       .then(response => {
+        console.log("RESSSSPONSE", response.data[0])
         const businessID = response.data[0].id;
         setState({ ...state, business_id: businessID });
 
-        props.setUser({ ...user, category_id: state.category_id });
-        // console.log(
-        //   "this is the category id",
-        //   state.category_id,
-        //   "this is the user",
-        //   user
-        // );
+        props.setUser({ ...user,business_id: businessID, category_id: state.category_id });
+   
         addBusinessToUser({ businessID, user_id: state.user_id });
       })
       .catch(error => console.log("error", error));
   }
-  console.log("HELLO");
   return (
     <div className="layout-padding">
       <form autoComplete="off" onSubmit={event => onSave(event)}>
