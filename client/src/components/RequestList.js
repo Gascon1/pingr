@@ -19,6 +19,7 @@ export default function(props) {
            }
         })
         .then(response => {
+          console.log(response.data)
           return setState(response.data);
         });      
     }

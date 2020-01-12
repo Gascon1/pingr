@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./BusinessRequestListItem.scss";
 import "./ActiveRequestsItem.scss";
 import Dropdown from "./Dropdown";
 import { dateFormatter } from "../helpers/dateFormatter";
+import UserContext from '../UserContext'
 
 export default function BusinessRequestListItem(props) {
-  console.log(props.requestID);
+  const user = useContext(UserContext)
 
   const [state, setState] = useState({
     requestID: props.requestID,
-    businessID: props.businessID,
+    businessID: user.business_id,
     serviceID: "",
     appointmentStartTime: dateFormatter(
       null,
@@ -38,7 +39,7 @@ export default function BusinessRequestListItem(props) {
         axios.get(`http://localhost:8001/api/services`, {
           params: {
             view: "businessService",
-            businessID: props.businessID,
+            businessID: user.business_id,
             maxPrice: props.maxPrice,
             serviceName: props.service
           }
