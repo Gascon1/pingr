@@ -12,7 +12,7 @@ export default function ServiceFrom(props) {
     category: "",
     businessID: props.businessID,
     categoryID: props.categoryID,
-    serviceDescription: "",
+    serviceDescription: "no description",
     servicePrice: "",
     serviceDuration: ""
   });
@@ -36,7 +36,7 @@ export default function ServiceFrom(props) {
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="request-item">
           <div className="request-item-header">
-            <span className="request-item-category text">My Category</span>
+            <span className="request-item-category text">New Service</span>
           </div>
           <div className="new-service-inner-container">
             <label>Service Name</label>
@@ -46,16 +46,6 @@ export default function ServiceFrom(props) {
               value={state.serviceName}
               onChange={event =>
                 setState({ ...state, serviceName: event.target.value })
-              }
-            />
-
-            <label>Service Description</label>
-            <input
-              type="text"
-              className="input-field"
-              value={state.serviceDescription}
-              onChange={event =>
-                setState({ ...state, serviceDescription: event.target.value })
               }
             />
             <label>Service Price</label>
