@@ -9,7 +9,7 @@ export function dateFormatter(appointmentDateTime, requestDate, requestTime) {
     timeZone: "UTC"
   };
   const formattedApptDateTime = new Date(appointmentDateTime).toLocaleString(
-    "en-US",
+    "en-GB",
     apptDateTimeOptions
   );
 
@@ -22,13 +22,13 @@ export function dateFormatter(appointmentDateTime, requestDate, requestTime) {
     timeZone: "UTC"
   };
   const formattedReqDate = new Date(requestDate).toLocaleString(
-    "en-US",
+    "en-GB",
     reqDateOptions
   );
 
   const reqTimeOptions = { timeStyle: "short", timeZone: "UTC" };
   const formattedReqTime = new Date(requestTime).toLocaleString(
-    "en-US",
+    "en-GB",
     reqTimeOptions
   );
 
