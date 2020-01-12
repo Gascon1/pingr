@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
@@ -28,6 +28,8 @@ function App() {
     console.log("user", user);
     setUser({ ...user, user });
   }
+
+  console.log(user);
 
   return (
     <Router>
@@ -104,7 +106,11 @@ function App() {
               <MyBusinessServices />
             </Route>
             <Route path="/service-form">
-              <ServiceForm />
+              {/* this is hardcoded, change it to user.business_id and user.category_id */}
+              <ServiceForm
+                businessID={13}
+                categoryID={user ? user.category_id : 2}
+              />
             </Route>
           </Switch>
 

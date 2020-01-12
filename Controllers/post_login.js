@@ -28,7 +28,7 @@ module.exports = (req, res) => {
               email: result.rows[0].email,
               user_id: result.rows[0].id,
               business_id: result.rows[0].business_id,
-              categories_id: result.rows[0].category_id || null
+              category_id: result.rows[0].category_id || null
             };
             if (match === true) {
               let token = jwt.sign(user, process.env.SECRET);
