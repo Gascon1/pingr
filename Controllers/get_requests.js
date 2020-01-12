@@ -29,7 +29,7 @@ module.exports = (req, res) => {
     FULL OUTER JOIN services ON services.id = service_id
     WHERE status_id = 1 AND requests.category_id = $1;`,
       values: [req.query.categoryID]
-    };
+    }
   } else {
     query = `SELECT *
     FROM requests

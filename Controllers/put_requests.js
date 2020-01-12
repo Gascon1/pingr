@@ -1,4 +1,10 @@
 const db = require("./db.js");
+const accountSid = 'AC68f2ae1e8f10fb83bb051d3e21507867';
+const authToken = 'aaa05eeb1de3ca87ec1dcaa894899ddde';
+
+var twilio = require('twilio');
+var client = new twilio(accountSid, authToken);
+
 
 module.exports = (req, res) => {
   console.log("in PUT REQUESTS req body", req.body);
@@ -16,10 +22,18 @@ module.exports = (req, res) => {
   };
 
   db.query(query, (err, result) => {
+    console.log("hello")
     if (err) {
       res.send(err);
       console.log("error", err);
     } else {
+      client.messages
+      .create({
+        body: `Update from Pingr:  Your ${req.body.serviceID} has been confirmed for a start time of ${req.body.appointmentStartTime2}`,
+        from: '+12052776115',
+        to: '+13065307801'
+    })
+    .then((message) => console.log(message.sid));
       // console.log("result", result);
       res.send(result.rows);
     }
