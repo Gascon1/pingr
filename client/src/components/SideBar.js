@@ -2,20 +2,18 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import "./SideBar.scss";
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 import UserContext from "../UserContext";
 
-const SideBar = function (props) {
+const SideBar = function(props) {
   const { transition } = props;
   const user = useContext(UserContext);
-  console.log("user from sidebar", user);
-  let logout = function () {
-    localStorage.clear()
+  let logout = function() {
+    localStorage.clear();
     props.setUser(null);
-    props.history.push('/');
-
-  }
+    props.history.push("/");
+  };
 
   return (
     <Menu right {...props}>
@@ -39,9 +37,11 @@ const SideBar = function (props) {
         </Link>
       )}
       <a className="menu-item">Settings</a>
-      <a className="menu-item" onClick ={logout}>Logout</a>
+      <a className="menu-item" onClick={logout}>
+        Logout
+      </a>
     </Menu>
   );
-}
+};
 
-export default withRouter(SideBar)
+export default withRouter(SideBar);

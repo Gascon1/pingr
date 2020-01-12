@@ -13,6 +13,8 @@ export default function MyBusinessServices(props) {
     services: []
   });
 
+  console.log("wassssssssssssssssssssssssssssssssssssssup", user);
+
   useEffect(() => {
     axios
       .get(`http://localhost:8001/api/services/`, {
@@ -23,11 +25,9 @@ export default function MyBusinessServices(props) {
         }
       })
       .then(response => {
-        console.log(response.data);
         return setState({ ...state, services: response.data });
       });
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", state);
-  }, [state.services]);
+  }, []);
 
   const list = state.services.map(service => {
     return (

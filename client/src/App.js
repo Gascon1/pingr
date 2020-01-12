@@ -25,14 +25,11 @@ function App() {
 
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
-    console.log("JWT TOKEN", jwt_decode(token));
     axios
       .get(`http://localhost:8001/api/users`, {
         params: { view: "updateContext", user: jwt_decode(token) }
       })
       .then(response => {
-        console.log("THE RESPONSE FOR THE TOK", response.data[0]);
-
         setUser(response.data[0]);
       });
   }

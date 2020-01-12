@@ -1,6 +1,6 @@
 const db = require("./db.js");
 const accountSid = "AC0afe4b715f4f55a586c3372ed2d398ac";
-const authToken = "64976e6806e08e2200b483a148022624";
+const authToken = "da4a8354c51296c82027a7f6a315aca3";
 const client = require("twilio")(accountSid, authToken);
 
 module.exports = (req, res) => {

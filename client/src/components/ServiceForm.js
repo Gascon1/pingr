@@ -17,8 +17,6 @@ export default function ServiceFrom(props) {
     serviceDuration: ""
   });
 
-  console.log("this is what i look at", state.businessID);
-
   const postService = function(postParams) {
     return axios.post(`http://localhost:8001/api/services`, postParams);
   };
