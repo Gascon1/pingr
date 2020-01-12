@@ -1,9 +1,18 @@
 import React from "react";
 import "./MyBusinessServices.scss";
+import { useHistory } from "react-router-dom";
 
 export default function MyBusinessServices(props) {
+  let history = useHistory();
+
   return (
     <div className="request">
+      <button
+        className="login-register-button -confirmed add-a-service"
+        onClick={() => history.push("/service-form")}
+      >
+        ADD A SERVICE
+      </button>
       <div className="request-item">
         <div className="request-item-header">
           <span className="request-item-category text">My Services</span>

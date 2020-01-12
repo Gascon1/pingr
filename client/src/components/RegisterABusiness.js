@@ -14,8 +14,8 @@ export default function RegisterPage(props) {
   const [state, setState] = useState({
     user_id: user ? user.user_id : "",
     category: "",
-    category_id: user ? user.categories_id : "",
-    business_id: "",
+    category_id: user ? user.category_id : "",
+    business_id: user ? user.business_id : "",
     business_name: "",
     business_email: "",
     business_phone: "",
@@ -35,14 +35,18 @@ export default function RegisterPage(props) {
     ev.preventDefault();
     registerBusiness(state)
       .then(response => {
-        console.log("RESSSSPONSE", response.data[0])
+        console.log("RESSSSPONSE", response.data[0]);
         const businessID = response.data[0].id;
         setState({ ...state, business_id: businessID });
 
-        props.setUser({ ...user,business_id: businessID, category_id: state.category_id });
-   
-        addBusinessToUser({ businessID, user_id: state.user_id }).then(()=>{
-          history.push("/business-request-list")
+        props.setUser({
+          ...user,
+          business_id: businessID,
+          category_id: state.category_id
+        });
+
+        addBusinessToUser({ businessID, user_id: state.user_id }).then(() => {
+          history.push("/business-request-list");
         });
       })
       .catch(error => console.log("error", error));

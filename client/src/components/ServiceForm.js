@@ -2,17 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ServiceForm.scss";
 import Dropdown from "./Dropdown";
+import { useHistory } from "react-router-dom";
 
 export default function ServiceFrom(props) {
+  let history = useHistory();
+  console.log(props.businessID);
   const [state, setState] = useState({
     serviceName: "",
     category: "",
     businessID: props.businessID,
-    categoryID: "",
+    categoryID: props.categoryID,
     serviceDescription: "",
     servicePrice: "",
     serviceDuration: ""
   });
+
+  console.log("this is what i look at", state.businessID);
 
   const postService = function(postParams) {
     return axios.post(`http://localhost:8001/api/services`, postParams);
@@ -22,7 +27,7 @@ export default function ServiceFrom(props) {
     // console.log(state)
     ev.preventDefault();
     postService(state)
-      .then(() => console.log("success"))
+      .then(() => history.push("/business-request-list"))
       .catch(error => console.log(error));
   }
 

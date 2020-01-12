@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 import { withRouter, useHistory } from "react-router-dom";
 
-
-const RegisterPage = function (props) {
-  let history = useHistory()
+const RegisterPage = function(props) {
+  let history = useHistory();
   const [state, setState] = useState({
     first_name: "",
     last_name: "",
@@ -23,17 +22,15 @@ const RegisterPage = function (props) {
     // console.log(state)
     ev.preventDefault();
     registerUser(state)
-      .then(res =>{
-        if(res.data.error_message) {
-          console.log("invalid credentials")
+      .then(res => {
+        if (res.data.error_message) {
+          console.log("invalid credentials");
         }
         if (res.data.token) {
           localStorage.setItem("id_token", res.data.token);
           let user = jwt_decode(res.data.token);
           props.setUser(user);
-          user.business_id === 1
-          ? history.push("/homepage")
-          : history.push("/business-request-list");
+          history.push("/homepage");
         }
       })
       .catch(error => console.log("error"));
@@ -93,6 +90,6 @@ const RegisterPage = function (props) {
       </form>
     </div>
   );
-}
+};
 
-export default withRouter(RegisterPage)
+export default withRouter(RegisterPage);
