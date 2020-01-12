@@ -41,7 +41,9 @@ export default function RegisterPage(props) {
 
         props.setUser({ ...user,business_id: businessID, category_id: state.category_id });
    
-        addBusinessToUser({ businessID, user_id: state.user_id });
+        addBusinessToUser({ businessID, user_id: state.user_id }).then(()=>{
+          history.push("/business-request-list")
+        });
       })
       .catch(error => console.log("error", error));
   }

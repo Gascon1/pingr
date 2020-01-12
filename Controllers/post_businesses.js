@@ -13,7 +13,7 @@ module.exports = (req, res) => {
       req.body.business_email,
       req.body.business_phone,
       req.body.business_address,
-      req.body.categoryID
+      req.body.category_id
     ]
   };
   db.query(query, (err, result) => {
