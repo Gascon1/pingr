@@ -33,12 +33,14 @@ function App() {
     <Router>
       <UserProvider value={user}>
         <main className="layout">
-          <BackButton />
-          <SideBar
-            pageWrapId={"page-wrap"}
-            outerContainerId={"App"}
-            setUser={setUser}
-          />
+          {user && <BackButton />}
+          {user && (
+            <SideBar
+              pageWrapId={"page-wrap"}
+              outerContainerId={"App"}
+              setUser={setUser}
+            />
+          )}
 
           <Switch>
             {!user && (
