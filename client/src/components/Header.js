@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
-import logo from "../pingr-logo.png";
+import logo from "../newlogo/pingr-solo-no-bg.svg";
 
 export default function Header(props) {
   return (
