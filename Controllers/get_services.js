@@ -13,10 +13,10 @@ module.exports = (req, res) => {
 			JOIN businesses ON businesses.id = services.business_id 
 			WHERE services.business_id = ${req.query.businessID}
 			AND services.transaction_price < ${req.query.maxPrice}
-			AND services.name = '${req.query.serviceName.toLowerCase()}'
+			AND services.name = '${req.query.serviceName}'
 			ORDER BY services.transaction_price DESC
 			LIMIT 1;`),
-      console.log("THIS IS THE QUERY", query);
+      console.log("THIS IS THE QUERY >>>>>>>>>>>>>>> ", query);
   } else if (req.query.view === "myBusinessServices") {
     query = `SELECT * FROM services WHERE business_id = ${
       JSON.parse(req.query.user).business_id

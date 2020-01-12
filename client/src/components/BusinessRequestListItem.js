@@ -4,10 +4,10 @@ import "./BusinessRequestListItem.scss";
 import "./ActiveRequestsItem.scss";
 import Dropdown from "./Dropdown";
 import { dateFormatter } from "../helpers/dateFormatter";
-import UserContext from '../UserContext'
+import UserContext from "../UserContext";
 
 export default function BusinessRequestListItem(props) {
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   const [state, setState] = useState({
     requestID: props.requestID,
@@ -30,7 +30,10 @@ export default function BusinessRequestListItem(props) {
   });
 
   const updateRequest = function(updatedRequestDetails) {
-    return axios.put(`http://localhost:8001/api/requests`, updatedRequestDetails);
+    return axios.put(
+      `http://localhost:8001/api/requests`,
+      updatedRequestDetails
+    );
   };
 
   useEffect(() => {
@@ -46,6 +49,7 @@ export default function BusinessRequestListItem(props) {
         })
       )
     ]).then(all => {
+      console.log("<<<<<<<<<<<<<<<<<<", all[0].data);
       setState({
         ...state,
         serviceID: all[0].data.length !== 0 ? all[0].data[0].service_id : 0
@@ -60,7 +64,7 @@ export default function BusinessRequestListItem(props) {
     console.log(state);
     updateRequest(state)
       .then(() => {
-        props.webSocket.send("fetchRequestList")
+        props.webSocket.send("fetchRequestList");
       })
       .catch(error => console.log("error"));
   };
@@ -145,4 +149,3 @@ export default function BusinessRequestListItem(props) {
     </div>
   );
 }
-
