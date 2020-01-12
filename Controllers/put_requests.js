@@ -1,6 +1,6 @@
 const db = require("./db.js");
-const accountSid = "AC68f2ae1e8f10fb83bb051d3e21507867";
-const authToken = "aaa05eeb1de3ca87ec1dcaa894899ddde";
+const accountSid = "AC0afe4b715f4f55a586c3372ed2d398ac";
+const authToken = "64976e6806e08e2200b483a148022624";
 const client = require("twilio")(accountSid, authToken);
 
 module.exports = (req, res) => {
@@ -27,8 +27,8 @@ module.exports = (req, res) => {
       client.messages
         .create({
           body: `Update from Pingr:  Your ${req.body.serviceID} has been confirmed for a start time of ${req.body.appointmentStartTime2}`,
-          from: "+12052776115",
-          to: "+13065307801"
+          from: "+19108530024",
+          to: "+15146328762"
         })
         .then(message => console.log(message.sid));
       // console.log("result", result);
