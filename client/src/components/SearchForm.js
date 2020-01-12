@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
 import Dropdown from "./Dropdown";
+import UserContext from '../UserContext'
+import { Link, withRouter, useHistory } from "react-router-dom";
+
 
 export default function SearchForm(props) {
+  let history = useHistory();
+
+  const user = useContext(UserContext)
+
   const [state, setState] = useState({
     category: "",
     categoryID: "",
@@ -12,7 +19,7 @@ export default function SearchForm(props) {
     requestStartTime: "",
     requestEndTime: "",
     maxPrice: null,
-    user: 1
+    user: user.user_id
   });
 
   const postRequest = function(newRequest) {
@@ -23,7 +30,7 @@ export default function SearchForm(props) {
     // console.log(state)
     ev.preventDefault();
     postRequest(state)
-      .then(() => console.log("success"))
+      .then(() => history.push("/requestlist"))
       .catch(error => console.log(error));
   }
 
@@ -49,7 +56,7 @@ export default function SearchForm(props) {
             setService={service => setState({ ...state, service })}
           />
 
-          <label>Start Time</label>
+          <label>Availability Start Time</label>
           <input
             type="datetime-local"
             className="input-field"
@@ -58,7 +65,7 @@ export default function SearchForm(props) {
               setState({ ...state, requestStartTime: event.target.value })
             }
           />
-          <label>End Time</label>
+          <label>Availability End Time</label>
           <input
             type="datetime-local"
             className="input-field"
