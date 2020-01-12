@@ -45,9 +45,7 @@ export default function RegisterPage(props) {
         //   "this is the user",
         //   user
         // );
-        addBusinessToUser({ businessID, user_id: state.user_id }).then(() =>
-          history.push("/homePage")
-        );
+        addBusinessToUser({ businessID, user_id: state.user_id });
       })
       .catch(error => console.log("error", error));
   }
