@@ -17,6 +17,8 @@ module.exports = (req, res) => {
 			ORDER BY services.transaction_price DESC
 			LIMIT 1;`),
       console.log("THIS IS THE QUERY", query);
+  } else {
+    query = `SELECT * FROM services;`
   }
   db.query(query, (err, result) => {
     if (err) {
