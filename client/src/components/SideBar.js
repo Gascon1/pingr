@@ -26,7 +26,7 @@ const SideBar = function(props) {
         </Link>
         <hr />
       </div>
-      <Link to="/" className="menu-item">
+      <Link to="/homepage" className="menu-item">
         Home page
       </Link>
       <a className="menu-item">Payment method</a>

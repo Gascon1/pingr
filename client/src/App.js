@@ -22,9 +22,11 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { AnimatedSwitch } from "react-router-transition";
 import BusinessRequestListMatched from "./components/BusinessRequestListMatched";
+import HamburgerMenu from "./components/HamburgerMenu";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [open, setOpen] = useState(false);
 
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
@@ -41,6 +43,7 @@ function App() {
     <Router>
       <UserProvider value={user}>
         <main className="layout">
+          <HamburgerMenu setUser={setUser} open={open} setOpen={setOpen}/>
           {/* {user && <BackButton />} */}
           {/* {user && (
             <SideBar
@@ -58,12 +61,12 @@ function App() {
             )}
             {user && user.business_id !== 1 && (
               <Route>
-                <Navbar userType="businessOwner" setUser={setUser} />
+                <Navbar userType="businessOwner" setUser={setUser} open={open} setOpen={setOpen}/>
               </Route>
             )}
             {user && user.business_id === 1 && (
               <Route>
-                <Navbar userType="user" setUser={setUser} />
+                <Navbar userType="user" setUser={setUser} open={open} setOpen={setOpen} />
               </Route>
             )}
           </Switch>

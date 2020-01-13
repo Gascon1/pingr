@@ -2,9 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import BackButton from "./BackButton";
-import SideBar from "./SideBar";
+import HamburgerButton from "./HamburgerButton";
 
 export default function Navbar(props) {
+  console.log(props)
   return (
     <nav>
       {props.userType === "user" && (
@@ -19,10 +20,8 @@ export default function Navbar(props) {
           <Link to="/history">
             <i className="fas fa-history navbar-button"></i>
           </Link>
-          <SideBar
-            pageWrapId={"page-wrap"}
-            outerContainerId={"App"}
-            setUser={props.setUser}
+          <HamburgerButton className="navbar-button"
+            setUser={props.setUser} open={props.open} setOpen={props.setOpen}
           />
         </div>
       )}

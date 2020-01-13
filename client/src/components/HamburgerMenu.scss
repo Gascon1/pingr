@@ -1,0 +1,38 @@
+.my-class {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  background: #101013;
+  height: 100%;
+  text-align: left;
+  padding: 0 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 900;
+  transition: transform 0.3s ease-in-out;
+  width: 235px;
+
+
+}
+
+.my-second-class {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 2rem 0;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s linear;
+
+}
+
+.last-item-sidebar {
+  margin-top: auto;
+}
+
+.open-close-burger-menu {
+  display: none;
+  transform: translate(100%);
+}
