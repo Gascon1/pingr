@@ -30,15 +30,23 @@ const RegisterPage = function(props) {
           localStorage.setItem("id_token", res.data.token);
           let user = jwt_decode(res.data.token);
           props.setUser(user);
-          history.push("/homepage");
         }
+      })
+      .then(() => history.push("/loading"))
+      .then(() => {
+        setTimeout(() => {
+          history.replace("/homepage");
+        }, 1500);
       })
       .catch(error => console.log("error"));
   }
 
   return (
     <div className="layout-padding">
-      <i className="fas fa-arrow-left back back-login-register" onClick={() => history.push("/")} />
+      <i
+        className="fas fa-arrow-left back back-login-register"
+        onClick={() => history.push("/")}
+      />
 
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">

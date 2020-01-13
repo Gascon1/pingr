@@ -112,15 +112,19 @@ function App() {
             </Route>
 
             <Route path="/requestList">
-              <RequestList view={"active"} />
+              {user ? <RequestList view={"active"} /> : <Loader />}
             </Route>
 
             <Route path="/history">
-              <RequestListHistory view={"history"} />
+              {user ? <RequestListHistory view={"history"} /> : <Loader />}
             </Route>
 
             <Route path="/business-matched-request">
-              <BusinessRequestListMatched view={"matched"} />
+              {user ? (
+                <BusinessRequestListMatched view={"matched"} />
+              ) : (
+                <Loader />
+              )}
             </Route>
 
             <Route path="/searchForm">
@@ -132,14 +136,18 @@ function App() {
             </Route>
 
             <Route path="/business-request-list">
-              <BusinessRequestList
-                view={"businessRequests"}
-                serviceView={"businessService"}
-              />
+              {user ? (
+                <BusinessRequestList
+                  view={"businessRequests"}
+                  serviceView={"businessService"}
+                />
+              ) : (
+                <Loader />
+              )}
             </Route>
 
             <Route path="/myBusinessServices">
-              <MyBusinessServices />
+              {user ? <MyBusinessServices /> : <Loader />}
             </Route>
             <Route path="/service-form">
               <ServiceForm

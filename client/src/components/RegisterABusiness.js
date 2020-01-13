@@ -45,9 +45,13 @@ export default function RegisterPage(props) {
           category_id: state.category_id
         });
 
-        addBusinessToUser({ businessID, user_id: state.user_id }).then(() => {
-          history.push("/business-request-list");
-        });
+        addBusinessToUser({ businessID, user_id: state.user_id })
+          .then(() => history.push("/loading"))
+          .then(() => {
+            setTimeout(() => {
+              history.push("/business-request-list");
+            }, 1500);
+          });
       })
       .catch(error => console.log("error", error));
   }
