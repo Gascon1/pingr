@@ -65,18 +65,18 @@ export default function ActiveRequestsItem(props) {
               </span>
               <hr className="separator" />
             </div>
-            <div className="business-card">
+            <a target="_blank" href={`https://www.google.com/maps/place/${props.business_address}`} className="business-card">
               <span className="business-name text">{props.business_name}</span>
               <span className="business-service text">View map</span>
-            </div>
+            </a>
             <span className="business-address text">
               <i className="fas fa-map-marker-alt icon-spacing"></i>
               {props.business_address}
             </span>
-            <span className="business-address text">
+            <a href={`tel:${props.business_phone_number}`} className="business-address text">
               <i className="fas fa-mobile-alt icon-spacing"></i>
               {props.business_phone_number}
-            </span>
+            </a>
           </div>
         )}
         {(props.status === "confirmed" || props.status === "queued") && (
