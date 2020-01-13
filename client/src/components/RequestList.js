@@ -23,7 +23,7 @@ export default function(props) {
           return setState({...state, requests:response.data});
         });      
     }
-  }, [user]);
+  }, [props.requests]);
 
   const list = state.requests.map(request => {
     return (
