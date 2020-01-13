@@ -39,7 +39,7 @@ const LoginPage = function(props) {
 
   return (
     <div className="layout-padding">
-      <i className="fas fa-arrow-left back" onClick={() => history.push("/")} />
+      <i className="fas fa-arrow-left back back-login-register" onClick={() => history.push("/")} />
 
       <form autoComplete="off" onSubmit={event => onSave(event)}>
         <div className="container">

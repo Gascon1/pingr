@@ -13,7 +13,7 @@ export default function HomePage(props) {
             LOGIN
           </button>
         </Link>
-        <Link to="/register">
+        <Link to="/register" className="landing-page-buttons">
           <button className="register" type="submit">
             REGISTER
           </button>
