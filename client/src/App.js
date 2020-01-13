@@ -147,6 +147,10 @@ function App() {
                 categoryID={user ? user.category_id : 2}
               />
             </Route>
+
+            <Route path="/loading">
+              <Loader />
+            </Route>
           </Switch>
 
           <Switch>

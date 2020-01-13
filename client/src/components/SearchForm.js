@@ -20,7 +20,7 @@ export default function SearchForm(props) {
     service: "",
     requestStartTime: "",
     requestEndTime: "",
-    maxPrice: null,
+    maxPrice: 0,
     user: user.user_id
   });
 
@@ -29,12 +29,16 @@ export default function SearchForm(props) {
   };
 
   function onSave(ev) {
-    // console.log(state)
     ev.preventDefault();
     postRequest(state)
       .then(() => {
-        history.push("/requestlist");
-        webSocket.send("fetchRequestList");
+        history.push("/loading");
+      })
+      .then(() => {
+        setTimeout(() => {
+          history.replace("/requestlist");
+          webSocket.send("fetchRequestList");
+        }, 1500);
       })
       .catch(error => console.log(error));
   }
