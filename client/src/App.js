@@ -21,9 +21,13 @@ import ServiceForm from "./components/ServiceForm";
 import Navbar from "./components/Navbar";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import { AnimatedSwitch } from "react-router-transition";
+import { AnimatedSwitch, AnimatedRoute } from "react-router-transition";
 import BusinessRequestListMatched from "./components/BusinessRequestListMatched";
 import HamburgerMenu from "./components/HamburgerMenu";
+
+import { ThemeProvider } from "styled-components";
+import Burger from "./components/Burger/Burger";
+import Menu from "./components/Menu/Menu";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -46,8 +50,6 @@ function App() {
     <Router>
       <UserProvider value={user}>
         <main className="layout" ref={node}>
-          <HamburgerMenu setUser={setUser} open={open} setOpen={setOpen} />
-
           <Switch>
             {!user && (
               <Route path={"/" || "/register" || "/login"}>
@@ -75,6 +77,18 @@ function App() {
               </Route>
             )}
           </Switch>
+
+          <AnimatedRoute
+            className="sidebar-menu"
+            path="/sidebar"
+            component={() => <HamburgerMenu setUser={setUser} />}
+            atEnter={{ offset: -100 }}
+            atLeave={{ offset: -100 }}
+            atActive={{ offset: 0 }}
+            mapStyles={styles => ({
+              transform: `translateX(${styles.offset}%)`
+            })}
+          />
 
           <AnimatedSwitch
             atEnter={{ opacity: 0 }}
@@ -129,7 +143,6 @@ function App() {
               <MyBusinessServices />
             </Route>
             <Route path="/service-form">
-              {/* this is hardcoded, change it to user.business_id and user.category_id */}
               <ServiceForm
                 businessID={user ? user.business_id : 1}
                 categoryID={user ? user.category_id : 2}

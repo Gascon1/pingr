@@ -43,12 +43,7 @@ export default function Navbar(props) {
           <Link to="/history" className="navbar-button">
             <i className="fas fa-history "></i>
           </Link>
-          <HamburgerButton
-            className="navbar-button"
-            setUser={props.setUser}
-            open={props.open}
-            setOpen={props.setOpen}
-          />
+          <HamburgerButton className="navbar-button" setUser={props.setUser} />
         </div>
       )}
     </nav>

@@ -12,8 +12,7 @@
   z-index: 900;
   transition: transform 0.3s ease-in-out;
   width: 235px;
-
-
+  // transform: translate(100%);
 }
 
 .my-second-class {
@@ -25,7 +24,6 @@
   color: white;
   text-decoration: none;
   transition: color 0.3s linear;
-
 }
 
 .last-item-sidebar {
@@ -35,4 +33,14 @@
 .open-close-burger-menu {
   display: none;
   transform: translate(100%);
+}
+
+.x-close-button {
+  text-align: right;
+  padding-bottom: 0;
+  padding-top: 2rem;
+}
+
+.welcome-user {
+  padding-bottom: 0;
 }

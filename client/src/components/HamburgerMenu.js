@@ -6,19 +6,27 @@ import UserContext from "../UserContext";
 
 export default function HamburgerMenu(props) {
   let history = useHistory();
-
-  let burgerClass = !props.open ? "my-class open-close-burger-menu" : "my-class"
-
+  console.log(props);
   const user = useContext(UserContext);
   let logout = function() {
     localStorage.clear();
-    props.setUser(null);
     history.push("/");
+    props.setUser(null);
   };
 
   return (
-    <div className={burgerClass} open={props.open}>
-      <span className="my-second-class">
+    <div className="my-class">
+      <span className="my-second-class x-close-button">
+        <i
+          class="fas fa-times"
+          onClick={e => {
+            console.log(history);
+            e.preventDefault();
+            history.goBack();
+          }}
+        ></i>
+      </span>
+      <span className="my-second-class welcome-user">
         Hello, {user ? user.first_name : "not logged in user"}
       </span>
       {user && (
@@ -28,11 +36,11 @@ export default function HamburgerMenu(props) {
       )}
       <hr className="separator" />
       <Link to="/homepage" className="my-second-class">
-      Home page
+        Home page
       </Link>
       {!(user && user.business_id !== 1) && (
         <Link to="/registerABusiness" className="my-second-class">
-        Register a business
+          Register a business
         </Link>
       )}
       <Link className="my-second-class last-item-sidebar" onClick={logout}>

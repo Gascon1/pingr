@@ -26,6 +26,7 @@
     "pg-native": "^3.0.0",
     "react-burger-menu": "^2.6.13",
     "react-router-transition": "^2.0.0",
+    "styled-components": "^4.4.1",
     "twilio": "^3.39.2",
     "ws": "^7.2.1"
   },
