@@ -7,6 +7,7 @@ import RegisterPage from "./components/RegisterPage";
 import HomePage from "./components/HomePage";
 import SearchForm from "./components/SearchForm";
 import RequestList from "./components/RequestList";
+import RequestListHistory from "./components/RequestListHistory";
 import SideBar from "./components/SideBar";
 import RegisterABusiness from "./components/RegisterABusiness";
 import BusinessRequestList from "./components/BusinessRequestList";
@@ -88,7 +89,7 @@ function App() {
             </Route>
 
             <Route path="/history">
-              <RequestList view={"history"} />
+              <RequestListHistory view={"history"} />
             </Route>
 
             <Route path="/searchForm">
