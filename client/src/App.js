@@ -19,6 +19,7 @@ import ServiceForm from "./components/ServiceForm";
 import Navbar from "./components/Navbar";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { AnimatedSwitch } from "react-router-transition";
 
 function App() {
   const [user, setUser] = useState(null);

@@ -27,7 +27,7 @@ export default function MyBusinessServices(props) {
       .then(response => {
         return setState({ ...state, services: response.data });
       });
-  }, []);
+  }, [user]);
 
   const list = state.services.map(service => {
     return (
