@@ -4,13 +4,13 @@ import ActiveRequestsItem from "./ActiveRequestsItem";
 import "./RequestList.scss";
 import UserContext from "../UserContext";
 
-const webSocket = new WebSocket("ws://localhost:8001")
+const webSocket = new WebSocket("ws://localhost:8001");
 
-export default function(props) {
+export default function RequestList(props) {
   const [state, setState] = useState({
     requests: []
   });
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   useEffect(() => {
     if (user) {
@@ -22,11 +22,11 @@ export default function(props) {
           }
         })
         .then(response => {
-          return setState({...state, requests:response.data});
+          return setState({ ...state, requests: response.data });
         });
     }
 
-    webSocket.onmessage = function (event) {
+    webSocket.onmessage = function(event) {
       if (user) {
         axios
           .get(`http://localhost:8001/api/requests`, {
@@ -36,19 +36,17 @@ export default function(props) {
             }
           })
           .then(response => {
-            return setState({...state, requests:response.data});
+            return setState({ ...state, requests: response.data });
           });
       }
-
-    }
-
+    };
   }, [user]);
 
   const list = state.requests.map(request => {
     return (
       <ActiveRequestsItem
-      key={request.id}
-      setParentState={(requests)=> setState({...state, requests})}
+        key={request.id}
+        setParentState={requests => setState({ ...state, requests })}
         request_id={request.request_id}
         category={request.category}
         service={request.service}

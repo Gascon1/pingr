@@ -24,10 +24,7 @@ import axios from "axios";
 import { AnimatedSwitch, AnimatedRoute } from "react-router-transition";
 import BusinessRequestListMatched from "./components/BusinessRequestListMatched";
 import HamburgerMenu from "./components/HamburgerMenu";
-
-import { ThemeProvider } from "styled-components";
-import Burger from "./components/Burger/Burger";
-import Menu from "./components/Menu/Menu";
+import Loader from "./components/Loader";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,7 +39,9 @@ function App() {
         params: { view: "updateContext", user: jwt_decode(token) }
       })
       .then(response => {
-        setUser(response.data[0]);
+        setTimeout(() => {
+          setUser(response.data[0]);
+        }, 1500);
       });
   }
 
@@ -90,7 +89,7 @@ function App() {
             })}
           />
 
-          <AnimatedSwitch
+          <Switch
             atEnter={{ opacity: 0 }}
             atLeave={{ opacity: 0 }}
             atActive={{ opacity: 1 }}
@@ -125,7 +124,7 @@ function App() {
             </Route>
 
             <Route path="/searchForm">
-              <SearchForm serviceView={"searchForm"} />
+              {user ? <SearchForm serviceView={"searchForm"} /> : <Loader />}
             </Route>
 
             <Route path="/registerABusiness">
@@ -148,7 +147,7 @@ function App() {
                 categoryID={user ? user.category_id : 2}
               />
             </Route>
-          </AnimatedSwitch>
+          </Switch>
 
           <Switch>
             <Route path="/navbar">

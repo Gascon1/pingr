@@ -2,16 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import logo from "../pingr-logo.png";
 import Dropdown from "./Dropdown";
-import UserContext from '../UserContext'
+import UserContext from "../UserContext";
 import { Link, withRouter, useHistory } from "react-router-dom";
+import Loader from "./Loader";
 
-const webSocket = new WebSocket("ws://localhost:8001")
-
+const webSocket = new WebSocket("ws://localhost:8001");
 
 export default function SearchForm(props) {
   let history = useHistory();
 
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   const [state, setState] = useState({
     category: "",
@@ -24,9 +24,7 @@ export default function SearchForm(props) {
     user: user.user_id
   });
 
-
-
-  const postRequest = function (newRequest) {
+  const postRequest = function(newRequest) {
     return axios.post(`http://localhost:8001/api/requests`, newRequest);
   };
 
@@ -35,8 +33,8 @@ export default function SearchForm(props) {
     ev.preventDefault();
     postRequest(state)
       .then(() => {
-        history.push("/requestlist")
-        webSocket.send("fetchRequestList")
+        history.push("/requestlist");
+        webSocket.send("fetchRequestList");
       })
       .catch(error => console.log(error));
   }
@@ -85,7 +83,9 @@ export default function SearchForm(props) {
           <label>Max price</label>
           <input
             type="number"
-            step="0.01"
+            step="1.00"
+            min="0"
+            max="99999999"
             className="input-field"
             value={state.maxPrice}
             onChange={event =>

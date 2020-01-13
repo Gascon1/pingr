@@ -16,3 +16,12 @@ body {
 a {
   text-decoration: none;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  /* top: 40%; */
+  /* left: 32%; */
+  margin-top: 55%;
+}
