@@ -31,19 +31,31 @@ export default function Navbar(props) {
         <div className="user-menu">
           <BackButton />
 
-          <Link to="/business-request-list" className="navbar-button">
+          <Link
+            to="/business-request-list"
+            className="navbar-button business-style"
+          >
             <i className="fas fa-home"></i>
           </Link>
-          <Link to="/business-matched-request" className="navbar-button">
+          <Link
+            to="/business-matched-request"
+            className="navbar-button business-style"
+          >
             <i class="fas fa-wave-square"></i>
           </Link>
-          <Link to="/myBusinessServices" className="navbar-button">
+          <Link
+            to="/myBusinessServices"
+            className="navbar-button business-style"
+          >
             <i className="far fa-list-alt "></i>
           </Link>
-          <Link to="/history" className="navbar-button">
+          <Link to="/history" className="navbar-button business-style">
             <i className="fas fa-history "></i>
           </Link>
-          <HamburgerButton className="navbar-button" setUser={props.setUser} />
+          <HamburgerButton
+            className="navbar-button business-style"
+            setUser={props.setUser}
+          />
         </div>
       )}
     </nav>
