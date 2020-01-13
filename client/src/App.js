@@ -31,7 +31,6 @@ function App() {
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
 
-
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
     axios
@@ -47,11 +46,7 @@ function App() {
     <Router>
       <UserProvider value={user}>
         <main className="layout" ref={node}>
-          <HamburgerMenu
-            setUser={setUser}
-            open={open}
-            setOpen={setOpen}
-          />
+          <HamburgerMenu setUser={setUser} open={open} setOpen={setOpen} />
 
           <Switch>
             {!user && (
@@ -81,7 +76,12 @@ function App() {
             )}
           </Switch>
 
-          <Switch>
+          <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch-wrapper"
+          >
             <Route exact path="/">
               <LandingPage />
             </Route>
@@ -135,7 +135,7 @@ function App() {
                 categoryID={user ? user.category_id : 2}
               />
             </Route>
-          </Switch>
+          </AnimatedSwitch>
 
           <Switch>
             <Route path="/navbar">
