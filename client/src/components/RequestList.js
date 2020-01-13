@@ -4,25 +4,42 @@ import ActiveRequestsItem from "./ActiveRequestsItem";
 import "./RequestList.scss";
 import UserContext from '../UserContext'
 
+const webSocket = new WebSocket("ws://localhost:8001")
 
-export default function(props) {
+export default function (props) {
   const [state, setState] = useState([]);
   const user = useContext(UserContext)
 
   useEffect(() => {
-    if (user){
+    if (user) {
       axios
         .get(`http://localhost:8001/api/requests`, {
-          params: { 
+          params: {
             view: props.view,
             user_id: user.user_id
-           }
+          }
         })
         .then(response => {
-          console.log(response.data)
           return setState(response.data);
-        });      
+        });
     }
+
+    webSocket.onmessage = function (event) {
+      if (user) {
+        axios
+          .get(`http://localhost:8001/api/requests`, {
+            params: {
+              view: props.view,
+              user_id: user.user_id
+            }
+          })
+          .then(response => {
+            return setState(response.data);
+          });
+      }
+
+    }
+
   }, [user]);
 
   const list = state.map(request => {

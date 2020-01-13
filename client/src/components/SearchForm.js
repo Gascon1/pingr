@@ -5,6 +5,8 @@ import Dropdown from "./Dropdown";
 import UserContext from '../UserContext'
 import { Link, withRouter, useHistory } from "react-router-dom";
 
+const webSocket = new WebSocket("ws://localhost:8001")
+
 
 export default function SearchForm(props) {
   let history = useHistory();
@@ -22,7 +24,9 @@ export default function SearchForm(props) {
     user: user.user_id
   });
 
-  const postRequest = function(newRequest) {
+
+
+  const postRequest = function (newRequest) {
     return axios.post(`http://localhost:8001/api/requests`, newRequest);
   };
 
@@ -30,7 +34,10 @@ export default function SearchForm(props) {
     // console.log(state)
     ev.preventDefault();
     postRequest(state)
-      .then(() => history.push("/requestlist"))
+      .then(() => {
+        history.push("/requestlist")
+        webSocket.send("fetchRequestList")
+      })
       .catch(error => console.log(error));
   }
 

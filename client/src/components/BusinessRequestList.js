@@ -10,8 +10,8 @@ const webSocket = new WebSocket("ws://localhost:8001")
 export default function BusinessRequestList(props) {
 
   const user = useContext(UserContext);
+
   const [state, setState] = useState([]);
-  console.log("------------------>", user)
 
   useEffect(() => {
     axios
@@ -31,12 +31,11 @@ export default function BusinessRequestList(props) {
     };
 
     webSocket.onmessage = function (event) {
-      console.log("BAABABABABABAB", event.data)
 
       if (event.data === "fetchRequestList") {
         axios
           .get(`http://localhost:8001/api/requests`, {
-            params: { view: props.view, categoryID: 1 }
+            params: { view: props.view, categoryID: user ? user.category_id : 1 }
           })
           .then(response => {
             return setState(response.data);
@@ -45,7 +44,7 @@ export default function BusinessRequestList(props) {
 
     }
 
-  }, []);
+  }, [user]);
 
   const list = state.filter((request) => !request.service_id).map(request => {
     return (
