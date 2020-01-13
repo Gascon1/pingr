@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useOnClickOutside } from "./hooks/useOnClickOutside";
 import "./App.scss";
 import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
@@ -27,6 +28,9 @@ import HamburgerMenu from "./components/HamburgerMenu";
 function App() {
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
+
 
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
@@ -42,16 +46,12 @@ function App() {
   return (
     <Router>
       <UserProvider value={user}>
-        <main className="layout">
-          <HamburgerMenu setUser={setUser} open={open} setOpen={setOpen}/>
-          {/* {user && <BackButton />} */}
-          {/* {user && (
-            <SideBar
-              pageWrapId={"page-wrap"}
-              outerContainerId={"App"}
-              setUser={setUser}
-            />
-          )} */}
+        <main className="layout" ref={node}>
+          <HamburgerMenu
+            setUser={setUser}
+            open={open}
+            setOpen={setOpen}
+          />
 
           <Switch>
             {!user && (
@@ -61,12 +61,22 @@ function App() {
             )}
             {user && user.business_id !== 1 && (
               <Route>
-                <Navbar userType="businessOwner" setUser={setUser} open={open} setOpen={setOpen}/>
+                <Navbar
+                  userType="businessOwner"
+                  setUser={setUser}
+                  open={open}
+                  setOpen={setOpen}
+                />
               </Route>
             )}
             {user && user.business_id === 1 && (
               <Route>
-                <Navbar userType="user" setUser={setUser} open={open} setOpen={setOpen} />
+                <Navbar
+                  userType="user"
+                  setUser={setUser}
+                  open={open}
+                  setOpen={setOpen}
+                />
               </Route>
             )}
           </Switch>
