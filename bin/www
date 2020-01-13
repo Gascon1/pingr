@@ -25,6 +25,18 @@ wss.on("connection", socket => {
         client.send("fetchRequestList");
       })
     }
+
+    if (event.data === "fetchRequestList") {
+      wss.clients.forEach(function eachClient(client) {
+        client.send("fetchRequestList");
+      })
+    }
+
+    if (event.data === "fetchRequestListForUser") {
+      wss.clients.forEach(function eachClient(client) {
+        client.send("fetchRequestListForUser");
+      })
+    }
   };
 });
 /**

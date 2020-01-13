@@ -65,6 +65,8 @@ export default function BusinessRequestListItem(props) {
     updateRequest(state)
       .then(() => {
         props.webSocket.send("fetchRequestList");
+        props.webSocket.send("fetchRequestListForUser");
+
       })
       .catch(error => console.log("error"));
   };
