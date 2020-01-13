@@ -37,6 +37,7 @@ export default function MyBusinessServices(props) {
         serviceName={service.name}
         servicePrice={service.transaction_price}
         serviceDuration={service.duration}
+        setParentState={services => setState({ ...state, services })}
       />
     );
   });
