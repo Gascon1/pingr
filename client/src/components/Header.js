@@ -5,11 +5,8 @@ import logo from "../newlogo/pingr-solo-no-bg.svg";
 
 export default function Header(props) {
   return (
-    <div>
-      <div className="logo">
-        <img src={logo} alt="" />
-      </div>
-      {/* make this conditional rendering with user auth */}
+    <div className="header-logo-solo">
+      {props.userType === "loggedOut" && <img src={logo} alt="" />}
       {props.userType === "user" && (
         <div className="user-menu">
           <Link to="/homePage">
