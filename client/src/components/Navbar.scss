@@ -1,0 +1,55 @@
+nav {
+  display: flex;
+  position: sticky;
+  z-index: 700;
+  top: 0;
+  background-color: #1a191e;
+  padding: 2em 1.5em;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #2c2b30;
+}
+
+.navbar-button {
+  border-color: #201f23;
+  text-align: center;
+  border-radius: 2px;
+  color: white;
+  width: 1.5em;
+  font-size: 1.5em;
+  padding: 0.3em;
+  align-self: flex-start;
+  padding-right: 0.9em;
+  padding-left: 0em;
+  border-right: solid;
+  border-width: 1px;
+  border-right-color: #343337;
+}
+
+.user-menu-button {
+  color: white;
+  font-size: 1.5em;
+  background-color: #323135;
+  padding: 1rem;
+  width: 2.2em;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.user-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  width: auto;
+  justify-content: space-between;
+  margin: 0;
+  // padding: 1em;
+}
+
+.back {
+  color: white;
+  margin-top: 0.6em;
+  margin-left: 0.6em;
+  font-size: 1.5em;
+}
