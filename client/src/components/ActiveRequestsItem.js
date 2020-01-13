@@ -12,7 +12,6 @@ const ActiveRequestsItem = function (props) {
 
 
   const updateRequest = function(updatedRequestDetails) {
-    console.log("props",props)
     return axios.put(
       `http://localhost:8001/api/requests`, 
       {
@@ -25,8 +24,15 @@ const ActiveRequestsItem = function (props) {
     ev.preventDefault();
       updateRequest()
       .then(res => {
-        console.log("success");
-        history.push("/requestlist")
+        axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: { 
+            view: props.view,
+            user_id: props.user_id
+           }
+        }).then(response => {
+          props.setParentState(response.data);
+        });  
 
       })
       .catch(error => console.log("error"));

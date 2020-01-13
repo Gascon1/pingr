@@ -6,9 +6,10 @@ import UserContext from '../UserContext'
 
 
 export default function(props) {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState({
+    requests: []
+  });
   const user = useContext(UserContext)
-  console.log("state", state);
 
   useEffect(() => {
     if (user){
@@ -20,16 +21,16 @@ export default function(props) {
            }
         })
         .then(response => {
-          console.log(response.data)
-          return setState(response.data);
+          return setState({...state, requests:response.data});
         });      
     }
   }, [user]);
 
-  const list = state.map(request => {
+  const list = state.requests.map(request => {
     return (
       <ActiveRequestsItem
-        key={request.id}
+      key={request.id}
+      setParentState={(requests)=> setState({...state, requests})}
         request_id={request.request_id}
         category={request.category}
         service={request.service}
@@ -43,6 +44,8 @@ export default function(props) {
         request_max_price={request.request_max_price}
         transaction_price={request.transaction_price}
         requestServiceName={request.request_service_name}
+        view={props.view}
+        user_id={user.user_id}
       />
     );
   });

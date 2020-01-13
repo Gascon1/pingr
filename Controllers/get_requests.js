@@ -43,6 +43,7 @@ module.exports = (req, res) => {
       console.log("error", err);
     } else {
       res.send(result.rows);
+      console.log("rows", result.rows)
     }
   });
 };
