@@ -1,9 +1,46 @@
 import React from "react";
 import "./ActiveRequestsItem.scss";
 import { dateFormatter } from "../helpers/dateFormatter";
+import axios from "axios";
+import { Link, withRouter, useHistory } from "react-router-dom";
 
-export default function ActiveRequestsItem(props) {
+
+const ActiveRequestsItem = function (props) {
   const requestClass = `request-status text -${props.status}`;
+  let history = useHistory();
+
+
+
+  const updateRequest = function(updatedRequestDetails) {
+    return axios.put(
+      `http://localhost:8001/api/requests`, 
+      {
+        action:"cancel",
+        request_id: props.request_id
+    });
+  };
+
+  function onCancel(ev) {
+    ev.preventDefault();
+      updateRequest()
+      .then(res => {
+        axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: { 
+            view: props.view,
+            user_id: props.user_id
+           }
+        }).then(response => {
+          props.setParentState(response.data);
+        });  
+
+      })
+      .catch(error => console.log("error"));
+  }
+
+
+
+
 
   return (
     <div className="request">
@@ -80,9 +117,13 @@ export default function ActiveRequestsItem(props) {
           </div>
         )}
         {(props.status === "confirmed" || props.status === "queued") && (
-          <div className="request-cancel -canceled text">CANCEL</div>
+          <div className="request-cancel -canceled text" onClick={event => onCancel(event)}
+          >CANCEL</div>
         )}
       </div>
     </div>
   );
 }
+
+export default withRouter(ActiveRequestsItem);
+
