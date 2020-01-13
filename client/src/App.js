@@ -21,6 +21,7 @@ import Navbar from "./components/Navbar";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { AnimatedSwitch } from "react-router-transition";
+import BusinessRequestListMatched from "./components/BusinessRequestListMatched";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -57,7 +58,7 @@ function App() {
             )}
             {user && user.business_id !== 1 && (
               <Route>
-                <Header userType="businessOwner" />
+                <Navbar userType="businessOwner" setUser={setUser} />
               </Route>
             )}
             {user && user.business_id === 1 && (
@@ -90,6 +91,10 @@ function App() {
 
             <Route path="/history">
               <RequestListHistory view={"history"} />
+            </Route>
+
+            <Route path="/business-matched-request">
+              <BusinessRequestListMatched view={"matched"} />
             </Route>
 
             <Route path="/searchForm">

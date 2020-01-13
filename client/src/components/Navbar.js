@@ -31,6 +31,9 @@ export default function Navbar(props) {
           <Link to="/business-request-list">
             <i className="fas fa-home navbar-button"></i>
           </Link>
+          <Link to="/business-matched-request">
+            <i class="fas fa-wave-square navbar-button"></i>
+          </Link>
           <Link to="/myBusinessServices">
             <i className="far fa-list-alt navbar-button"></i>
           </Link>
