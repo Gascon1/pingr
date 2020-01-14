@@ -9,7 +9,7 @@ export default function ActiveRequestsItem(props) {
     <div className="request-item">
       <div className="request-inner-container">
         <div className="card-header">
-          <span className="request-availability text">{props.serviceName}</span>
+          <span className="request-availability text business-services-card-header">{props.serviceName}</span>
           <hr className="separator" />
         </div>
         {/* <span className="business-service-details text">
