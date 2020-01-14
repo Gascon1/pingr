@@ -13,6 +13,25 @@ export default function BusinessRequestList(props) {
 
   const [state, setState] = useState([]);
 
+  webSocket.onopen = function (event) {
+    webSocket.send("ping");
+    console.log("open connection:", event.data)
+
+  };
+
+  webSocket.onmessage = function (event) {
+
+    if (event.data === "fetchRequestList") {
+      axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: { view: props.view, categoryID: user ? user.category_id : 1 }
+        })
+        .then(response => {
+          return setState(response.data);
+        });
+    }
+  }
+  
   useEffect(() => {
     axios
       .get(`http://localhost:8001/api/requests`, {
@@ -21,28 +40,6 @@ export default function BusinessRequestList(props) {
       .then(response => {
         return setState(response.data);
       });
-
-
-
-    webSocket.onopen = function (event) {
-      webSocket.send("ping");
-      console.log("open connection:", event.data)
-
-    };
-
-    webSocket.onmessage = function (event) {
-
-      if (event.data === "fetchRequestList") {
-        axios
-          .get(`http://localhost:8001/api/requests`, {
-            params: { view: props.view, categoryID: user ? user.category_id : 1 }
-          })
-          .then(response => {
-            return setState(response.data);
-          });
-      }
-
-    }
 
   }, [user]);
 

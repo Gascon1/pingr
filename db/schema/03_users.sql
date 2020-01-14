@@ -1,5 +1,5 @@
 -- Drop and recreate Users table (Example)
---create extension pgcrypto;
+create extension pgcrypto;
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,

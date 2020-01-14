@@ -16,7 +16,7 @@ export default function(props) {
         .get(`http://localhost:8001/api/requests`, {
           params: {
             view: props.view,
-            user_id: user.user_id
+            business_id: user.business_id
           }
         })
         .then(response => {

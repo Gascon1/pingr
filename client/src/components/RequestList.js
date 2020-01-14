@@ -12,6 +12,21 @@ export default function RequestList(props) {
   });
   const user = useContext(UserContext);
 
+  webSocket.onmessage = function(event) {
+    if (user) {
+      axios
+        .get(`http://localhost:8001/api/requests`, {
+          params: {
+            view: props.view,
+            user_id: user.user_id
+          }
+        })
+        .then(response => {
+          return setState({ ...state, requests: response.data });
+        });
+    }
+  };
+  
   useEffect(() => {
     if (user) {
       axios
@@ -26,20 +41,6 @@ export default function RequestList(props) {
         });
     }
 
-    webSocket.onmessage = function(event) {
-      if (user) {
-        axios
-          .get(`http://localhost:8001/api/requests`, {
-            params: {
-              view: props.view,
-              user_id: user.user_id
-            }
-          })
-          .then(response => {
-            return setState({ ...state, requests: response.data });
-          });
-      }
-    };
   }, [user]);
 
   const list = state.requests.map(request => {
