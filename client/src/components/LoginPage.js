@@ -24,8 +24,7 @@ const LoginPage = function(props) {
       .then(res => {
         if (res.data.error_message) {
           console.log("invalid credentials");
-        }
-        if (res.data.token) {
+        } else if (res.data.token) {
           console.log("inside res.token");
           localStorage.setItem("id_token", res.data.token);
           user = jwt_decode(res.data.token);
@@ -34,12 +33,14 @@ const LoginPage = function(props) {
       })
       .then(() => history.push("/loading"))
       .then(() => {
-        setTimeout(() => {
-          console.log("=====================", user.business_id);
-          user.business_id === 1
-            ? history.replace("/homepage")
-            : history.replace("/business-request-list");
-        }, 1500);
+        user
+          ? setTimeout(() => {
+              console.log("=====================", user.business_id);
+              user.business_id === 1
+                ? history.replace("/homepage")
+                : history.replace("/business-request-list");
+            }, 1500)
+          : history.replace("/login");
       })
       .catch(error => console.log("error"));
   }

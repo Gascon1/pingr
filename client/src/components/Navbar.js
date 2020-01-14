@@ -1,10 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./Navbar.scss";
 import BackButton from "./BackButton";
 import HamburgerButton from "./HamburgerButton";
 
 export default function Navbar(props) {
+  const [open, setOpen] = useState(false);
+  let history = useHistory();
+
+  console.log(history.location);
+
+  const prevPathname = history.location.pathname;
   return (
     <nav>
       {props.userType === "user" && (
@@ -22,8 +28,8 @@ export default function Navbar(props) {
           <HamburgerButton
             className="navbar-button"
             setUser={props.setUser}
-            open={props.open}
-            setOpen={props.setOpen}
+            onClick={() => setOpen(!open)}
+            {...(open && { goBack: history.goBack })}
           />
         </div>
       )}
@@ -55,6 +61,7 @@ export default function Navbar(props) {
           <HamburgerButton
             className="navbar-button business-style"
             setUser={props.setUser}
+            prevPathname={prevPathname}
           />
         </div>
       )}

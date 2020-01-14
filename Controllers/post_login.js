@@ -13,6 +13,7 @@ module.exports = (req, res) => {
 			  ON businesses.category_id = categories.id
 			  WHERE users.email = '${req.body.email}'; `,
     (err, result) => {
+      console.log(result);
       if (result.rows.length === 0) {
         res.send({
           error_message: "Invalid Credentials"
