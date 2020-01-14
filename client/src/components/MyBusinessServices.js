@@ -13,7 +13,6 @@ export default function MyBusinessServices(props) {
     services: []
   });
 
-  console.log("wassssssssssssssssssssssssssssssssssssssup", user);
 
   useEffect(() => {
     axios

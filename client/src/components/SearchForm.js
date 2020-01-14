@@ -96,15 +96,6 @@ export default function SearchForm(props) {
               setState({ ...state, maxPrice: event.target.value })
             }
           />
-          {/* <label>Phone number</label>
-          <input
-            type="tel"
-            className="input-field"
-            value={state.phone}
-            onChange={event =>
-              setState({ ...state, phone: event.target.value })
-            }
-          /> */}
           <button className="login-register-button login">PING</button>
         </div>
       </form>
