@@ -8,7 +8,7 @@ export default function(props) {
   const [state, setState] = useState({
     requests: []
   });
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   useEffect(() => {
     if (user) {
@@ -20,16 +20,20 @@ export default function(props) {
           }
         })
         .then(response => {
-          return setState({...state, requests:response.data});
-        });      
+          if (!response.data.error) {
+            return setState({ ...state, requests: response.data });
+          } else {
+            return setState({ ...state, requests: [] });
+          }
+        });
     }
   }, [props.requests]);
 
   const list = state.requests.map(request => {
     return (
       <ActiveRequestsItem
-      key={request.id}
-      setParentState={(requests)=> setState({...state, requests})}
+        key={request.id}
+        setParentState={requests => setState({ ...state, requests })}
         request_id={request.request_id}
         category={request.category}
         service={request.service}
