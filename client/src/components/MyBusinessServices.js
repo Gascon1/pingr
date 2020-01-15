@@ -13,10 +13,9 @@ export default function MyBusinessServices(props) {
     services: []
   });
 
-
   useEffect(() => {
     axios
-      .get(`http://localhost:8001/api/services/`, {
+      .get(`${process.env.REACT_APP_BACKEND_HOST}/api/services/`, {
         params: {
           categoryID: user ? user.category_id : 2,
           view: "myBusinessServices",

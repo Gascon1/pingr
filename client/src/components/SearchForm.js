@@ -6,7 +6,7 @@ import UserContext from "../UserContext";
 import { Link, withRouter, useHistory } from "react-router-dom";
 import Loader from "./Loader";
 
-const webSocket = new WebSocket("ws://localhost:8001");
+const webSocket = new WebSocket(`${process.env.REACT_APP_WEBSOCKET}`);
 
 export default function SearchForm(props) {
   let history = useHistory();
@@ -25,7 +25,10 @@ export default function SearchForm(props) {
   });
 
   const postRequest = function(newRequest) {
-    return axios.post(`http://localhost:8001/api/requests`, newRequest);
+    return axios.post(
+      `${process.env.REACT_APP_BACKEND_HOST}/api/requests`,
+      newRequest
+    );
   };
 
   function onSave(ev) {

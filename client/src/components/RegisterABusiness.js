@@ -24,11 +24,14 @@ export default function RegisterPage(props) {
   });
 
   const registerBusiness = function(newBusiness) {
-    return axios.post(`http://localhost:8001/api/businesses`, newBusiness);
+    return axios.post(
+      `${process.env.REACT_APP_BACKEND_HOST}/api/businesses`,
+      newBusiness
+    );
   };
 
   const addBusinessToUser = function(userID) {
-    return axios.put(`http://localhost:8001/api/users`, userID);
+    return axios.put(`${process.env.REACT_APP_BACKEND_HOST}/api/users`, userID);
   };
 
   function onSave(ev) {

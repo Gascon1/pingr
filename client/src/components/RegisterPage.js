@@ -15,7 +15,10 @@ const RegisterPage = function(props) {
   });
 
   const registerUser = function(newUser) {
-    return axios.post(`http://localhost:8001/api/users`, newUser);
+    return axios.post(
+      `${process.env.REACT_APP_BACKEND_HOST}/api/users`,
+      newUser
+    );
   };
 
   function onSave(ev) {

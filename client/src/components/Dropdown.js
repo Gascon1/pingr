@@ -7,13 +7,15 @@ export default function Dropdown(props) {
     categories: []
   });
   // useEffect(() => {
-  //   axios.get(`http://localhost:8001/api/categories`).then((response)=>  setState({...state, categories:response.data}))
+  //   axios.get(`${process.env.REACT_APP_BACKEND_HOST}/api/categories`).then((response)=>  setState({...state, categories:response.data}))
   //   }, []);
 
   useEffect(() => {
     Promise.all([
-      Promise.resolve(axios.get(`http://localhost:8001/api/categories`))
-      // Promise.resolve(axios.get(`http://localhost:8001/api/services/`, {params : {categoryID: props.categoryID}}))
+      Promise.resolve(
+        axios.get(`${process.env.REACT_APP_BACKEND_HOST}/api/categories`)
+      )
+      // Promise.resolve(axios.get(`${process.env.REACT_APP_BACKEND_HOST}/api/services/`, {params : {categoryID: props.categoryID}}))
     ]).then(all => {
       // console.log("this props category id",props.categoryID)
       setState({ ...state, categories: all[0].data });
@@ -39,13 +41,16 @@ export default function Dropdown(props) {
               Promise.all([
                 Promise.resolve(e),
                 Promise.resolve(
-                  axios.get(`http://localhost:8001/api/services/`, {
-                    params: {
-                      categoryID:
-                        e.target.options[e.target.selectedIndex].dataset.id,
-                      view: props.serviceView
+                  axios.get(
+                    `${process.env.REACT_APP_BACKEND_HOST}/api/services/`,
+                    {
+                      params: {
+                        categoryID:
+                          e.target.options[e.target.selectedIndex].dataset.id,
+                        view: props.serviceView
+                      }
                     }
-                  })
+                  )
                 )
               ]).then(all =>
                 props.setDropdown(

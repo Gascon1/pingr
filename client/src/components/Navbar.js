@@ -55,7 +55,7 @@ export default function Navbar(props) {
           >
             <i className="far fa-list-alt "></i>
           </Link>
-          <Link to="/history" className="navbar-button business-style">
+          <Link to="/business-history" className="navbar-button business-style">
             <i className="fas fa-history "></i>
           </Link>
           <HamburgerButton

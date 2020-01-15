@@ -31,7 +31,7 @@ export default function BusinessRequestListItem(props) {
 
   const updateRequest = function(updatedRequestDetails) {
     return axios.put(
-      `http://localhost:8001/api/requests`,
+      `${process.env.REACT_APP_BACKEND_HOST}/api/requests`,
       updatedRequestDetails
     );
   };
@@ -39,7 +39,7 @@ export default function BusinessRequestListItem(props) {
   useEffect(() => {
     Promise.all([
       Promise.resolve(
-        axios.get(`http://localhost:8001/api/services`, {
+        axios.get(`${process.env.REACT_APP_BACKEND_HOST}/api/services`, {
           params: {
             view: "businessService",
             businessID: user.business_id,
@@ -66,7 +66,6 @@ export default function BusinessRequestListItem(props) {
       .then(() => {
         props.webSocket.send("fetchRequestList");
         props.webSocket.send("fetchRequestListForUser");
-
       })
       .catch(error => console.log("error"));
   };

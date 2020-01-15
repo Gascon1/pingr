@@ -4,7 +4,7 @@ import ActiveRequestsItem from "./ActiveRequestsItem";
 import "./RequestList.scss";
 import UserContext from "../UserContext";
 
-const webSocket = new WebSocket("ws://localhost:8001");
+const webSocket = new WebSocket(`${process.env.REACT_APP_WEBSOCKET}`);
 
 export default function RequestList(props) {
   const [state, setState] = useState({
@@ -15,7 +15,7 @@ export default function RequestList(props) {
   webSocket.onmessage = function(event) {
     if (user) {
       axios
-        .get(`http://localhost:8001/api/requests`, {
+        .get(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
           params: {
             view: props.view,
             user_id: user.user_id
@@ -26,11 +26,11 @@ export default function RequestList(props) {
         });
     }
   };
-  
+
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:8001/api/requests`, {
+        .get(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
           params: {
             view: props.view,
             user_id: user.user_id
@@ -40,7 +40,6 @@ export default function RequestList(props) {
           return setState({ ...state, requests: response.data });
         });
     }
-
   }, [user]);
 
   const list = state.requests.map(request => {

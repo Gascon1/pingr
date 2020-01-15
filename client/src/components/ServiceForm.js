@@ -18,7 +18,10 @@ export default function ServiceFrom(props) {
   });
 
   const postService = function(postParams) {
-    return axios.post(`http://localhost:8001/api/services`, postParams);
+    return axios.post(
+      `${process.env.REACT_APP_BACKEND_HOST}/api/services`,
+      postParams
+    );
   };
 
   function onSave(ev) {

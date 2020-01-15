@@ -11,7 +11,7 @@ const ActiveRequestsItem = function(props) {
   const user = useContext(UserContext);
 
   const updateRequest = function(updatedRequestDetails) {
-    return axios.put(`http://localhost:8001/api/requests`, {
+    return axios.put(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
       action: "cancel",
       request_id: props.request_id
     });
@@ -25,7 +25,7 @@ const ActiveRequestsItem = function(props) {
         console.log("THIS IS PROPS.USER_ID", props.user_id);
         console.log("THIS IS USER.BUSINESS_ID", user.business_id);
         axios
-          .get(`http://localhost:8001/api/requests`, {
+          .get(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
             params: {
               view: props.view,
               user_id: props.user_id,

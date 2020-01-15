@@ -14,7 +14,7 @@ const LoginPage = function(props) {
   });
 
   const login = function(user) {
-    return axios.post(`http://localhost:8001/api/login`, user);
+    return axios.post(`${process.env.REACT_APP_BACKEND_HOST}/api/login`, user);
   };
 
   function onSave(ev) {

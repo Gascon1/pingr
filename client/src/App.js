@@ -35,7 +35,7 @@ function App() {
   if (user === null && localStorage.getItem("id_token")) {
     let token = localStorage.getItem("id_token");
     axios
-      .get(`http://localhost:8001/api/users`, {
+      .get(`${process.env.REACT_APP_BACKEND_HOST}/api/users`, {
         params: { view: "updateContext", user: jwt_decode(token) }
       })
       .then(response => {
@@ -115,6 +115,13 @@ function App() {
               {user ? <RequestList view={"active"} /> : <Loader />}
             </Route>
 
+            <Route path="/business-history">
+              {user ? (
+                <RequestListHistory view={"business-history"} />
+              ) : (
+                <Loader />
+              )}
+            </Route>
             <Route path="/history">
               {user ? <RequestListHistory view={"history"} /> : <Loader />}
             </Route>

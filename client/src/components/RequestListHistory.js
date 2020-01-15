@@ -13,10 +13,11 @@ export default function RequestListHistory(props) {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:8001/api/requests`, {
+        .get(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
           params: {
             view: props.view,
-            user_id: user.user_id
+            user_id: user.user_id,
+            business_id: user.business_id
           }
         })
         .then(response => {

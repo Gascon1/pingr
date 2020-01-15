@@ -13,7 +13,7 @@ export default function(props) {
   useEffect(() => {
     if (user) {
       axios
-        .get(`http://localhost:8001/api/requests`, {
+        .get(`${process.env.REACT_APP_BACKEND_HOST}/api/requests`, {
           params: {
             view: props.view,
             business_id: user.business_id
