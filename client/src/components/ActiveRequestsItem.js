@@ -1,46 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ActiveRequestsItem.scss";
 import { dateFormatter } from "../helpers/dateFormatter";
 import axios from "axios";
 import { Link, withRouter, useHistory } from "react-router-dom";
+import UserContext from "../UserContext";
 
-
-const ActiveRequestsItem = function (props) {
+const ActiveRequestsItem = function(props) {
   const requestClass = `request-status text -${props.status}`;
   let history = useHistory();
-
-
+  const user = useContext(UserContext);
 
   const updateRequest = function(updatedRequestDetails) {
-    return axios.put(
-      `http://localhost:8001/api/requests`, 
-      {
-        action:"cancel",
-        request_id: props.request_id
+    return axios.put(`http://localhost:8001/api/requests`, {
+      action: "cancel",
+      request_id: props.request_id
     });
   };
 
   function onCancel(ev) {
     ev.preventDefault();
-      updateRequest()
+    updateRequest()
       .then(res => {
+        console.log("THIS IS PROPS.VIEW", props.view);
+        console.log("THIS IS PROPS.USER_ID", props.user_id);
+        console.log("THIS IS USER.BUSINESS_ID", user.business_id);
         axios
-        .get(`http://localhost:8001/api/requests`, {
-          params: { 
-            view: props.view,
-            user_id: props.user_id
-           }
-        }).then(response => {
-          props.setParentState(response.data);
-        });  
-
+          .get(`http://localhost:8001/api/requests`, {
+            params: {
+              view: props.view,
+              user_id: props.user_id,
+              business_id: user.business_id
+            }
+          })
+          .then(response => {
+            console.log(">>>>>RESPONSE.DATA>>>>>>>>>>", response.data);
+            props.setParentState(response.data);
+          });
       })
       .catch(error => console.log("error"));
   }
-
-
-
-
 
   return (
     <div className="request">
@@ -102,7 +100,11 @@ const ActiveRequestsItem = function (props) {
               </span>
               <hr className="separator" />
             </div>
-            <a target="_blank" href={`https://www.google.com/maps/place/${props.business_address}`} className="business-card">
+            <a
+              target="_blank"
+              href={`https://www.google.com/maps/place/${props.business_address}`}
+              className="business-card"
+            >
               <span className="business-name text">{props.business_name}</span>
               <span className="business-service text">View map</span>
             </a>
@@ -110,20 +112,26 @@ const ActiveRequestsItem = function (props) {
               <i className="fas fa-map-marker-alt icon-spacing"></i>
               {props.business_address}
             </span>
-            <a href={`tel:${props.business_phone_number}`} className="business-address text">
+            <a
+              href={`tel:${props.business_phone_number}`}
+              className="business-address text"
+            >
               <i className="fas fa-mobile-alt icon-spacing"></i>
               {props.business_phone_number}
             </a>
           </div>
         )}
         {(props.status === "confirmed" || props.status === "queued") && (
-          <div className="request-cancel -canceled text" onClick={event => onCancel(event)}
-          >CANCEL</div>
+          <div
+            className="request-cancel -canceled text"
+            onClick={event => onCancel(event)}
+          >
+            CANCEL
+          </div>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default withRouter(ActiveRequestsItem);
-
