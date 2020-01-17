@@ -24,7 +24,8 @@ Pingr is a Service Matchmaker that matches a user's demands for professional ser
 4. Run the Server using the `npm run dev` or `npm start` command from the pingr directory.
 5. Go to <http://localhost:8000/> in your browser to see the app.
 6. If you wanna see the app's full potential, you can create a business account from the hamburger menu at the top right, and have two tabs open, one on business side, one on user side.
-7. Enjoy!
+7. If you want to use twilio, you will need to create an account and uncomment the twilio code in put_requests.js
+8. Enjoy!
 
 ## Dependencies
 
