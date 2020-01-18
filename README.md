@@ -4,22 +4,22 @@ Pingr is a Service Matchmaker that matches a user's demands for professional ser
 
 ## Final product
 
-!["Home page when a user is not logged in "]()
+!["Home page when a user is not logged in "](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/login-screen.png)
 
-!["Home page of a user after authentication"]()
+!["Home page of a user after authentication"](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/user-home-page.png)
 
-!["Search form used to put in a new request"]()
+!["Search form used to put in a new request"](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/search-form.png)
 
-!["Queued request with request details"]()
+!["Queued request with request details"](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/queued-request.png)
 
-!["Business side of the request, where they can choose a specific time and book a user"]()
+!["Business side of the request, where they can choose a specific time and book a user"](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/business-side-requests.png)
 
-!["Confirmed request on the user side, with all the details and a link to google maps"]()
+!["Confirmed request on the user side, with all the details and a link to google maps"](https://raw.githubusercontent.com/Gascon1/pingr/master/docs/confirmed-request.png)
 
 ## Getting started
 
 1. Install dependencies using the `npm install` command from the pingr directory as well as the client directory.
-2. Open 2 terminals
+2. Open 2 terminals.
 3. Run the Client using the `npm start` command from the client directory.
 4. Run the Server using the `npm run dev` or `npm start` command from the pingr directory.
 5. Go to <http://localhost:8000/> in your browser to see the app.
