@@ -11,7 +11,7 @@
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "jwt-decode": "^2.2.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-burger-menu": "^2.6.13",
     "react-datepicker": "^2.10.1",
